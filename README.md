@@ -2,9 +2,9 @@
 
 ## Overview
 
-AtomFlow is an FPGA-based neutral atom controller implemented in Vitis HLS 2024.2 and verified on Zynq UltraScale+ (xczu49dr-ffvf1760-2-e).
+AtomFlow is an FPGA-based neutral atom controller implemented in Vitis HLS 2024.2 and verified on ZCU216.
 
-The system takes raw camera emission data, reconstructs which trap sites are occupied, computes a move list to rearrange atoms into a target geometry, and streams the moves to a waveform generator.
+The system takes raw camera emission data (currently with simulated data stored in memory), reconstructs which trap sites are occupied, computes a move list to rearrange atoms into a target geometry, and streams the moves to a waveform generator.
 
 ---
 
@@ -16,10 +16,10 @@ Camera (atom position image)
 ┌─────────────────────────────────────┐
 │      atomflow_controller (HLS)      │
 │  ┌─────────────┐                    │
-│  │ reconstruct │  ← emissions data  │
+│  │ reconstruct │  ← emissions data │
 │  └──────┬──────┘                    │
-│         │ stateArray                │
-│  ┌──────▼─────────────────────────┐ │
+│         │  ← Mode Control          │
+│  ┌──────▼─────────────────────────┐│
 │  │ sortLatticeByRowParallel_HLS   │ │
 │  └──────┬─────────────────────────┘ │
 │         │ moveStream (AXI-Stream)   │
@@ -27,7 +27,7 @@ Camera (atom position image)
           ↓
   AXI4-Stream FIFO (PL-side buffer)
           ↓
-  PS (decodes moves, drives waveform generator)
+  PS (simulation stage — decodes moves)
 ```
 
 PS controls the controller via **AXI-Lite** (start, parameters, status).
@@ -35,28 +35,25 @@ Moves are streamed out via **AXI-Stream** (no PS involvement in the real-time pa
 
 ---
 
-## Key Design Decisions
+## Remarks
 
 ### 1. AXI-Stream output
 - Moves are streamed directly to a PL-side FIFO as they are generated
 - Enables pipeline overlap between sorting and waveform generation
-- AXI-Lite is slave-only (PS reads); m_axi requires DMA round-trip through DDR
+- AXI-Lite is slave-only (PS reads);
 
-### 2. HLSMoveStream (no BRAM buffer)
-- Previous design used `HLSMoveList` (array of 512 ParallelMove structs, ~2.7 MB BRAM)
-- Replaced with `HLSMoveStream`: each `push_back()` serializes the move directly into the stream
-- Result: BRAM dropped from **85% → 28%** after this change
 
-### 3. Parking space requirement
+### 2. Parking space requirement
 - Sorting algorithm needs columns outside the computation zone to park atoms temporarily
 - 16×16 full-zone test: no parking → partial sort (92/96 filled)
 - Solution: 16×32 lattice with computation zone [0,16)×[8,24) → 8 parking cols each side → 96/96 filled
 
-### 4. Target geometry pattern
-- Rows r%4 ∈ {0,1}: cols 1-6 and 9-14 filled, 0/7/8/15 empty
+### 3. Target geometry pattern
+- Rows r%4 ∈ {0,1}: pattern `oxxxxxxooxxxxxxo` (cols 1-6 and 9-14 filled, 0/7/8/15 empty)
 - Rows r%4 ∈ {2,3}: empty
 - This repeating pattern provides natural parking space in empty rows
 
+TODO: `load_target_geometry` iterates MAX_ROWS×MAX_COLS = 512×512 regardless of actual grid size — potential optimization target.
 ---
 
 ## Synthesis Results (Vitis HLS 2024.2, MAX_ROWS=MAX_COLS=32)
