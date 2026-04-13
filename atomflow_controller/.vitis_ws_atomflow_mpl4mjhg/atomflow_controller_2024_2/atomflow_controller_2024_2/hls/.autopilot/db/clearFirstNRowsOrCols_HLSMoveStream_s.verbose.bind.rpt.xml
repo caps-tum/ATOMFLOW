@@ -1,0 +1,57 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'clearFirstNRowsOrCols_HLSMoveStream_s'" level="0">
+<item name = "Date">Thu Mar 26 11:03:17 2026
+</item>
+<item name = "Version">2024.2 (Build 5238294 on Nov  8 2024)</item>
+<item name = "Project">atomflow_controller_2024_2</item>
+<item name = "Solution">hls (Vivado IP Flow Target)</item>
+<item name = "Product family">zynquplusRFSOC</item>
+<item name = "Target device">xczu49dr-ffvf1760-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 6.938 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">3573, 157327, 35.730 us, 1.573 ms, 3573, 157327, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_clearFirstNRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_421_2_fu_2082">clearFirstNRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_421_2, 4, 259, 40.000 ns, 2.590 us, 2, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_clearFirstNRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_459_4_fu_2093">clearFirstNRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_459_4, 4, 11, 40.000 ns, 0.110 us, 2, 9, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_execute_fu_2105">execute, 2, 3117, 20.000 ns, 31.170 us, 2, 3117, no</column>
+<column name="grp_push_back_fu_2114">push_back, 339, 339, 3.390 us, 3.390 us, 339, 339, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_407_1">3572, 157326, 1786 ~ 78663, -, -, 2, no</column>
+<column name=" + VITIS_LOOP_435_3">1778, 78400, 1778 ~ 4900, -, -, 1 ~ 16, no</column>
+<column name="  ++ VITIS_LOOP_435_3.1">679, 679, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">32, 32, 2, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_454_1">680, 680, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

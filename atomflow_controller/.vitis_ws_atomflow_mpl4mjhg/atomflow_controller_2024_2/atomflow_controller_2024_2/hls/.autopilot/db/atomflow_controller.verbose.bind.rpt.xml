@@ -1,0 +1,52 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'atomflow_controller'" level="0">
+<item name = "Date">Thu Mar 26 11:03:28 2026
+</item>
+<item name = "Version">2024.2 (Build 5238294 on Nov  8 2024)</item>
+<item name = "Project">atomflow_controller_2024_2</item>
+<item name = "Solution">hls (Vivado IP Flow Target)</item>
+<item name = "Product family">zynquplusRFSOC</item>
+<item name = "Target device">xczu49dr-ffvf1760-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 7.419 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">182519, 10528550, 1.825 ms, 0.105 sec, 182520, 10528551, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_reconstruct_fu_404">reconstruct, 182496, 182496, 1.825 ms, 1.825 ms, 182496, 182496, no</column>
+<column name="grp_atomflow_controller_Pipeline_VITIS_LOOP_136_1_fu_434">atomflow_controller_Pipeline_VITIS_LOOP_136_1, 4, 2003, 40.000 ns, 20.030 us, 2, 2001, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_atomflow_controller_Pipeline_VITIS_LOOP_231_1_fu_450">atomflow_controller_Pipeline_VITIS_LOOP_231_1, 25002, 25002, 0.250 ms, 0.250 ms, 25001, 25001, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_atomflow_controller_Pipeline_VITIS_LOOP_231_17_fu_455">atomflow_controller_Pipeline_VITIS_LOOP_231_17, 25002, 25002, 0.250 ms, 0.250 ms, 25001, 25001, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_emissions_to_statearray_fu_460">emissions_to_statearray, 50, 52048, 0.500 us, 0.520 ms, 50, 52048, no</column>
+<column name="grp_load_target_geometry_fu_477">load_target_geometry, 23, 312165, 0.230 us, 3.122 ms, 23, 312165, no</column>
+<column name="grp_sortArray_impl_state_accessor_HLSMoveStream_s_fu_487">sortArray_impl_state_accessor_HLSMoveStream_s, 3, 10006860, 30.000 ns, 0.100 sec, 3, 10006860, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

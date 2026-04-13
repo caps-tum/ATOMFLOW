@@ -1,0 +1,145 @@
+
+
+================================================================
+== Vitis HLS Report for 'sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1085_33'
+================================================================
+* Date:           Thu Mar 26 11:03:33 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  1.914 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        2|       18|  20.000 ns|  0.180 us|    1|   17|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- VITIS_LOOP_1085_33  |        0|       16|         2|          1|          1|  0 ~ 16|       yes|
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      26|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      36|    -|
+|Register         |        -|     -|      13|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      13|      62|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |i_40_fu_105_p2        |         +|   0|  0|  12|           5|           1|
+    |icmp_ln1085_fu_99_p2  |      icmp|   0|  0|  12|           5|           5|
+    |ap_enable_pp0         |       xor|   0|  0|   2|           1|           2|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  26|          11|           8|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_39    |   9|          2|    5|         10|
+    |i_fu_48                  |   9|          2|    5|         10|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  36|          8|   12|         24|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                |  1|   0|    1|          0|
+    |ap_done_reg              |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
+    |i_39_reg_142             |  5|   0|    5|          0|
+    |i_fu_48                  |  5|   0|    5|          0|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    | 13|   0|   13|          0|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+|                RTL Ports               | Dir | Bits|  Protocol  |                            Source Object                           |    C Type    |
++----------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+|ap_clk                                  |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1085_33|  return value|
+|ap_rst                                  |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1085_33|  return value|
+|ap_start                                |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1085_33|  return value|
+|ap_done                                 |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1085_33|  return value|
+|ap_idle                                 |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1085_33|  return value|
+|ap_ready                                |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1085_33|  return value|
+|prefetchCountUsable                     |   in|    5|     ap_none|                                                 prefetchCountUsable|        scalar|
+|indexXC                                 |   in|    8|     ap_none|                                                             indexXC|        scalar|
+|unusableInfo_usableAtoms_data_address0  |  out|   16|   ap_memory|                                       unusableInfo_usableAtoms_data|         array|
+|unusableInfo_usableAtoms_data_ce0       |  out|    1|   ap_memory|                                       unusableInfo_usableAtoms_data|         array|
+|unusableInfo_usableAtoms_data_q0        |   in|   32|   ap_memory|                                       unusableInfo_usableAtoms_data|         array|
+|usableFrontBuf_address0                 |  out|    4|   ap_memory|                                                      usableFrontBuf|         array|
+|usableFrontBuf_ce0                      |  out|    1|   ap_memory|                                                      usableFrontBuf|         array|
+|usableFrontBuf_we0                      |  out|    1|   ap_memory|                                                      usableFrontBuf|         array|
+|usableFrontBuf_d0                       |  out|   32|   ap_memory|                                                      usableFrontBuf|         array|
++----------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+

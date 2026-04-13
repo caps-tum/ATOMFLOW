@@ -1,0 +1,113 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'sortRemainingRowsOrCols_HLSMoveStream_s'" level="0">
+<item name = "Date">Sat Mar 28 14:02:38 2026
+</item>
+<item name = "Version">2024.2 (Build 5238294 on Nov  8 2024)</item>
+<item name = "Project">atomflow_controller_2024_2</item>
+<item name = "Solution">hls (Vivado IP Flow Target)</item>
+<item name = "Product family">zynquplusRFSOC</item>
+<item name = "Target device">xczu49dr-ffvf1760-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 6.938 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">12, 9594273, 0.120 us, 95.943 ms, 12, 9594273, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_525_1_fu_18593">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_525_1, 3, 258, 30.000 ns, 2.580 us, 2, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_549_3_fu_18602">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_549_3, 3, 258, 30.000 ns, 2.580 us, 2, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_533_2_fu_18625">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_533_2, 3, 258, 30.000 ns, 2.580 us, 2, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_609_5_fu_18636">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_609_5, 2, 18, 20.000 ns, 0.180 us, 1, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_643_6_fu_18653">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_643_6, 2, 258, 20.000 ns, 2.580 us, 1, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_666_8_fu_18663">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_666_8, 3, 67, 30.000 ns, 0.670 us, 2, 66, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_752_13_fu_18674">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_752_13, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_772_14_fu_18687">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_772_14, 3, 10, 30.000 ns, 0.100 us, 2, 9, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_780_15_fu_18696">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_780_15, 3, 10, 30.000 ns, 0.100 us, 2, 9, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_execute_fu_18706">execute, 2, 3117, 20.000 ns, 31.170 us, 2, 3117, no</column>
+<column name="grp_push_back_fu_18715">push_back, 339, 339, 3.390 us, 3.390 us, 339, 339, no</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1085_33_fu_18726">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1085_33, 2, 18, 20.000 ns, 0.180 us, 1, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1099_35_fu_18735">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1099_35, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1092_34_fu_18742">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1092_34, 2, 18, 20.000 ns, 0.180 us, 1, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1106_36_fu_18752">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1106_36, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1114_37_fu_18760">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1114_37, 7, 22, 70.000 ns, 0.220 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1161_38_fu_18781">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1161_38, 2, 258, 20.000 ns, 2.580 us, 1, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1168_39_fu_18791">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1168_39, 2, 258, 20.000 ns, 2.580 us, 1, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1179_40_fu_18801">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1179_40, 2, 258, 20.000 ns, 2.580 us, 1, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1186_41_fu_18809">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1186_41, 2, 258, 20.000 ns, 2.580 us, 1, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1198_42_fu_18817">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1198_42, 2, 18, 20.000 ns, 0.180 us, 1, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_hlsSort_fu_18828">hlsSort, 33, 545, 0.330 us, 5.450 us, 33, 545, no</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1220_44_fu_18834">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1220_44, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1213_43_fu_18841">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1213_43, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_260_1_fu_18848">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_260_1, 3, 258, 30.000 ns, 2.580 us, 2, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_206_1_fu_18858">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_206_1, 4, 202, 40.000 ns, 2.020 us, 3, 201, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_260_14_fu_18868">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_260_14, 3, 258, 30.000 ns, 2.580 us, 2, 257, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_206_15_fu_18878">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_206_15, 4, 202, 40.000 ns, 2.020 us, 3, 201, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1331_49_fu_18888">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1331_49, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1339_50_fu_18896">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1339_50, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1349_51_fu_18904">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1349_51, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1356_52_fu_18911">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1356_52, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+<column name="grp_sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_841_18_fu_18918">sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_841_18, 3, 18, 30.000 ns, 0.180 us, 2, 17, loop auto-rewind stp (delay=0 clock cycles(s))</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_559_4">1826, 9593750, 1826 ~ 191875, -, -, 1 ~ 50, no</column>
+<column name=" + VITIS_LOOP_658_7">8, 2304, 8 ~ 72, -, -, 1 ~ 32, no</column>
+<column name=" + VITIS_LOOP_684_9">1816, 79360, 1816 ~ 4960, -, -, 1 ~ 16, no</column>
+<column name="  ++ VITIS_LOOP_684_9.1">679, 679, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">32, 32, 2, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_454_1">680, 680, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name=" + VITIS_LOOP_804_16">1777, 78512, 1777 ~ 4907, -, -, 1 ~ 16, no</column>
+<column name="  ++ VITIS_LOOP_804_16.1">679, 679, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">32, 32, 2, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_454_1">680, 680, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name=" + VITIS_LOOP_866_19">0, 109920, 133 ~ 27479, -, -, 0 ~ 4, no</column>
+<column name="  ++ VITIS_LOOP_875_20">0, 21511, 1943 ~ 7170, -, -, 0 ~ 3, no</column>
+<column name="   +++ VITIS_LOOP_875_20.1">679, 679, 34, -, -, 20, no</column>
+<column name="    ++++ VITIS_LOOP_434_1">32, 32, 2, -, -, 16, no</column>
+<column name="   +++ VITIS_LOOP_454_1">680, 680, 34, -, -, 20, no</column>
+<column name="    ++++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_866_19.2">679, 679, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">32, 32, 2, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_454_1">680, 680, 34, -, -, 20, no</column>
+<column name="   +++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+<column name="  ++ VITIS_LOOP_434_1">16, 16, 1, -, -, 16, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

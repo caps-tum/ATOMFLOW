@@ -1,0 +1,194 @@
+
+
+================================================================
+== Vitis HLS Report for 'sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_609_5'
+================================================================
+* Date:           Sat Mar 28 14:02:44 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  4.221 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        2|       18|  20.000 ns|  0.180 us|    1|   17|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- VITIS_LOOP_609_5  |        0|       16|         2|          1|          1|  0 ~ 16|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|     370|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|     113|    -|
+|Register         |        -|     -|     134|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|     134|     483|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------------+----------+----+---+----+------------+------------+
+    |         Variable Name        | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------+----------+----+---+----+------------+------------+
+    |add_ln620_fu_333_p2           |         +|   0|  0|  23|          16|          16|
+    |add_ln621_fu_343_p2           |         +|   0|  0|  23|          16|          16|
+    |add_ln623_fu_380_p2           |         +|   0|  0|  32|          32|           2|
+    |add_ln630_fu_278_p2           |         +|   0|  0|  23|          16|          16|
+    |backIdx_4_fu_397_p2           |         +|   0|  0|  23|          16|           2|
+    |currentSize_4_fu_359_p2       |         +|   0|  0|  23|          16|           2|
+    |discardCount_3_fu_272_p2      |         +|   0|  0|  16|           9|           1|
+    |frontIdx_3_fu_407_p2          |         +|   0|  0|  23|          16|           1|
+    |unusableWriteIdx_4_fu_353_p2  |         +|   0|  0|  23|          16|           1|
+    |sub_ln623_fu_385_p2           |         -|   0|  0|  32|          32|          32|
+    |ap_condition_104              |       and|   0|  0|   2|           1|           1|
+    |ap_condition_325              |       and|   0|  0|   2|           1|           1|
+    |icmp_ln609_fu_266_p2          |      icmp|   0|  0|  17|           9|          10|
+    |icmp_ln615_fu_288_p2          |      icmp|   0|  0|  23|          16|          16|
+    |icmp_ln617_fu_299_p2          |      icmp|   0|  0|  23|          16|          16|
+    |icmp_ln618_fu_315_p2          |      icmp|   0|  0|  15|           8|           1|
+    |icmp_ln623_fu_391_p2          |      icmp|   0|  0|  39|          32|          32|
+    |or_ln615_1_fu_327_p2          |        or|   0|  0|   2|           1|           1|
+    |or_ln615_fu_321_p2            |        or|   0|  0|   2|           1|           1|
+    |ap_enable_pp0                 |       xor|   0|  0|   2|           1|           2|
+    |xor_ln615_fu_293_p2           |       xor|   0|  0|   2|           1|           2|
+    +------------------------------+----------+----+---+----+------------+------------+
+    |Total                         |          |   0|  0| 370|         272|         172|
+    +------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                      |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1          |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter2          |   9|          2|    1|          2|
+    |ap_sig_allocacmp_backIdx_3       |   9|          2|   16|         32|
+    |ap_sig_allocacmp_frontIdx_2      |   9|          2|   16|         32|
+    |backIdx_1_fu_92                  |   9|          2|   16|         32|
+    |currentSize_1_fu_84              |   9|          2|   16|         32|
+    |discardCount_01099_i_ce_reg_211  |   9|          2|    9|         18|
+    |discardCount_1_fu_100            |   9|          2|    9|         18|
+    |frontIdx_fu_96                   |   9|          2|   16|         32|
+    |unusableAtoms_data_d1_local      |  14|          3|   32|         96|
+    |unusableWriteIdx_1_fu_88         |   9|          2|   16|         32|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            | 113|         25|  149|        330|
+    +---------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------+----+----+-----+-----------+
+    |               Name              | FF | LUT| Bits| Const Bits|
+    +---------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                        |   1|   0|    1|          0|
+    |ap_done_reg                      |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1          |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2          |   1|   0|    1|          0|
+    |backIdx_1_fu_92                  |  16|   0|   16|          0|
+    |backIdx_3_reg_469                |  16|   0|   16|          0|
+    |currentSize_1_fu_84              |  16|   0|   16|          0|
+    |discardCount_01099_i_ce_reg_211  |   9|   0|    9|          0|
+    |discardCount_1_fu_100            |   9|   0|    9|          0|
+    |frontIdx_2_reg_474               |  16|   0|   16|          0|
+    |frontIdx_fu_96                   |  16|   0|   16|          0|
+    |unusableAtoms_data_addr_reg_483  |  16|   0|   16|          0|
+    |unusableWriteIdx_1_fu_88         |  16|   0|   16|          0|
+    +---------------------------------+----+----+-----+-----------+
+    |Total                            | 134|   0|  134|          0|
+    +---------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------------------+-----+-----+------------+------------------------------------------------------------------+--------------+
+|                RTL Ports               | Dir | Bits|  Protocol  |                           Source Object                          |    C Type    |
++----------------------------------------+-----+-----+------------+------------------------------------------------------------------+--------------+
+|ap_clk                                  |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_609_5|  return value|
+|ap_rst                                  |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_609_5|  return value|
+|ap_start                                |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_609_5|  return value|
+|ap_done                                 |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_609_5|  return value|
+|ap_idle                                 |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_609_5|  return value|
+|ap_ready                                |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_609_5|  return value|
+|unusableWriteIdx                        |   in|   16|     ap_none|                                                  unusableWriteIdx|        scalar|
+|currentSize                             |   in|   16|     ap_none|                                                       currentSize|        scalar|
+|backIdx                                 |   in|   16|     ap_none|                                                           backIdx|        scalar|
+|zext_ln620_1                            |   in|   16|     ap_none|                                                      zext_ln620_1|        scalar|
+|unusableInfo_usableAtoms_data_address0  |  out|   16|   ap_memory|                                     unusableInfo_usableAtoms_data|         array|
+|unusableInfo_usableAtoms_data_ce0       |  out|    1|   ap_memory|                                     unusableInfo_usableAtoms_data|         array|
+|unusableInfo_usableAtoms_data_q0        |   in|   32|   ap_memory|                                     unusableInfo_usableAtoms_data|         array|
+|unusableInfo_usableAtoms_data_address1  |  out|   16|   ap_memory|                                     unusableInfo_usableAtoms_data|         array|
+|unusableInfo_usableAtoms_data_ce1       |  out|    1|   ap_memory|                                     unusableInfo_usableAtoms_data|         array|
+|unusableInfo_usableAtoms_data_q1        |   in|   32|   ap_memory|                                     unusableInfo_usableAtoms_data|         array|
+|conv7                                   |   in|   32|     ap_none|                                                             conv7|        scalar|
+|unusableAtoms_data_address1             |  out|   16|   ap_memory|                                                unusableAtoms_data|         array|
+|unusableAtoms_data_ce1                  |  out|    1|   ap_memory|                                                unusableAtoms_data|         array|
+|unusableAtoms_data_we1                  |  out|    1|   ap_memory|                                                unusableAtoms_data|         array|
+|unusableAtoms_data_d1                   |  out|   32|   ap_memory|                                                unusableAtoms_data|         array|
+|threshold                               |   in|   16|     ap_none|                                                         threshold|        scalar|
+|unusableWriteIdx_1_out                  |  out|   16|      ap_vld|                                            unusableWriteIdx_1_out|       pointer|
+|unusableWriteIdx_1_out_ap_vld           |  out|    1|      ap_vld|                                            unusableWriteIdx_1_out|       pointer|
+|frontIdx_out                            |  out|   16|      ap_vld|                                                      frontIdx_out|       pointer|
+|frontIdx_out_ap_vld                     |  out|    1|      ap_vld|                                                      frontIdx_out|       pointer|
+|backIdx_1_out                           |  out|   16|      ap_vld|                                                     backIdx_1_out|       pointer|
+|backIdx_1_out_ap_vld                    |  out|    1|      ap_vld|                                                     backIdx_1_out|       pointer|
+|discardCount_01099_i_ce_out             |  out|    9|      ap_vld|                                       discardCount_01099_i_ce_out|       pointer|
+|discardCount_01099_i_ce_out_ap_vld      |  out|    1|      ap_vld|                                       discardCount_01099_i_ce_out|       pointer|
++----------------------------------------+-----+-----+------------+------------------------------------------------------------------+--------------+
+

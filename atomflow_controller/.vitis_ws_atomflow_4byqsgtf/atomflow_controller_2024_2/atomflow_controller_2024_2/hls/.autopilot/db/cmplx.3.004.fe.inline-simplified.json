@@ -1,0 +1,300 @@
+{
+  "0": {
+    "basicblocks": 15,
+    "calls": "14 6 9 12",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 60,
+    "instructions": 128,
+    "loads": {
+      "L": 6
+    },
+    "name": "atomflow_controller",
+    "stores": {
+      "L": 7,
+      "T": 3
+    },
+    "total_instructions": 26527
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 131,
+    "instructions": 93,
+    "loads": {
+      "L": 31
+    },
+    "name": "vector_sum",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 93
+  },
+  "10": {
+    "basicblocks": 70,
+    "calls": "17 21",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1557,
+    "instructions": 1010,
+    "loads": {
+      "L": 178
+    },
+    "name": "resolveSortingDeficiencies<HLSMoveStream>",
+    "stores": {
+      "L": 210
+    },
+    "total_instructions": 1547
+  },
+  "11": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 54,
+    "instructions": 24,
+    "name": "__hls_fptosi_double_i16",
+    "total_instructions": 24
+  },
+  "12": {
+    "basicblocks": 5,
+    "calls": "4 16 19 10",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1760,
+    "instructions": 64,
+    "name": "sortArray_impl_state_accessor<HLSMoveStream>",
+    "total_instructions": 10797
+  },
+  "13": {
+    "basicblocks": 1,
+    "calls": "3 18 3 18 3 18 3 18",
+    "file": "image_analysis.cpp",
+    "fileloc": 9,
+    "instructions": 39,
+    "loads": {
+      "L": 1
+    },
+    "name": "getLocalImages_single",
+    "total_instructions": 287
+  },
+  "14": {
+    "basicblocks": 4,
+    "calls": "13 5 15 7",
+    "file": "image_analysis.cpp",
+    "fileloc": 199,
+    "instructions": 47,
+    "loads": {
+      "L": 3
+    },
+    "name": "reconstruct",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 15499
+  },
+  "15": {
+    "basicblocks": 1,
+    "calls": "20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 8 8",
+    "file": "image_analysis.cpp",
+    "fileloc": 174,
+    "instructions": 160,
+    "name": "matrix_sum_prod",
+    "total_instructions": 14854
+  },
+  "16": {
+    "basicblocks": 30,
+    "calls": "17 21",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 391,
+    "instructions": 565,
+    "loads": {
+      "L": 98
+    },
+    "name": "clearFirstNRowsOrCols<HLSMoveStream>",
+    "stores": {
+      "L": 121
+    },
+    "total_instructions": 1102
+  },
+  "17": {
+    "basicblocks": 49,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 2103,
+    "instructions": 182,
+    "loads": {
+      "L": 21
+    },
+    "name": "execute",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 182
+  },
+  "18": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 51,
+    "instructions": 24,
+    "name": "__hls_fptosi_float_i32",
+    "total_instructions": 24
+  },
+  "19": {
+    "basicblocks": 235,
+    "calls": "17 21 17 21 11 11 11 11 2 2 17 21 17 21",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 508,
+    "instructions": 5627,
+    "loads": {
+      "L": 1095
+    },
+    "name": "sortRemainingRowsOrCols<HLSMoveStream>",
+    "stores": {
+      "L": 1216
+    },
+    "total_instructions": 7937
+  },
+  "2": {
+    "basicblocks": 11,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 2050,
+    "instructions": 33,
+    "loads": {
+      "L": 2
+    },
+    "name": "hlsSort",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 33
+  },
+  "20": {
+    "basicblocks": 1,
+    "calls": "1 1",
+    "file": "image_analysis.cpp",
+    "fileloc": 161,
+    "instructions": 282,
+    "loads": {
+      "L": 62
+    },
+    "name": "vector_sum_prod",
+    "stores": {
+      "L": 62
+    },
+    "total_instructions": 468
+  },
+  "21": {
+    "basicblocks": 47,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 593,
+    "instructions": 355,
+    "loads": {
+      "L": 65
+    },
+    "name": "push_back",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 355
+  },
+  "3": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "hls_round.h",
+    "fileloc": 159,
+    "instructions": 38,
+    "loads": {
+      "G": 2
+    },
+    "name": "generic_round<float>",
+    "total_instructions": 38
+  },
+  "4": {
+    "basicblocks": 31,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1410,
+    "instructions": 147,
+    "loads": {
+      "L": 6
+    },
+    "name": "findUnusableAtoms",
+    "stores": {
+      "L": 28
+    },
+    "total_instructions": 147
+  },
+  "5": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 56,
+    "instructions": 307,
+    "loads": {
+      "L": 1
+    },
+    "name": "Image_extract_next",
+    "stores": {
+      "L": 66
+    },
+    "total_instructions": 307
+  },
+  "6": {
+    "basicblocks": 15,
+    "calls": "",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 9,
+    "instructions": 52,
+    "loads": {
+      "L": 1
+    },
+    "name": "emissions_to_statearray",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 52
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 194,
+    "instructions": 4,
+    "name": "post_process",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 4
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 131,
+    "instructions": 93,
+    "loads": {
+      "L": 31
+    },
+    "name": "vector_sum",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 93
+  },
+  "9": {
+    "basicblocks": 17,
+    "calls": "",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 33,
+    "instructions": 51,
+    "loads": {
+      "L": 1
+    },
+    "name": "load_target_geometry",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 51
+  }
+}

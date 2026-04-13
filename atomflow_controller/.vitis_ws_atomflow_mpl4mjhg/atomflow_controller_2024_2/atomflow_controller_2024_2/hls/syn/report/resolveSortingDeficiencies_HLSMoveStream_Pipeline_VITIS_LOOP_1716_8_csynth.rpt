@@ -1,0 +1,167 @@
+
+
+================================================================
+== Vitis HLS Report for 'resolveSortingDeficiencies_HLSMoveStream_Pipeline_VITIS_LOOP_1716_8'
+================================================================
+* Date:           Thu Mar 26 11:03:37 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  1.354 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max   | min | max |   Type  |
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |        4|       12|  40.000 ns|  0.120 us|    4|   12|       no|
+    +---------+---------+-----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_1716_8  |        2|        9|         2|          1|          1|  1 ~ 8|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      40|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      62|    -|
+|Register         |        -|     -|      32|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      32|     102|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------------+----------+----+---+----+------------+------------+
+    |         Variable Name        | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------+----------+----+---+----+------------+------------+
+    |i_93_fu_200_p2                |         +|   0|  0|  12|           5|           2|
+    |ap_predicate_tran3to4_state2  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln1716_1_fu_195_p2       |      icmp|   0|  0|  12|           5|           5|
+    |icmp_ln1716_fu_158_p2         |      icmp|   0|  0|  12|           5|           5|
+    |ap_enable_pp0                 |       xor|   0|  0|   2|           1|           2|
+    +------------------------------+----------+----+---+----+------------+------------+
+    |Total                         |          |   0|  0|  40|          17|          15|
+    +------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------------+----+-----------+-----+-----------+
+    |                  Name                  | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                               |  26|          5|    1|          5|
+    |ap_enable_reg_pp0_iter1                 |   9|          2|    1|          2|
+    |ap_phi_mux_UnifiedRetVal_phi_fu_138_p4  |   9|          2|    1|          2|
+    |ap_return                               |   9|          2|    1|          2|
+    |i_fu_58                                 |   9|          2|    5|         10|
+    +----------------------------------------+----+-----------+-----+-----------+
+    |Total                                   |  62|         13|    9|         21|
+    +----------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |UnifiedRetVal_reg_134    |  1|   0|    1|          0|
+    |ap_CS_fsm                |  4|   0|    4|          0|
+    |ap_enable_reg_pp0_iter0  |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
+    |ap_exit_tran_regpp0      |  1|   0|    2|          1|
+    |ap_return_preg           |  1|   0|    1|          0|
+    |i221_0194_0_phi_fu_54    |  5|   0|    5|          0|
+    |i_92_reg_249             |  3|   0|    4|          1|
+    |i_fu_58                  |  5|   0|    5|          0|
+    |icmp_ln1716_1_reg_259    |  1|   0|    1|          0|
+    |icmp_ln1716_reg_235      |  1|   0|    1|          0|
+    |zext_ln1716_reg_239      |  5|   0|   64|         59|
+    |zext_ln1721_reg_254      |  3|   0|   64|         61|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    | 32|   0|  154|        122|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  |                             Source Object                            |    C Type    |
++------------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+|ap_clk                        |   in|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1716_8|  return value|
+|ap_rst                        |   in|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1716_8|  return value|
+|ap_start                      |   in|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1716_8|  return value|
+|ap_done                       |  out|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1716_8|  return value|
+|ap_idle                       |  out|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1716_8|  return value|
+|ap_ready                      |  out|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1716_8|  return value|
+|ap_return                     |  out|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1716_8|  return value|
+|end_colSelectionCount         |   in|    5|     ap_none|                                                 end_colSelectionCount|        scalar|
+|start_colSelection_address0   |  out|    4|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_ce0        |  out|    1|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_q0         |   in|   16|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_address1   |  out|    4|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_ce1        |  out|    1|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_q1         |   in|   16|   ap_memory|                                                    start_colSelection|         array|
+|elbow1_colSelection_address0  |  out|    4|   ap_memory|                                                   elbow1_colSelection|         array|
+|elbow1_colSelection_ce0       |  out|    1|   ap_memory|                                                   elbow1_colSelection|         array|
+|elbow1_colSelection_we0       |  out|    1|   ap_memory|                                                   elbow1_colSelection|         array|
+|elbow1_colSelection_d0        |  out|   16|   ap_memory|                                                   elbow1_colSelection|         array|
+|elbow1_colSelection_address1  |  out|    4|   ap_memory|                                                   elbow1_colSelection|         array|
+|elbow1_colSelection_ce1       |  out|    1|   ap_memory|                                                   elbow1_colSelection|         array|
+|elbow1_colSelection_we1       |  out|    1|   ap_memory|                                                   elbow1_colSelection|         array|
+|elbow1_colSelection_d1        |  out|   16|   ap_memory|                                                   elbow1_colSelection|         array|
+|i221_0194_0_phi_out           |  out|    5|      ap_vld|                                                   i221_0194_0_phi_out|       pointer|
+|i221_0194_0_phi_out_ap_vld    |  out|    1|      ap_vld|                                                   i221_0194_0_phi_out|       pointer|
+|i_116_out                     |  out|    4|      ap_vld|                                                             i_116_out|       pointer|
+|i_116_out_ap_vld              |  out|    1|      ap_vld|                                                             i_116_out|       pointer|
++------------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+

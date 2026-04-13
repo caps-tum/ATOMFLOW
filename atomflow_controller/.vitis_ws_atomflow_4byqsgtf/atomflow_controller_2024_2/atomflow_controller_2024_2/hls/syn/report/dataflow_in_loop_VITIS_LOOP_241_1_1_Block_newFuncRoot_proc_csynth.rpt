@@ -1,0 +1,186 @@
+
+
+================================================================
+== Vitis HLS Report for 'dataflow_in_loop_VITIS_LOOP_241_1_1_Block_newFuncRoot_proc'
+================================================================
+* Date:           Sat Mar 28 14:02:42 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.057 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       14|       14|  0.140 us|  0.140 us|   14|   14|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+--------------+---------+---------+----------+----------+-----+-----+---------+
+        |                         |              |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |         Instance        |    Module    |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +-------------------------+--------------+---------+---------+----------+----------+-----+-----+---------+
+        |grp_post_process_fu_176  |post_process  |       11|       11|  0.110 us|  0.110 us|    1|    1|      yes|
+        +-------------------------+--------------+---------+---------+----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|       2|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     3|     385|     181|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      74|    -|
+|Register         |        -|     -|     211|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     3|     596|     257|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|    ~0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+--------------+---------+----+-----+-----+-----+
+    |         Instance        |    Module    | BRAM_18K| DSP|  FF | LUT | URAM|
+    +-------------------------+--------------+---------+----+-----+-----+-----+
+    |grp_post_process_fu_176  |post_process  |        0|   3|  385|  181|    0|
+    +-------------------------+--------------+---------+----+-----+-----+-----+
+    |Total                    |              |        0|   3|  385|  181|    0|
+    +-------------------------+--------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |  65|         16|    1|         16|
+    |ap_done    |   9|          2|    1|          2|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |  74|         18|    2|         18|
+    +-----------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------+----+----+-----+-----------+
+    |           Name           | FF | LUT| Bits| Const Bits|
+    +--------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                 |  15|   0|   15|          0|
+    |ap_done_reg               |   1|   0|    1|          0|
+    |emissions_0_addr_reg_231  |   8|   0|    8|          0|
+    |emissions_1_addr_reg_236  |   8|   0|    8|          0|
+    |emissions_2_addr_reg_241  |   8|   0|    8|          0|
+    |emissions_3_addr_reg_246  |   8|   0|    8|          0|
+    |emissions_4_addr_reg_251  |   8|   0|    8|          0|
+    |emissions_5_addr_reg_256  |   8|   0|    8|          0|
+    |emissions_6_addr_reg_261  |   8|   0|    8|          0|
+    |emissions_7_addr_reg_226  |   8|   0|    8|          0|
+    |p_read146_reg_217         |  32|   0|   32|          0|
+    |p_read247_reg_212         |  32|   0|   32|          0|
+    |p_read348_reg_207         |  32|   0|   32|          0|
+    |p_read45_reg_222          |   3|   0|    3|          0|
+    |reg_183                   |  32|   0|   32|          0|
+    +--------------------------+----+----+-----+-----------+
+    |Total                     | 211|   0|  211|          0|
+    +--------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+------------------------------------------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |                        Source Object                       |    C Type    |
++----------------------+-----+-----+------------+------------------------------------------------------------+--------------+
+|ap_clk                |   in|    1|  ap_ctrl_hs|  dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc|  return value|
+|ap_rst                |   in|    1|  ap_ctrl_hs|  dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc|  return value|
+|ap_start              |   in|    1|  ap_ctrl_hs|  dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc|  return value|
+|ap_done               |  out|    1|  ap_ctrl_hs|  dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc|  return value|
+|ap_continue           |   in|    1|  ap_ctrl_hs|  dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc|  return value|
+|ap_idle               |  out|    1|  ap_ctrl_hs|  dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc|  return value|
+|ap_ready              |  out|    1|  ap_ctrl_hs|  dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc|  return value|
+|p_read                |   in|    3|     ap_none|                                                      p_read|        scalar|
+|p_read1               |   in|   32|     ap_none|                                                     p_read1|        scalar|
+|p_read2               |   in|   32|     ap_none|                                                     p_read2|        scalar|
+|p_read3               |   in|   32|     ap_none|                                                     p_read3|        scalar|
+|emissions_6_address0  |  out|    8|   ap_memory|                                                 emissions_6|         array|
+|emissions_6_ce0       |  out|    1|   ap_memory|                                                 emissions_6|         array|
+|emissions_6_we0       |  out|    1|   ap_memory|                                                 emissions_6|         array|
+|emissions_6_d0        |  out|   32|   ap_memory|                                                 emissions_6|         array|
+|p_read4               |   in|   13|     ap_none|                                                     p_read4|        scalar|
+|emissions_5_address0  |  out|    8|   ap_memory|                                                 emissions_5|         array|
+|emissions_5_ce0       |  out|    1|   ap_memory|                                                 emissions_5|         array|
+|emissions_5_we0       |  out|    1|   ap_memory|                                                 emissions_5|         array|
+|emissions_5_d0        |  out|   32|   ap_memory|                                                 emissions_5|         array|
+|emissions_4_address0  |  out|    8|   ap_memory|                                                 emissions_4|         array|
+|emissions_4_ce0       |  out|    1|   ap_memory|                                                 emissions_4|         array|
+|emissions_4_we0       |  out|    1|   ap_memory|                                                 emissions_4|         array|
+|emissions_4_d0        |  out|   32|   ap_memory|                                                 emissions_4|         array|
+|emissions_3_address0  |  out|    8|   ap_memory|                                                 emissions_3|         array|
+|emissions_3_ce0       |  out|    1|   ap_memory|                                                 emissions_3|         array|
+|emissions_3_we0       |  out|    1|   ap_memory|                                                 emissions_3|         array|
+|emissions_3_d0        |  out|   32|   ap_memory|                                                 emissions_3|         array|
+|emissions_2_address0  |  out|    8|   ap_memory|                                                 emissions_2|         array|
+|emissions_2_ce0       |  out|    1|   ap_memory|                                                 emissions_2|         array|
+|emissions_2_we0       |  out|    1|   ap_memory|                                                 emissions_2|         array|
+|emissions_2_d0        |  out|   32|   ap_memory|                                                 emissions_2|         array|
+|emissions_1_address0  |  out|    8|   ap_memory|                                                 emissions_1|         array|
+|emissions_1_ce0       |  out|    1|   ap_memory|                                                 emissions_1|         array|
+|emissions_1_we0       |  out|    1|   ap_memory|                                                 emissions_1|         array|
+|emissions_1_d0        |  out|   32|   ap_memory|                                                 emissions_1|         array|
+|emissions_0_address0  |  out|    8|   ap_memory|                                                 emissions_0|         array|
+|emissions_0_ce0       |  out|    1|   ap_memory|                                                 emissions_0|         array|
+|emissions_0_we0       |  out|    1|   ap_memory|                                                 emissions_0|         array|
+|emissions_0_d0        |  out|   32|   ap_memory|                                                 emissions_0|         array|
+|emissions_7_address0  |  out|    8|   ap_memory|                                                 emissions_7|         array|
+|emissions_7_ce0       |  out|    1|   ap_memory|                                                 emissions_7|         array|
+|emissions_7_we0       |  out|    1|   ap_memory|                                                 emissions_7|         array|
+|emissions_7_d0        |  out|   32|   ap_memory|                                                 emissions_7|         array|
++----------------------+-----+-----+------------+------------------------------------------------------------+--------------+
+

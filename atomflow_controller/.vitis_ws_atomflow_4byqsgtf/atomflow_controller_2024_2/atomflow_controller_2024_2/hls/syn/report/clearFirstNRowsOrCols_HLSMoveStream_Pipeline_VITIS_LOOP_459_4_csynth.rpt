@@ -1,0 +1,181 @@
+
+
+================================================================
+== Vitis HLS Report for 'clearFirstNRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_459_4'
+================================================================
+* Date:           Sat Mar 28 14:02:43 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  3.173 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        4|       11|  40.000 ns|  0.110 us|    2|    9|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- VITIS_LOOP_459_4  |        2|        9|         2|          1|          1|  1 ~ 8|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|     212|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      73|    -|
+|Register         |        -|     -|      25|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      25|     285|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name           | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |add_ln459_159_fu_273_p2            |         +|   0|  0|  39|          32|          32|
+    |add_ln459_fu_217_p2                |         +|   0|  0|  39|          32|          32|
+    |start_colSelectionCount_fu_301_p2  |         +|   0|  0|  12|           5|           2|
+    |and_ln459_fu_229_p2                |       and|   0|  0|   2|           1|           1|
+    |ap_condition_343                   |       and|   0|  0|   2|           1|           1|
+    |ap_condition_346                   |       and|   0|  0|   2|           1|           1|
+    |ap_condition_353                   |       and|   0|  0|   2|           1|           1|
+    |icmp_ln459_1_fu_295_p2             |      icmp|   0|  0|  39|          32|          32|
+    |icmp_ln459_fu_223_p2               |      icmp|   0|  0|  39|          32|          32|
+    |select_ln465_1_fu_330_p3           |    select|   0|  0|  16|           1|          16|
+    |select_ln465_fu_312_p3             |    select|   0|  0|  16|           1|          16|
+    |ap_enable_pp0                      |       xor|   0|  0|   2|           1|           2|
+    |xor_ln459_fu_211_p2                |       xor|   0|  0|   2|           1|           2|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |Total                              |          |   0|  0| 212|         141|         170|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------------------+----+-----------+-----+-----------+
+    |                    Name                    | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                                 |   9|          2|    1|          2|
+    |ap_loop_exit_ready_pp0_iter1_reg            |   9|          2|    1|          2|
+    |ap_sig_allocacmp_end_colSelectionCount      |   9|          2|    5|         10|
+    |batchSize_fu_62                             |   9|          2|    5|         10|
+    |occupiedIndices_1_address0_local            |  14|          3|    7|         21|
+    |occupiedIndices_address0_local              |  14|          3|    7|         21|
+    |start_colSelectionCount_0_lcssa_ce_reg_177  |   9|          2|    5|         10|
+    +--------------------------------------------+----+-----------+-----+-----------+
+    |Total                                       |  73|         16|   31|         76|
+    +--------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------+---+----+-----+-----------+
+    |                    Name                    | FF| LUT| Bits| Const Bits|
+    +--------------------------------------------+---+----+-----+-----------+
+    |and_ln459_reg_363                           |  1|   0|    1|          0|
+    |ap_CS_fsm                                   |  1|   0|    1|          0|
+    |ap_done_reg                                 |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                     |  1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg            |  1|   0|    1|          0|
+    |batchSize_fu_62                             |  5|   0|    5|          0|
+    |end_colSelectionCount_9_reg_377             |  3|   0|    4|          1|
+    |end_colSelectionCount_reg_357               |  5|   0|    5|          0|
+    |icmp_ln459_1_reg_383                        |  1|   0|    1|          0|
+    |start_colSelectionCount_0_lcssa_ce_reg_177  |  5|   0|    5|          0|
+    |trunc_ln434_reg_351                         |  1|   0|    1|          0|
+    +--------------------------------------------+---+----+-----+-----------+
+    |Total                                       | 25|   0|   26|          1|
+    +--------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------------------------+-----+-----+------------+----------------------------------------------------------------+--------------+
+|                   RTL Ports                   | Dir | Bits|  Protocol  |                          Source Object                         |    C Type    |
++-----------------------------------------------+-----+-----+------------+----------------------------------------------------------------+--------------+
+|ap_clk                                         |   in|    1|  ap_ctrl_hs|  clearFirstNRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_459_4|  return value|
+|ap_rst                                         |   in|    1|  ap_ctrl_hs|  clearFirstNRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_459_4|  return value|
+|ap_start                                       |   in|    1|  ap_ctrl_hs|  clearFirstNRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_459_4|  return value|
+|ap_done                                        |  out|    1|  ap_ctrl_hs|  clearFirstNRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_459_4|  return value|
+|ap_idle                                        |  out|    1|  ap_ctrl_hs|  clearFirstNRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_459_4|  return value|
+|ap_ready                                       |  out|    1|  ap_ctrl_hs|  clearFirstNRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_459_4|  return value|
+|processedCount                                 |   in|   32|     ap_none|                                                  processedCount|        scalar|
+|occupiedCount_reload                           |   in|   32|     ap_none|                                            occupiedCount_reload|        scalar|
+|occupiedIndices_address0                       |  out|    7|   ap_memory|                                                 occupiedIndices|         array|
+|occupiedIndices_ce0                            |  out|    1|   ap_memory|                                                 occupiedIndices|         array|
+|occupiedIndices_q0                             |   in|   16|   ap_memory|                                                 occupiedIndices|         array|
+|occupiedIndices_1_address0                     |  out|    7|   ap_memory|                                               occupiedIndices_1|         array|
+|occupiedIndices_1_ce0                          |  out|    1|   ap_memory|                                               occupiedIndices_1|         array|
+|occupiedIndices_1_q0                           |   in|   16|   ap_memory|                                               occupiedIndices_1|         array|
+|start_colSelection_address0                    |  out|    4|   ap_memory|                                              start_colSelection|         array|
+|start_colSelection_ce0                         |  out|    1|   ap_memory|                                              start_colSelection|         array|
+|start_colSelection_we0                         |  out|    1|   ap_memory|                                              start_colSelection|         array|
+|start_colSelection_d0                          |  out|   16|   ap_memory|                                              start_colSelection|         array|
+|start_colSelection_address1                    |  out|    4|   ap_memory|                                              start_colSelection|         array|
+|start_colSelection_ce1                         |  out|    1|   ap_memory|                                              start_colSelection|         array|
+|start_colSelection_we1                         |  out|    1|   ap_memory|                                              start_colSelection|         array|
+|start_colSelection_d1                          |  out|   16|   ap_memory|                                              start_colSelection|         array|
+|end_colSelection_address0                      |  out|    4|   ap_memory|                                                end_colSelection|         array|
+|end_colSelection_ce0                           |  out|    1|   ap_memory|                                                end_colSelection|         array|
+|end_colSelection_we0                           |  out|    1|   ap_memory|                                                end_colSelection|         array|
+|end_colSelection_d0                            |  out|   16|   ap_memory|                                                end_colSelection|         array|
+|end_colSelection_address1                      |  out|    4|   ap_memory|                                                end_colSelection|         array|
+|end_colSelection_ce1                           |  out|    1|   ap_memory|                                                end_colSelection|         array|
+|end_colSelection_we1                           |  out|    1|   ap_memory|                                                end_colSelection|         array|
+|end_colSelection_d1                            |  out|   16|   ap_memory|                                                end_colSelection|         array|
+|start_colSelectionCount_0_lcssa_ce_out         |  out|    5|      ap_vld|                          start_colSelectionCount_0_lcssa_ce_out|       pointer|
+|start_colSelectionCount_0_lcssa_ce_out_ap_vld  |  out|    1|      ap_vld|                          start_colSelectionCount_0_lcssa_ce_out|       pointer|
++-----------------------------------------------+-----+-----+------------+----------------------------------------------------------------+--------------+
+

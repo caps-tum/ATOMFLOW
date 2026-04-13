@@ -1,0 +1,141 @@
+<stg><name>dataflow_in_loop_VITIS_LOOP_241_1.1_Block_newFuncRoot_proc.1</name>
+
+
+<trans_list>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="2" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="2" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+newFuncRoot:0 %conv_read = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %conv
+
+]]></Node>
+<StgValue><ssdm name="conv_read"/></StgValue>
+</operation>
+
+<operation id="3" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="3" bw="3" op_0_bw="16">
+<![CDATA[
+newFuncRoot:1 %trunc_ln256 = trunc i16 %conv_read
+
+]]></Node>
+<StgValue><ssdm name="trunc_ln256"/></StgValue>
+</operation>
+
+<operation id="4" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="13" op_0_bw="13" op_1_bw="16" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+newFuncRoot:2 %p_out = partselect i13 @_ssdm_op_PartSelect.i13.i16.i32.i32, i16 %conv_read, i32 3, i32 15
+
+]]></Node>
+<StgValue><ssdm name="p_out"/></StgValue>
+</operation>
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="16" op_0_bw="16" op_1_bw="13">
+<![CDATA[
+newFuncRoot:3 %mrv = insertvalue i16 <undef>, i13 %p_out
+
+]]></Node>
+<StgValue><ssdm name="mrv"/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="16" op_0_bw="16" op_1_bw="3">
+<![CDATA[
+newFuncRoot:4 %mrv_1 = insertvalue i16 %mrv, i3 %trunc_ln256
+
+]]></Node>
+<StgValue><ssdm name="mrv_1"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="0" op_0_bw="16">
+<![CDATA[
+newFuncRoot:5 %ret_ln256 = ret i16 %mrv_1
+
+]]></Node>
+<StgValue><ssdm name="ret_ln256"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="8" name="conv" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="conv"/></StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="10" from="_ssdm_op_Read.ap_auto.i16" to="conv_read" fromId="9" toId="2">
+</dataflow>
+<dataflow id="11" from="conv" to="conv_read" fromId="8" toId="2">
+</dataflow>
+<dataflow id="12" from="conv_read" to="trunc_ln256" fromId="2" toId="3">
+</dataflow>
+<dataflow id="14" from="_ssdm_op_PartSelect.i13.i16.i32.i32" to="p_out" fromId="13" toId="4">
+</dataflow>
+<dataflow id="15" from="conv_read" to="p_out" fromId="2" toId="4">
+</dataflow>
+<dataflow id="17" from="StgValue_16" to="p_out" fromId="16" toId="4">
+</dataflow>
+<dataflow id="19" from="StgValue_18" to="p_out" fromId="18" toId="4">
+</dataflow>
+<dataflow id="21" from="StgValue_20" to="mrv" fromId="20" toId="5">
+</dataflow>
+<dataflow id="22" from="p_out" to="mrv" fromId="4" toId="5">
+</dataflow>
+<dataflow id="23" from="mrv" to="mrv_1" fromId="5" toId="6">
+</dataflow>
+<dataflow id="24" from="trunc_ln256" to="mrv_1" fromId="3" toId="6">
+</dataflow>
+<dataflow id="25" from="mrv_1" to="ret_ln256" fromId="6" toId="7">
+</dataflow>
+</dataflows>
+
+
+</stg>

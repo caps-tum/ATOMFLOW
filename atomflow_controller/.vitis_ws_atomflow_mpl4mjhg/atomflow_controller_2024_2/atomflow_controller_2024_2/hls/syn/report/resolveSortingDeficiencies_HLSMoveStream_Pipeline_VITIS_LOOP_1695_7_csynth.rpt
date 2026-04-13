@@ -1,0 +1,157 @@
+
+
+================================================================
+== Vitis HLS Report for 'resolveSortingDeficiencies_HLSMoveStream_Pipeline_VITIS_LOOP_1695_7'
+================================================================
+* Date:           Thu Mar 26 11:03:37 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.351 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        4|       34|  40.000 ns|  0.340 us|    3|   33|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- VITIS_LOOP_1695_7  |        2|       32|         2|          2|          8|  1 ~ 16|       yes|
+        +---------------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      88|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      41|    -|
+|Register         |        -|     -|      13|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      13|     129|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name           | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |add_ln1704_fu_175_p2               |         +|   0|  0|  16|          16|          16|
+    |add_ln1706_fu_192_p2               |         +|   0|  0|  16|          16|          16|
+    |start_colSelectionCount_fu_159_p2  |         +|   0|  0|  12|           5|           1|
+    |sub_ln1704_fu_169_p2               |         -|   0|  0|  16|          16|          16|
+    |sub_ln1706_fu_186_p2               |         -|   0|  0|  16|          16|          16|
+    |icmp_ln1695_fu_153_p2              |      icmp|   0|  0|  12|           5|           5|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+    |Total                              |          |   0|  0|  88|          74|          70|
+    +-----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm              |  14|          3|    1|          3|
+    |ap_done_int            |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_94  |   9|          2|    5|         10|
+    |i_fu_58                |   9|          2|    5|         10|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  |  41|          9|   12|         25|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------+---+----+-----+-----------+
+    |     Name     | FF| LUT| Bits| Const Bits|
+    +--------------+---+----+-----+-----------+
+    |ap_CS_fsm     |  2|   0|    2|          0|
+    |ap_done_reg   |  1|   0|    1|          0|
+    |i_94_reg_225  |  5|   0|    5|          0|
+    |i_fu_58       |  5|   0|    5|          0|
+    +--------------+---+----+-----+-----------+
+    |Total         | 13|   0|   13|          0|
+    +--------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+|          RTL Ports          | Dir | Bits|  Protocol  |                             Source Object                            |    C Type    |
++-----------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+|ap_clk                       |   in|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1695_7|  return value|
+|ap_rst                       |   in|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1695_7|  return value|
+|ap_start                     |   in|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1695_7|  return value|
+|ap_done                      |  out|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1695_7|  return value|
+|ap_idle                      |  out|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1695_7|  return value|
+|ap_ready                     |  out|    1|  ap_ctrl_hs|  resolveSortingDeficiencies<HLSMoveStream>_Pipeline_VITIS_LOOP_1695_7|  return value|
+|end_colSelectionCount        |   in|    5|     ap_none|                                                 end_colSelectionCount|        scalar|
+|sub175                       |   in|   16|     ap_none|                                                                sub175|        scalar|
+|empty                        |   in|   16|     ap_none|                                                                 empty|        scalar|
+|usableAtoms_data_address0    |  out|   16|   ap_memory|                                                      usableAtoms_data|         array|
+|usableAtoms_data_ce0         |  out|    1|   ap_memory|                                                      usableAtoms_data|         array|
+|usableAtoms_data_q0          |   in|   32|   ap_memory|                                                      usableAtoms_data|         array|
+|start_colSelection_address0  |  out|    4|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_ce0       |  out|    1|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_we0       |  out|    1|   ap_memory|                                                    start_colSelection|         array|
+|start_colSelection_d0        |  out|   16|   ap_memory|                                                    start_colSelection|         array|
+|sub186                       |   in|   16|     ap_none|                                                                sub186|        scalar|
+|zext_ln1706_1                |   in|   16|     ap_none|                                                         zext_ln1706_1|        scalar|
+|targetSites_data_address0    |  out|   16|   ap_memory|                                                      targetSites_data|         array|
+|targetSites_data_ce0         |  out|    1|   ap_memory|                                                      targetSites_data|         array|
+|targetSites_data_q0          |   in|    8|   ap_memory|                                                      targetSites_data|         array|
+|end_colSelection_address0    |  out|    4|   ap_memory|                                                      end_colSelection|         array|
+|end_colSelection_ce0         |  out|    1|   ap_memory|                                                      end_colSelection|         array|
+|end_colSelection_we0         |  out|    1|   ap_memory|                                                      end_colSelection|         array|
+|end_colSelection_d0          |  out|    8|   ap_memory|                                                      end_colSelection|         array|
++-----------------------------+-----+-----+------------+----------------------------------------------------------------------+--------------+
+

@@ -1,0 +1,951 @@
+
+
+================================================================
+== Vitis HLS Report for 'sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1179_40'
+================================================================
+* Date:           Thu Mar 26 11:03:34 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.474 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        2|      258|  20.000 ns|  2.580 us|    1|  257|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip  |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |- VITIS_LOOP_1179_40  |        0|      256|         2|          1|          1|  0 ~ 256|       yes|
+        +----------------------+---------+---------+----------+-----------+-----------+---------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|     113|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      45|    -|
+|Register         |        -|     -|      86|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      86|     158|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |readIdx_4_fu_129_p2    |         +|   0|  0|  71|          64|           1|
+    |writeIdx_4_fu_119_p2   |         +|   0|  0|  16|           9|           1|
+    |icmp_ln1179_fu_114_p2  |      icmp|   0|  0|  24|          17|          17|
+    |ap_enable_pp0          |       xor|   0|  0|   2|           1|           2|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |Total                  |          |   0|  0| 113|          91|          21|
+    +-----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter2  |   9|          2|    1|          2|
+    |readIdx_fu_50            |   9|          2|   64|        128|
+    |writeIdx_fu_46           |   9|          2|    9|         18|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  45|         10|   76|        152|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+----+----+-----+-----------+
+    |           Name          | FF | LUT| Bits| Const Bits|
+    +-------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                |   1|   0|    1|          0|
+    |ap_done_reg              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2  |   1|   0|    1|          0|
+    |readIdx_fu_50            |  64|   0|   64|          0|
+    |writeIdx_3_reg_168       |   9|   0|    9|          0|
+    |writeIdx_fu_46           |   9|   0|    9|          0|
+    +-------------------------+----+----+-----+-----------+
+    |Total                    |  86|   0|   86|          0|
+    +-------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+|                      RTL Ports                      | Dir | Bits|  Protocol  |                            Source Object                           |    C Type    |
++-----------------------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+|ap_clk                                               |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40|  return value|
+|ap_rst                                               |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40|  return value|
+|ap_start                                             |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40|  return value|
+|ap_done                                              |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40|  return value|
+|ap_idle                                              |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40|  return value|
+|ap_ready                                             |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40|  return value|
+|zext_ln1179                                          |   in|    5|     ap_none|                                                         zext_ln1179|        scalar|
+|select_ln1179                                        |   in|   17|     ap_none|                                                       select_ln1179|        scalar|
+|parkingSpotsRemainingAtCurrentIndexXC_data_address0  |  out|    8|   ap_memory|                          parkingSpotsRemainingAtCurrentIndexXC_data|         array|
+|parkingSpotsRemainingAtCurrentIndexXC_data_ce0       |  out|    1|   ap_memory|                          parkingSpotsRemainingAtCurrentIndexXC_data|         array|
+|parkingSpotsRemainingAtCurrentIndexXC_data_q0        |   in|   64|   ap_memory|                          parkingSpotsRemainingAtCurrentIndexXC_data|         array|
+|tempParkingH_address0                                |  out|    8|   ap_memory|                                                        tempParkingH|         array|
+|tempParkingH_ce0                                     |  out|    1|   ap_memory|                                                        tempParkingH|         array|
+|tempParkingH_we0                                     |  out|    1|   ap_memory|                                                        tempParkingH|         array|
+|tempParkingH_d0                                      |  out|   64|   ap_memory|                                                        tempParkingH|         array|
++-----------------------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.42>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%writeIdx = alloca i32 1" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1160->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 5 'alloca' 'writeIdx' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%readIdx = alloca i32 1" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 6 'alloca' 'readIdx' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%select_ln1179_read = read i17 @_ssdm_op_Read.ap_auto.i17, i17 %select_ln1179"   --->   Operation 7 'read' 'select_ln1179_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%zext_ln1179_read = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %zext_ln1179"   --->   Operation 8 'read' 'zext_ln1179_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln1179_cast = zext i5 %zext_ln1179_read"   --->   Operation 9 'zext' 'zext_ln1179_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i64 %tempParkingH, i64 666, i64 18, i64 18446744073709551615"   --->   Operation 10 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.42ns)   --->   "%store_ln1179 = store i64 %zext_ln1179_cast, i64 %readIdx" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 11 'store' 'store_ln1179' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 12 [1/1] (0.42ns)   --->   "%store_ln1160 = store i9 0, i9 %writeIdx" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1160->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 12 'store' 'store_ln1160' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc1206.i"   --->   Operation 13 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.51>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%writeIdx_3 = load i9 %writeIdx" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1184->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 14 'load' 'writeIdx_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln1179_1 = zext i9 %writeIdx_3" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 15 'zext' 'zext_ln1179_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.86ns)   --->   "%icmp_ln1179 = icmp_eq  i17 %zext_ln1179_1, i17 %select_ln1179_read" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 16 'icmp' 'icmp_ln1179' <Predicate = true> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.77ns)   --->   "%writeIdx_4 = add i9 %writeIdx_3, i9 1" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1184->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 17 'add' 'writeIdx_4' <Predicate = true> <Delay = 0.77> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln1179 = br i1 %icmp_ln1179, void %for.inc1206.i.split, void %VITIS_LOOP_1186_41.i.loopexit.exitStub" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 18 'br' 'br_ln1179' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%readIdx_load = load i64 %readIdx" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 19 'load' 'readIdx_load' <Predicate = (!icmp_ln1179)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%parkingSpotsRemainingAtCurrentIndexXC_data_addr = getelementptr i64 %parkingSpotsRemainingAtCurrentIndexXC_data, i64 0, i64 %readIdx_load" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1184->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 20 'getelementptr' 'parkingSpotsRemainingAtCurrentIndexXC_data_addr' <Predicate = (!icmp_ln1179)> <Delay = 0.00>
+ST_2 : Operation 21 [2/2] (1.23ns)   --->   "%parkingSpotsRemainingAtCurrentIndexXC_data_load = load i8 %parkingSpotsRemainingAtCurrentIndexXC_data_addr" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1184->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 21 'load' 'parkingSpotsRemainingAtCurrentIndexXC_data_load' <Predicate = (!icmp_ln1179)> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 256> <RAM>
+ST_2 : Operation 22 [1/1] (1.08ns)   --->   "%readIdx_4 = add i64 %readIdx_load, i64 1" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 22 'add' 'readIdx_4' <Predicate = (!icmp_ln1179)> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (0.42ns)   --->   "%store_ln1179 = store i64 %readIdx_4, i64 %readIdx" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 23 'store' 'store_ln1179' <Predicate = (!icmp_ln1179)> <Delay = 0.42>
+ST_2 : Operation 24 [1/1] (0.42ns)   --->   "%store_ln1160 = store i9 %writeIdx_4, i9 %writeIdx" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1160->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 24 'store' 'store_ln1160' <Predicate = (!icmp_ln1179)> <Delay = 0.42>
+ST_2 : Operation 33 [1/1] (0.42ns)   --->   "%ret_ln0 = ret"   --->   Operation 33 'ret' 'ret_ln0' <Predicate = (icmp_ln1179)> <Delay = 0.42>
+
+State 3 <SV = 2> <Delay = 2.47>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln1179_2 = zext i9 %writeIdx_3" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 25 'zext' 'zext_ln1179_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%specpipeline_ln1181 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_18" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1181->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 26 'specpipeline' 'specpipeline_ln1181' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%speclooptripcount_ln1182 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 0, i64 256, i64 128" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1182->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 27 'speclooptripcount' 'speclooptripcount_ln1182' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%specloopname_ln1179 = specloopname void @_ssdm_op_SpecLoopName, void @empty_57" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 28 'specloopname' 'specloopname_ln1179' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/2] ( I:1.23ns O:1.23ns )   --->   "%parkingSpotsRemainingAtCurrentIndexXC_data_load = load i8 %parkingSpotsRemainingAtCurrentIndexXC_data_addr" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1184->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 29 'load' 'parkingSpotsRemainingAtCurrentIndexXC_data_load' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 256> <RAM>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%tempParkingH_addr = getelementptr i64 %tempParkingH, i64 0, i64 %zext_ln1179_2" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1184->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 30 'getelementptr' 'tempParkingH_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] ( I:1.23ns O:1.23ns )   --->   "%store_ln1184 = store i64 %parkingSpotsRemainingAtCurrentIndexXC_data_load, i8 %tempParkingH_addr" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1184->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 31 'store' 'store_ln1184' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM_1P_BRAM">   --->   Core 89 'RAM_1P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 64> <Depth = 256> <RAM>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%br_ln1179 = br void %for.inc1206.i" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1179->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 32 'br' 'br_ln1179' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ zext_ln1179]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ select_ln1179]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ parkingSpotsRemainingAtCurrentIndexXC_data]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ tempParkingH]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[0]; IO mode=ap_memory:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+writeIdx                                        (alloca           ) [ 0110]
+readIdx                                         (alloca           ) [ 0110]
+select_ln1179_read                              (read             ) [ 0110]
+zext_ln1179_read                                (read             ) [ 0000]
+zext_ln1179_cast                                (zext             ) [ 0000]
+specmemcore_ln0                                 (specmemcore      ) [ 0000]
+store_ln1179                                    (store            ) [ 0000]
+store_ln1160                                    (store            ) [ 0000]
+br_ln0                                          (br               ) [ 0000]
+writeIdx_3                                      (load             ) [ 0101]
+zext_ln1179_1                                   (zext             ) [ 0000]
+icmp_ln1179                                     (icmp             ) [ 0110]
+writeIdx_4                                      (add              ) [ 0000]
+br_ln1179                                       (br               ) [ 0000]
+readIdx_load                                    (load             ) [ 0000]
+parkingSpotsRemainingAtCurrentIndexXC_data_addr (getelementptr    ) [ 0101]
+readIdx_4                                       (add              ) [ 0000]
+store_ln1179                                    (store            ) [ 0000]
+store_ln1160                                    (store            ) [ 0000]
+zext_ln1179_2                                   (zext             ) [ 0000]
+specpipeline_ln1181                             (specpipeline     ) [ 0000]
+speclooptripcount_ln1182                        (speclooptripcount) [ 0000]
+specloopname_ln1179                             (specloopname     ) [ 0000]
+parkingSpotsRemainingAtCurrentIndexXC_data_load (load             ) [ 0000]
+tempParkingH_addr                               (getelementptr    ) [ 0000]
+store_ln1184                                    (store            ) [ 0000]
+br_ln1179                                       (br               ) [ 0000]
+ret_ln0                                         (ret              ) [ 0000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="zext_ln1179">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="zext_ln1179"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="select_ln1179">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="select_ln1179"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="parkingSpotsRemainingAtCurrentIndexXC_data">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="parkingSpotsRemainingAtCurrentIndexXC_data"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="tempParkingH">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="tempParkingH"/><MemPortTyVec>0 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1001" name="const_8">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1001" name="const_10">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i17"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1001" name="const_12">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecMemCore"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_18"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecLoopTripCount"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecLoopName"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_57"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1004" name="writeIdx_fu_46">
+<pin_list>
+<pin id="47" dir="0" index="0" bw="1" slack="0"/>
+<pin id="48" dir="1" index="1" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="writeIdx/1 "/>
+</bind>
+</comp>
+
+<comp id="50" class="1004" name="readIdx_fu_50">
+<pin_list>
+<pin id="51" dir="0" index="0" bw="1" slack="0"/>
+<pin id="52" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="readIdx/1 "/>
+</bind>
+</comp>
+
+<comp id="54" class="1004" name="select_ln1179_read_read_fu_54">
+<pin_list>
+<pin id="55" dir="0" index="0" bw="17" slack="0"/>
+<pin id="56" dir="0" index="1" bw="17" slack="0"/>
+<pin id="57" dir="1" index="2" bw="17" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="select_ln1179_read/1 "/>
+</bind>
+</comp>
+
+<comp id="60" class="1004" name="zext_ln1179_read_read_fu_60">
+<pin_list>
+<pin id="61" dir="0" index="0" bw="5" slack="0"/>
+<pin id="62" dir="0" index="1" bw="5" slack="0"/>
+<pin id="63" dir="1" index="2" bw="5" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="zext_ln1179_read/1 "/>
+</bind>
+</comp>
+
+<comp id="66" class="1004" name="parkingSpotsRemainingAtCurrentIndexXC_data_addr_gep_fu_66">
+<pin_list>
+<pin id="67" dir="0" index="0" bw="64" slack="0"/>
+<pin id="68" dir="0" index="1" bw="1" slack="0"/>
+<pin id="69" dir="0" index="2" bw="64" slack="0"/>
+<pin id="70" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="parkingSpotsRemainingAtCurrentIndexXC_data_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="73" class="1004" name="grp_access_fu_73">
+<pin_list>
+<pin id="74" dir="0" index="0" bw="8" slack="0"/>
+<pin id="75" dir="0" index="1" bw="64" slack="2147483647"/>
+<pin id="76" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="77" dir="1" index="3" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="parkingSpotsRemainingAtCurrentIndexXC_data_load/2 "/>
+</bind>
+</comp>
+
+<comp id="79" class="1004" name="tempParkingH_addr_gep_fu_79">
+<pin_list>
+<pin id="80" dir="0" index="0" bw="64" slack="0"/>
+<pin id="81" dir="0" index="1" bw="1" slack="0"/>
+<pin id="82" dir="0" index="2" bw="9" slack="0"/>
+<pin id="83" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="tempParkingH_addr/3 "/>
+</bind>
+</comp>
+
+<comp id="86" class="1004" name="store_ln1184_access_fu_86">
+<pin_list>
+<pin id="87" dir="0" index="0" bw="8" slack="0"/>
+<pin id="88" dir="0" index="1" bw="64" slack="0"/>
+<pin id="89" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="90" dir="1" index="3" bw="64" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln1184/3 "/>
+</bind>
+</comp>
+
+<comp id="93" class="1004" name="zext_ln1179_cast_fu_93">
+<pin_list>
+<pin id="94" dir="0" index="0" bw="5" slack="0"/>
+<pin id="95" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln1179_cast/1 "/>
+</bind>
+</comp>
+
+<comp id="97" class="1004" name="store_ln1179_store_fu_97">
+<pin_list>
+<pin id="98" dir="0" index="0" bw="5" slack="0"/>
+<pin id="99" dir="0" index="1" bw="64" slack="0"/>
+<pin id="100" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln1179/1 "/>
+</bind>
+</comp>
+
+<comp id="102" class="1004" name="store_ln1160_store_fu_102">
+<pin_list>
+<pin id="103" dir="0" index="0" bw="1" slack="0"/>
+<pin id="104" dir="0" index="1" bw="9" slack="0"/>
+<pin id="105" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln1160/1 "/>
+</bind>
+</comp>
+
+<comp id="107" class="1004" name="writeIdx_3_load_fu_107">
+<pin_list>
+<pin id="108" dir="0" index="0" bw="9" slack="1"/>
+<pin id="109" dir="1" index="1" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="writeIdx_3/2 "/>
+</bind>
+</comp>
+
+<comp id="110" class="1004" name="zext_ln1179_1_fu_110">
+<pin_list>
+<pin id="111" dir="0" index="0" bw="9" slack="0"/>
+<pin id="112" dir="1" index="1" bw="17" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln1179_1/2 "/>
+</bind>
+</comp>
+
+<comp id="114" class="1004" name="icmp_ln1179_fu_114">
+<pin_list>
+<pin id="115" dir="0" index="0" bw="17" slack="0"/>
+<pin id="116" dir="0" index="1" bw="17" slack="1"/>
+<pin id="117" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln1179/2 "/>
+</bind>
+</comp>
+
+<comp id="119" class="1004" name="writeIdx_4_fu_119">
+<pin_list>
+<pin id="120" dir="0" index="0" bw="9" slack="0"/>
+<pin id="121" dir="0" index="1" bw="1" slack="0"/>
+<pin id="122" dir="1" index="2" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="writeIdx_4/2 "/>
+</bind>
+</comp>
+
+<comp id="125" class="1004" name="readIdx_load_load_fu_125">
+<pin_list>
+<pin id="126" dir="0" index="0" bw="64" slack="1"/>
+<pin id="127" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="readIdx_load/2 "/>
+</bind>
+</comp>
+
+<comp id="129" class="1004" name="readIdx_4_fu_129">
+<pin_list>
+<pin id="130" dir="0" index="0" bw="64" slack="0"/>
+<pin id="131" dir="0" index="1" bw="1" slack="0"/>
+<pin id="132" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="readIdx_4/2 "/>
+</bind>
+</comp>
+
+<comp id="135" class="1004" name="store_ln1179_store_fu_135">
+<pin_list>
+<pin id="136" dir="0" index="0" bw="64" slack="0"/>
+<pin id="137" dir="0" index="1" bw="64" slack="1"/>
+<pin id="138" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln1179/2 "/>
+</bind>
+</comp>
+
+<comp id="140" class="1004" name="store_ln1160_store_fu_140">
+<pin_list>
+<pin id="141" dir="0" index="0" bw="9" slack="0"/>
+<pin id="142" dir="0" index="1" bw="9" slack="1"/>
+<pin id="143" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln1160/2 "/>
+</bind>
+</comp>
+
+<comp id="145" class="1004" name="zext_ln1179_2_fu_145">
+<pin_list>
+<pin id="146" dir="0" index="0" bw="9" slack="1"/>
+<pin id="147" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln1179_2/3 "/>
+</bind>
+</comp>
+
+<comp id="149" class="1005" name="writeIdx_reg_149">
+<pin_list>
+<pin id="150" dir="0" index="0" bw="9" slack="0"/>
+<pin id="151" dir="1" index="1" bw="9" slack="0"/>
+</pin_list>
+<bind>
+<opset="writeIdx "/>
+</bind>
+</comp>
+
+<comp id="156" class="1005" name="readIdx_reg_156">
+<pin_list>
+<pin id="157" dir="0" index="0" bw="64" slack="0"/>
+<pin id="158" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opset="readIdx "/>
+</bind>
+</comp>
+
+<comp id="163" class="1005" name="select_ln1179_read_reg_163">
+<pin_list>
+<pin id="164" dir="0" index="0" bw="17" slack="1"/>
+<pin id="165" dir="1" index="1" bw="17" slack="1"/>
+</pin_list>
+<bind>
+<opset="select_ln1179_read "/>
+</bind>
+</comp>
+
+<comp id="168" class="1005" name="writeIdx_3_reg_168">
+<pin_list>
+<pin id="169" dir="0" index="0" bw="9" slack="1"/>
+<pin id="170" dir="1" index="1" bw="9" slack="1"/>
+</pin_list>
+<bind>
+<opset="writeIdx_3 "/>
+</bind>
+</comp>
+
+<comp id="176" class="1005" name="parkingSpotsRemainingAtCurrentIndexXC_data_addr_reg_176">
+<pin_list>
+<pin id="177" dir="0" index="0" bw="8" slack="1"/>
+<pin id="178" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="parkingSpotsRemainingAtCurrentIndexXC_data_addr "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="49"><net_src comp="8" pin="0"/><net_sink comp="46" pin=0"/></net>
+
+<net id="53"><net_src comp="8" pin="0"/><net_sink comp="50" pin=0"/></net>
+
+<net id="58"><net_src comp="10" pin="0"/><net_sink comp="54" pin=0"/></net>
+
+<net id="59"><net_src comp="2" pin="0"/><net_sink comp="54" pin=1"/></net>
+
+<net id="64"><net_src comp="12" pin="0"/><net_sink comp="60" pin=0"/></net>
+
+<net id="65"><net_src comp="0" pin="0"/><net_sink comp="60" pin=1"/></net>
+
+<net id="71"><net_src comp="4" pin="0"/><net_sink comp="66" pin=0"/></net>
+
+<net id="72"><net_src comp="26" pin="0"/><net_sink comp="66" pin=1"/></net>
+
+<net id="78"><net_src comp="66" pin="3"/><net_sink comp="73" pin=0"/></net>
+
+<net id="84"><net_src comp="6" pin="0"/><net_sink comp="79" pin=0"/></net>
+
+<net id="85"><net_src comp="26" pin="0"/><net_sink comp="79" pin=1"/></net>
+
+<net id="91"><net_src comp="73" pin="3"/><net_sink comp="86" pin=1"/></net>
+
+<net id="92"><net_src comp="79" pin="3"/><net_sink comp="86" pin=0"/></net>
+
+<net id="96"><net_src comp="60" pin="2"/><net_sink comp="93" pin=0"/></net>
+
+<net id="101"><net_src comp="93" pin="1"/><net_sink comp="97" pin=0"/></net>
+
+<net id="106"><net_src comp="22" pin="0"/><net_sink comp="102" pin=0"/></net>
+
+<net id="113"><net_src comp="107" pin="1"/><net_sink comp="110" pin=0"/></net>
+
+<net id="118"><net_src comp="110" pin="1"/><net_sink comp="114" pin=0"/></net>
+
+<net id="123"><net_src comp="107" pin="1"/><net_sink comp="119" pin=0"/></net>
+
+<net id="124"><net_src comp="24" pin="0"/><net_sink comp="119" pin=1"/></net>
+
+<net id="128"><net_src comp="125" pin="1"/><net_sink comp="66" pin=2"/></net>
+
+<net id="133"><net_src comp="125" pin="1"/><net_sink comp="129" pin=0"/></net>
+
+<net id="134"><net_src comp="28" pin="0"/><net_sink comp="129" pin=1"/></net>
+
+<net id="139"><net_src comp="129" pin="2"/><net_sink comp="135" pin=0"/></net>
+
+<net id="144"><net_src comp="119" pin="2"/><net_sink comp="140" pin=0"/></net>
+
+<net id="148"><net_src comp="145" pin="1"/><net_sink comp="79" pin=2"/></net>
+
+<net id="152"><net_src comp="46" pin="1"/><net_sink comp="149" pin=0"/></net>
+
+<net id="153"><net_src comp="149" pin="1"/><net_sink comp="102" pin=1"/></net>
+
+<net id="154"><net_src comp="149" pin="1"/><net_sink comp="107" pin=0"/></net>
+
+<net id="155"><net_src comp="149" pin="1"/><net_sink comp="140" pin=1"/></net>
+
+<net id="159"><net_src comp="50" pin="1"/><net_sink comp="156" pin=0"/></net>
+
+<net id="160"><net_src comp="156" pin="1"/><net_sink comp="97" pin=1"/></net>
+
+<net id="161"><net_src comp="156" pin="1"/><net_sink comp="125" pin=0"/></net>
+
+<net id="162"><net_src comp="156" pin="1"/><net_sink comp="135" pin=1"/></net>
+
+<net id="166"><net_src comp="54" pin="2"/><net_sink comp="163" pin=0"/></net>
+
+<net id="167"><net_src comp="163" pin="1"/><net_sink comp="114" pin=1"/></net>
+
+<net id="171"><net_src comp="107" pin="1"/><net_sink comp="168" pin=0"/></net>
+
+<net id="172"><net_src comp="168" pin="1"/><net_sink comp="145" pin=0"/></net>
+
+<net id="179"><net_src comp="66" pin="3"/><net_sink comp="176" pin=0"/></net>
+
+<net id="180"><net_src comp="176" pin="1"/><net_sink comp="73" pin=0"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: tempParkingH | {3 }
+ - Input state : 
+	Port: sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40 : zext_ln1179 | {1 }
+	Port: sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40 : select_ln1179 | {1 }
+	Port: sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1179_40 : parkingSpotsRemainingAtCurrentIndexXC_data | {2 3 }
+  - Chain level:
+	State 1
+		store_ln1179 : 1
+		store_ln1160 : 1
+	State 2
+		zext_ln1179_1 : 1
+		icmp_ln1179 : 2
+		writeIdx_4 : 1
+		br_ln1179 : 3
+		parkingSpotsRemainingAtCurrentIndexXC_data_addr : 1
+		parkingSpotsRemainingAtCurrentIndexXC_data_load : 2
+		readIdx_4 : 1
+		store_ln1179 : 2
+		store_ln1160 : 2
+	State 3
+		tempParkingH_addr : 1
+		store_ln1184 : 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-------------------------------|---------|---------|
+| Operation|        Functional Unit        |    FF   |   LUT   |
+|----------|-------------------------------|---------|---------|
+|    add   |       writeIdx_4_fu_119       |    0    |    16   |
+|          |        readIdx_4_fu_129       |    0    |    71   |
+|----------|-------------------------------|---------|---------|
+|   icmp   |       icmp_ln1179_fu_114      |    0    |    24   |
+|----------|-------------------------------|---------|---------|
+|   read   | select_ln1179_read_read_fu_54 |    0    |    0    |
+|          |  zext_ln1179_read_read_fu_60  |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|          |     zext_ln1179_cast_fu_93    |    0    |    0    |
+|   zext   |      zext_ln1179_1_fu_110     |    0    |    0    |
+|          |      zext_ln1179_2_fu_145     |    0    |    0    |
+|----------|-------------------------------|---------|---------|
+|   Total  |                               |    0    |   111   |
+|----------|-------------------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-------------------------------------------------------+--------+
+|                                                       |   FF   |
++-------------------------------------------------------+--------+
+|parkingSpotsRemainingAtCurrentIndexXC_data_addr_reg_176|    8   |
+|                    readIdx_reg_156                    |   64   |
+|               select_ln1179_read_reg_163              |   17   |
+|                   writeIdx_3_reg_168                  |    9   |
+|                    writeIdx_reg_149                   |    9   |
++-------------------------------------------------------+--------+
+|                         Total                         |   107  |
++-------------------------------------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|------------------|------|------|------|--------||---------||---------||---------|
+|       Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
+|------------------|------|------|------|--------||---------||---------||---------|
+| grp_access_fu_73 |  p0  |   2  |   8  |   16   ||    0    ||    9    |
+|------------------|------|------|------|--------||---------||---------||---------|
+|       Total      |      |      |      |   16   ||  0.427  ||    0    ||    9    |
+|------------------|------|------|------|--------||---------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    -   |    0   |   111  |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    0   |    0   |    9   |
+|  Register |    -   |   107  |    -   |
++-----------+--------+--------+--------+
+|   Total   |    0   |   107  |   120  |
++-----------+--------+--------+--------+

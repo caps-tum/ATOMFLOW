@@ -1,0 +1,3 @@
+relativeroot=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2
+original_argv=--mode hls --package --config /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/../../hls_config_atomflow.cfg --work_dir atomflow_controller_2024_2 
+

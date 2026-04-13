@@ -1,0 +1,146 @@
+
+
+================================================================
+== Vitis HLS Report for 'sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1106_36'
+================================================================
+* Date:           Thu Mar 26 11:03:33 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.474 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        3|       18|  30.000 ns|  0.180 us|    2|   17|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- VITIS_LOOP_1106_36  |        1|       16|         2|          1|          1|  1 ~ 16|       yes|
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      41|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      36|    -|
+|Register         |        -|     -|      13|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      13|      77|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |i_34_fu_95_p2         |         +|   0|  0|  12|           5|           1|
+    |sub_ln1111_fu_105_p2  |         -|   0|  0|  15|           8|           8|
+    |icmp_ln1106_fu_89_p2  |      icmp|   0|  0|  12|           5|           5|
+    |ap_enable_pp0         |       xor|   0|  0|   2|           1|           2|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  41|          19|          16|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_33    |   9|          2|    5|         10|
+    |i_fu_38                  |   9|          2|    5|         10|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  36|          8|   12|         24|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                |  1|   0|    1|          0|
+    |ap_done_reg              |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
+    |i_33_reg_132             |  5|   0|    5|          0|
+    |i_fu_38                  |  5|   0|    5|          0|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    | 13|   0|   13|          0|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+|                      RTL Ports                      | Dir | Bits|  Protocol  |                            Source Object                           |    C Type    |
++-----------------------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+|ap_clk                                               |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1106_36|  return value|
+|ap_rst                                               |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1106_36|  return value|
+|ap_start                                             |   in|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1106_36|  return value|
+|ap_done                                              |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1106_36|  return value|
+|ap_idle                                              |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1106_36|  return value|
+|ap_ready                                             |  out|    1|  ap_ctrl_hs|  sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1106_36|  return value|
+|prefetchCountParking_1                               |   in|    5|     ap_none|                                              prefetchCountParking_1|        scalar|
+|sub1043_i                                            |   in|    8|     ap_none|                                                           sub1043_i|        scalar|
+|parkingSpotsRemainingAtCurrentIndexXC_data_address0  |  out|    8|   ap_memory|                          parkingSpotsRemainingAtCurrentIndexXC_data|         array|
+|parkingSpotsRemainingAtCurrentIndexXC_data_ce0       |  out|    1|   ap_memory|                          parkingSpotsRemainingAtCurrentIndexXC_data|         array|
+|parkingSpotsRemainingAtCurrentIndexXC_data_q0        |   in|   64|   ap_memory|                          parkingSpotsRemainingAtCurrentIndexXC_data|         array|
+|parkBackBuf_address0                                 |  out|    4|   ap_memory|                                                         parkBackBuf|         array|
+|parkBackBuf_ce0                                      |  out|    1|   ap_memory|                                                         parkBackBuf|         array|
+|parkBackBuf_we0                                      |  out|    1|   ap_memory|                                                         parkBackBuf|         array|
+|parkBackBuf_d0                                       |  out|   64|   ap_memory|                                                         parkBackBuf|         array|
++-----------------------------------------------------+-----+-----+------------+--------------------------------------------------------------------+--------------+
+

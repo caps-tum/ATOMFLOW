@@ -1,0 +1,167 @@
+  **** HLS Build v2024.2 5238294
+INFO: [HLS 200-2005] Using work_dir /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/atomflow_controller.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/atomflow_controller.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src/image_analysis.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src/image_analysis.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.cflags=-std=c++14 -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(11)
+INFO: [HLS 200-1465] Applying ini 'syn.csimflags=-std=c++14 -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(12)
+INFO: [HLS 200-1465] Applying ini 'tb.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src/tb_atomflow_controller.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(13)
+INFO: [HLS 200-10] Adding test bench file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src/tb_atomflow_controller.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'tb.cflags=-std=c++14 -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(14)
+INFO: [HLS 200-1465] Applying ini 'syn.top=atomflow_controller' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(7)
+INFO: [HLS 200-1465] Applying ini 'flow_target=vivado' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'part=xczu49dr-ffvf1760-2-e' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xczu49dr-ffvf1760-2-e'
+INFO: [HLS 200-1465] Applying ini 'clock=10ns' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(15)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(5)
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../../src/tb_atomflow_controller.cpp in debug mode
+   Compiling ../../../../../../../sorting-organized-main/src/sortLatticeByRow.cpp in debug mode
+   Compiling ../../../../../../../Image_analysis/src/image_analysis.cpp in debug mode
+   Compiling ../../../../../../atomflow_controller.cpp in debug mode
+   Generating csim.exe
+Loaded: 256 atoms, image 400x400
+
+=== TEST 1: atomflow_controller  MODE_QUBIT_READOUT ===
+  moveCount = 0  (expected 0)
+  PASS
+  emission range: [31610.1, 33824]  threshold=32717.1
+  PASS
+
+  Occupancy map (•=occupied, ·=empty):
+  ···•·•••·•·•·•··
+  ·••·••·••···••··
+  ·•··•····••···••
+  ••·••••···•·••··
+  ·•··•···•··•··•·
+  ···········•·•••
+  •••·•••·••·•·•·•
+  •·•··•····••·••·
+  •••••·•··••·••••
+  •·•·••••··•••·••
+  ••··••····•·•·•·
+  ••··••·•····••··
+  ······••••·•·•··
+  ·••·•··•••·•··•·
+  •···•·••·••·•···
+  ••··•••··•·••••·
+  125/256 occupied
+
+=== TEST 2: atomflow_controller  MODE_INITIALIZATION ===
+  moveCount = 30  (expected > 0)
+  PASS
+
+  Movement list (30 moves):
+  Move #0:  step(s)  [r=0 c=3]  [r=-1 c=3]
+  Move #1:  step(s)  [r=1 c=1]  [r=-1 c=1]
+  Move #2:  step(s)  [r=2 c=1]  [r=1 c=1]  [r=1 c=4]  [r=0 c=4]
+  Move #3:  step(s)  [r=3 c=1]  [r=2 c=1]  [r=2 c=1]  [r=0 c=1]
+  Move #4:  step(s)  [r=3 c=0]  [r=2 c=0]  [r=2 c=5]  [r=1 c=5]
+  Move #5:  step(s)  [r=4 c=1]  [r=3 c=1]  [r=3 c=3]  [r=1 c=3]
+  Move #6:  step(s)  [r=5 c=11]  [r=4 c=11]  [r=4 c=1]  [r=1 c=1]
+  Move #7:  step(s)  [r=6 c=0]  [r=5 c=0]  [r=5 c=1]  [r=4 c=1]
+  Move #8:  step(s)  [r=7 c=10]  [r=6 c=10]  [r=6 c=14]  [r=4 c=14]
+  Move #9:  step(s)  [r=7 c=0]  [r=6 c=0]  [r=6 c=4]  [r=5 c=4]
+  Move #10:  step(s)  [r=8 c=14]  [r=7 c=14]  [r=7 c=16]
+  Move #11:  step(s)  [r=8 c=0]  [r=7 c=0]  [r=7 c=0]  [r=5 c=0]
+  Move #12:  step(s)  [r=8 c=2]  [r=7 c=2]  [r=7 c=1]  [r=5 c=1]
+  Move #13:  step(s)  [r=8 c=1]  [r=7 c=1]  [r=7 c=0]  [r=6 c=0]
+  Move #14:  step(s)  [r=9 c=4]  [r=8 c=4]  [r=8 c=-4]
+  Move #15:  step(s)  [r=9 c=0]  [r=8 c=0]  [r=8 c=0]  [r=7 c=0]
+  Move #16:  step(s)  [r=10 c=0]  [r=9 c=0]  [r=9 c=3]  [r=8 c=3]
+  Move #17:  step(s)  [r=11 c=1]  [r=10 c=1]  [r=10 c=1]  [r=8 c=1]
+  Move #18:  step(s)  [r=11 c=0]  [r=10 c=0]  [r=10 c=6]  [r=9 c=6]
+  Move #19:  step(s)  [r=12 c=6]  [r=11 c=6]  [r=11 c=3]  [r=9 c=3]
+  Move #20:  step(s)  [r=13 c=1]  [r=12 c=1]  [r=12 c=0]  [r=9 c=0]
+  Move #21:  step(s)  [r=13 c=4]  [r=12 c=4]  [r=12 c=1]  [r=9 c=1]
+  Move #22:  step(s)  [r=13 c=2]  [r=12 c=2]  [r=12 c=0]  [r=10 c=0]
+  Move #23:  step(s)  [r=14 c=0]  [r=13 c=0]  [r=13 c=3]  [r=12 c=3]
+  Move #24:  step(s)  [r=15 c=4]  [r=14 c=4]  [r=14 c=1]  [r=12 c=1]
+  Move #25:  step(s)  [r=15 c=0]  [r=14 c=0]  [r=14 c=4]  [r=13 c=4]
+  Move #26:  step(s)  [r=10 c=0]  [r=14 c=0]  [r=14 c=13]  [r=13 c=13]
+  Move #27:  step(s)  [r=9 c=0]  [r=14 c=0]  [r=14 c=11]  [r=13 c=11]
+  Move #28:  step(s)  [r=7 c=0]  [r=14 c=0]  [r=14 c=2]  [r=13 c=2]
+  Move #29:  step(s)  [r=6 c=16]  [r=14 c=16]  [r=14 c=1]  [r=13 c=1]
+
+  Occupancy map (•=occupied, ·=empty):
+  ···•·•••·•·•·•··
+  ·••·••·••···••··
+  ·•··•····••···••
+  ••·••••···•·••··
+  ·•··•···•··•··•·
+  ···········•·•••
+  •••·•••·••·•·•·•
+  •·•··•····••·••·
+  •••••·•··••·••••
+  •·•·••••··•••·••
+  ••··••····•·•·•·
+  ••··••·•····••··
+  ······••••·•·•··
+  ·••·•··•••·•··•·
+  •···•·••·••·•···
+  ••··•••··•·••••·
+
+  Post-sort lattice (•=target filled, o=extra atom, □=target missing, ·=empty):
+  ·••••••··••••••·
+  ·••••••··••••••·
+  ················
+  ················
+  ·••••••··••••••·
+  o••••••··••••••·
+  o···············
+  ················
+  ·••••••··••••••·
+  ·••••••··••••••·
+  ················
+  ················
+  ·••••••··••••••·
+  ·□•□•••··•••□•□·
+  ················
+  ················
+  filled: 92/96  mismatches=6  (partial — expected: no parking space)
+
+=== TEST 3: sortLatticeByRowParallel_HLS  (real emissions, 16x32) ===
+  lattice=16x32  zone=[0,16)x[8,24)
+  atoms=125  target sites=96
+  filled: 96/96  extra atoms=1
+  PASS
+
+  Post-sort zone (•=target filled, o=extra, □=missing, ·=empty):
+  ·••••••··••••••·
+  ·••••••··••••••·
+  ················
+  ················
+  ·••••••··••••••·
+  o••••••··••••••·
+  ················
+  ················
+  ·••••••··••••••·
+  ·••••••··••••••·
+  ················
+  ················
+  ·••••••··••••••·
+  ·••••••··••••••·
+  ················
+  ················
+  moves=24  stream beats=504
+WARNING [HLS SIM]: hls::stream 't3_stream' contains leftover data, which may result in RTL simulation hanging.
+
+========================================
+RESULT: 4 passed, 0 failed
+ALL TESTS PASSED
+========================================
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 630
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-112] Total CPU user time: 7.25 seconds. Total CPU system time: 0.63 seconds. Total elapsed time: 7.72 seconds; peak allocated memory: 329.699 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 11s

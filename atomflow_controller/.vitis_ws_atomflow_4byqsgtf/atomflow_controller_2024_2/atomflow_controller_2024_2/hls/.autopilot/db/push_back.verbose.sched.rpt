@@ -1,0 +1,118 @@
+
+
+================================================================
+== Vitis HLS Report for 'push_back'
+================================================================
+* Date:           Sat Mar 28 14:02:28 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.938 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      339|      339|  3.390 us|  3.390 us|  339|  339|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 3 [2/2] (0.00ns)   --->   "%call_ln0 = call void @push_back_Pipeline_VITIS_LOOP_601_1, i16 %move, i512 %moveStream"   --->   Operation 3 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Generic Core
+
+State 2 <SV = 1> <Delay = 6.53>
+ST_2 : Operation 4 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %moveStream, void @empty_27, i32 0, i32 0, void @empty_58, i32 0, i32 0, void @empty_18, void @empty_18, void @empty_18, i32 0, i32 0, i32 0, i32 0, void @empty_18, void @empty_18, i32 4294967295, i32 0, i32 0"   --->   Operation 4 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 5 [1/1] (0.00ns)   --->   "%specbramwithbyteenable_ln0 = specbramwithbyteenable void @_ssdm_op_SpecBRAMWithByteEnable, i16 %move"   --->   Operation 5 'specbramwithbyteenable' 'specbramwithbyteenable_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%this_count_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %this_count_read" [/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:0]   --->   Operation 6 'read' 'this_count_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 7 [1/2] (6.53ns)   --->   "%call_ln0 = call void @push_back_Pipeline_VITIS_LOOP_601_1, i16 %move, i512 %moveStream"   --->   Operation 7 'call' 'call_ln0' <Predicate = true> <Delay = 6.53> <CoreType = "Generic">   --->   Generic Core
+ST_2 : Operation 8 [1/1] (1.01ns)   --->   "%add_ln613 = add i32 %this_count_read_1, i32 1" [/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:613]   --->   Operation 8 'add' 'add_ln613' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%ret_ln614 = ret i32 %add_ln613" [/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:614]   --->   Operation 9 'ret' 'ret_ln614' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 0.000ns
+The critical path consists of the following:
+
+ <State 2>: 6.534ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'push_back_Pipeline_VITIS_LOOP_601_1' [7]  (6.534 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

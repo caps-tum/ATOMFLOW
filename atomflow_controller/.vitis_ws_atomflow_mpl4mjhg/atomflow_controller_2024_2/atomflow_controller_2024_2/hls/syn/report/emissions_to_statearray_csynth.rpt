@@ -1,0 +1,180 @@
+
+
+================================================================
+== Vitis HLS Report for 'emissions_to_statearray'
+================================================================
+* Date:           Thu Mar 26 11:03:32 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.742 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |   Interval  | Pipeline|
+    |   min   |   max   |    min   |    max   | min |  max  |   Type  |
+    +---------+---------+----------+----------+-----+-------+---------+
+    |       50|    52048|  0.500 us|  0.520 ms|   50|  52048|       no|
+    +---------+---------+----------+----------+-----+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------------------------------------+---------------------------------------------------+---------+---------+-----------+-----------+-----+-------+------------------------------------------------+
+        |                                                             |                                                   |  Latency (cycles) |   Latency (absolute)  |   Interval  |                    Pipeline                    |
+        |                           Instance                          |                       Module                      |   min   |   max   |    min    |    max    | min |  max  |                      Type                      |
+        +-------------------------------------------------------------+---------------------------------------------------+---------+---------+-----------+-----------+-----+-------+------------------------------------------------+
+        |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_342_1_fu_70  |emissions_to_statearray_Pipeline_VITIS_LOOP_342_1  |        3|    25002|  30.000 ns|   0.250 ms|    2|  25001|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_348_2_fu_77  |emissions_to_statearray_Pipeline_VITIS_LOOP_348_2  |        2|    25002|  20.000 ns|   0.250 ms|    1|  25001|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_20_1_fu_84   |emissions_to_statearray_Pipeline_VITIS_LOOP_20_1   |       40|     2039|   0.400 us|  20.390 us|    2|   2001|  loop auto-rewind stp (delay=0 clock cycles(s))|
+        +-------------------------------------------------------------+---------------------------------------------------+---------+---------+-----------+-----------+-----+-------+------------------------------------------------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       -|       -|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     5|    4944|    4082|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|     117|    -|
+|Register         |        -|     -|     285|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     5|    5229|    4199|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     2160|  4272|  850560|  425280|   80|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|    ~0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------------------------------------+---------------------------------------------------+---------+----+------+------+-----+
+    |                           Instance                          |                       Module                      | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-------------------------------------------------------------+---------------------------------------------------+---------+----+------+------+-----+
+    |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_20_1_fu_84   |emissions_to_statearray_Pipeline_VITIS_LOOP_20_1   |        0|   1|  4910|  3871|    0|
+    |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_342_1_fu_70  |emissions_to_statearray_Pipeline_VITIS_LOOP_342_1  |        0|   0|    17|   120|    0|
+    |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_348_2_fu_77  |emissions_to_statearray_Pipeline_VITIS_LOOP_348_2  |        0|   0|    17|    71|    0|
+    |mul_32s_32s_64_1_1_U490                                      |mul_32s_32s_64_1_1                                 |        0|   4|     0|    20|    0|
+    +-------------------------------------------------------------+---------------------------------------------------+---------+----+------+------+-----+
+    |Total                                                        |                                                   |        0|   5|  4944|  4082|    0|
+    +-------------------------------------------------------------+---------------------------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                   |  37|          7|    1|          7|
+    |stateArray_data_s_address1  |  20|          4|   15|         60|
+    |stateArray_data_s_ce1       |  20|          4|    1|          4|
+    |stateArray_data_s_d1        |  20|          4|    1|          4|
+    |stateArray_data_s_we1       |  20|          4|    1|          4|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       | 117|         23|   19|         79|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------------------------------------+----+----+-----+-----------+
+    |                                   Name                                   | FF | LUT| Bits| Const Bits|
+    +--------------------------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                                 |   6|   0|    6|          0|
+    |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_20_1_fu_84_ap_start_reg   |   1|   0|    1|          0|
+    |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_342_1_fu_70_ap_start_reg  |   1|   0|    1|          0|
+    |grp_emissions_to_statearray_Pipeline_VITIS_LOOP_348_2_fu_77_ap_start_reg  |   1|   0|    1|          0|
+    |i_reg_187                                                                 |  64|   0|   64|          0|
+    |sext_ln18_15_reg_177                                                      |  64|   0|   64|          0|
+    |sext_ln18_reg_172                                                         |  64|   0|   64|          0|
+    |trunc_ln0_reg_182                                                         |  15|   0|   15|          0|
+    |trunc_ln25_2_reg_212                                                      |  23|   0|   23|          0|
+    |trunc_ln25_reg_207                                                        |  31|   0|   31|          0|
+    |trunc_ln348_reg_192                                                       |  15|   0|   15|          0|
+    +--------------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                                     | 285|   0|  285|          0|
+    +--------------------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+-------------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |      Source Object      |    C Type    |
++----------------------------+-----+-----+------------+-------------------------+--------------+
+|ap_clk                      |   in|    1|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|ap_rst                      |   in|    1|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|ap_start                    |   in|    1|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|ap_done                     |  out|    1|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|ap_idle                     |  out|    1|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|ap_ready                    |  out|    1|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|ap_return_0                 |  out|   64|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|ap_return_1                 |  out|   64|  ap_ctrl_hs|  emissions_to_statearray|  return value|
+|emissions_0_address0        |  out|    8|   ap_memory|              emissions_0|         array|
+|emissions_0_ce0             |  out|    1|   ap_memory|              emissions_0|         array|
+|emissions_0_q0              |   in|   32|   ap_memory|              emissions_0|         array|
+|emissions_1_address0        |  out|    8|   ap_memory|              emissions_1|         array|
+|emissions_1_ce0             |  out|    1|   ap_memory|              emissions_1|         array|
+|emissions_1_q0              |   in|   32|   ap_memory|              emissions_1|         array|
+|emissions_2_address0        |  out|    8|   ap_memory|              emissions_2|         array|
+|emissions_2_ce0             |  out|    1|   ap_memory|              emissions_2|         array|
+|emissions_2_q0              |   in|   32|   ap_memory|              emissions_2|         array|
+|emissions_3_address0        |  out|    8|   ap_memory|              emissions_3|         array|
+|emissions_3_ce0             |  out|    1|   ap_memory|              emissions_3|         array|
+|emissions_3_q0              |   in|   32|   ap_memory|              emissions_3|         array|
+|emissions_4_address0        |  out|    8|   ap_memory|              emissions_4|         array|
+|emissions_4_ce0             |  out|    1|   ap_memory|              emissions_4|         array|
+|emissions_4_q0              |   in|   32|   ap_memory|              emissions_4|         array|
+|emissions_5_address0        |  out|    8|   ap_memory|              emissions_5|         array|
+|emissions_5_ce0             |  out|    1|   ap_memory|              emissions_5|         array|
+|emissions_5_q0              |   in|   32|   ap_memory|              emissions_5|         array|
+|emissions_6_address0        |  out|    8|   ap_memory|              emissions_6|         array|
+|emissions_6_ce0             |  out|    1|   ap_memory|              emissions_6|         array|
+|emissions_6_q0              |   in|   32|   ap_memory|              emissions_6|         array|
+|emissions_7_address0        |  out|    8|   ap_memory|              emissions_7|         array|
+|emissions_7_ce0             |  out|    1|   ap_memory|              emissions_7|         array|
+|emissions_7_q0              |   in|   32|   ap_memory|              emissions_7|         array|
+|atomLocationsSize           |   in|   32|     ap_none|        atomLocationsSize|        scalar|
+|stateArray_rows_write       |   in|   32|     ap_none|    stateArray_rows_write|        scalar|
+|stateArray_cols_write       |   in|   32|     ap_none|    stateArray_cols_write|        scalar|
+|threshold                   |   in|   32|     ap_none|                threshold|        scalar|
+|stateArray_data_s_address1  |  out|   15|   ap_memory|        stateArray_data_s|         array|
+|stateArray_data_s_ce1       |  out|    1|   ap_memory|        stateArray_data_s|         array|
+|stateArray_data_s_we1       |  out|    1|   ap_memory|        stateArray_data_s|         array|
+|stateArray_data_s_d1        |  out|    1|   ap_memory|        stateArray_data_s|         array|
++----------------------------+-----+-----+------------+-------------------------+--------------+
+

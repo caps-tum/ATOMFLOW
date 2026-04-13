@@ -1,0 +1,11 @@
+{
+  "name": "atomflow_controller_2024_2",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "../../hls_config_atomflow.cfg"
+    ],
+    "work_dir": "atomflow_controller_2024_2"
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "0": {
+    "basicblocks": 15,
+    "calls": "15 17 20 9",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 60,
+    "instructions": 217,
+    "loads": {
+      "L": 13
+    },
+    "name": "atomflow_controller",
+    "stores": {
+      "L": 7,
+      "T": 2
+    },
+    "total_instructions": 27518
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 194,
+    "instructions": 4,
+    "name": "post_process",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 4
+  },
+  "10": {
+    "basicblocks": 47,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 593,
+    "instructions": 511,
+    "loads": {
+      "L": 1
+    },
+    "name": "push_back",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 511
+  },
+  "11": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 54,
+    "instructions": 24,
+    "name": "__hls_fptosi_double_i16",
+    "total_instructions": 24
+  },
+  "12": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 56,
+    "instructions": 358,
+    "name": "Image_extract_next",
+    "stores": {
+      "L": 63
+    },
+    "total_instructions": 366
+  },
+  "13": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 131,
+    "instructions": 63,
+    "loads": {
+      "L": 31
+    },
+    "name": "vector_sum",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 63
+  },
+  "14": {
+    "basicblocks": 30,
+    "calls": "7 10",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 391,
+    "instructions": 677,
+    "loads": {
+      "L": 99
+    },
+    "name": "clearFirstNRowsOrCols<HLSMoveStream>",
+    "stores": {
+      "L": 116
+    },
+    "total_instructions": 1400
+  },
+  "15": {
+    "basicblocks": 4,
+    "calls": "22",
+    "file": "image_analysis.cpp",
+    "fileloc": 199,
+    "instructions": 9,
+    "name": "reconstruct",
+    "total_instructions": 14048
+  },
+  "16": {
+    "basicblocks": 1,
+    "calls": "2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 5",
+    "file": "image_analysis.cpp",
+    "fileloc": 174,
+    "instructions": 2018,
+    "name": "matrix_sum_prod",
+    "total_instructions": 12870
+  },
+  "17": {
+    "basicblocks": 12,
+    "calls": "",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 9,
+    "instructions": 66,
+    "loads": {
+      "L": 8
+    },
+    "name": "emissions_to_statearray",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 66
+  },
+  "18": {
+    "basicblocks": 47,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1410,
+    "instructions": 252,
+    "loads": {
+      "L": 18
+    },
+    "name": "findUnusableAtoms",
+    "stores": {
+      "L": 42
+    },
+    "total_instructions": 252
+  },
+  "19": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 51,
+    "instructions": 24,
+    "name": "__hls_fptosi_float_i32",
+    "total_instructions": 24
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "13 13",
+    "file": "image_analysis.cpp",
+    "fileloc": 161,
+    "instructions": 220,
+    "loads": {
+      "L": 62
+    },
+    "name": "vector_sum_prod",
+    "stores": {
+      "L": 62
+    },
+    "total_instructions": 346
+  },
+  "20": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 33,
+    "instructions": 48,
+    "name": "load_target_geometry",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 48
+  },
+  "21": {
+    "basicblocks": 75,
+    "calls": "7 10",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1557,
+    "instructions": 1157,
+    "loads": {
+      "L": 192
+    },
+    "name": "resolveSortingDeficiencies<HLSMoveStream>",
+    "stores": {
+      "L": 216
+    },
+    "total_instructions": 1880
+  },
+  "22": {
+    "basicblocks": 10,
+    "calls": "8 12 16 1 1 1 1 1 1 1 1",
+    "file": "image_analysis.cpp",
+    "fileloc": 0,
+    "instructions": 430,
+    "loads": {
+      "L": 3
+    },
+    "name": "_Z11reconstructiiiP13atom_locationiiN3hls10burst_maxiI7ap_uintILi512EEEEPfPiS5_iiS6__for.inc",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 14039
+  },
+  "3": {
+    "basicblocks": 272,
+    "calls": "7 10 7 10 11 11 11 11 6 6 7 10 7 10",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 0,
+    "instructions": 6268,
+    "loads": {
+      "L": 1179
+    },
+    "name": "_Z29sortArray_impl_state_accessorI13HLSMoveStreamEbR7Array2DmmmmmmS2_RT__",
+    "stores": {
+      "L": 1244
+    },
+    "total_instructions": 9320
+  },
+  "4": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "hls_round.h",
+    "fileloc": 159,
+    "instructions": 38,
+    "loads": {
+      "G": 2
+    },
+    "name": "generic_round<float>",
+    "total_instructions": 38
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 131,
+    "instructions": 63,
+    "loads": {
+      "L": 31
+    },
+    "name": "vector_sum",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 63
+  },
+  "6": {
+    "basicblocks": 10,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 2050,
+    "instructions": 32,
+    "loads": {
+      "L": 2
+    },
+    "name": "hlsSort",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 32
+  },
+  "7": {
+    "basicblocks": 44,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 2103,
+    "instructions": 212,
+    "name": "execute",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 212
+  },
+  "8": {
+    "basicblocks": 3,
+    "calls": "4 19 4 19 4 19 4 19",
+    "file": "image_analysis.cpp",
+    "fileloc": 9,
+    "instructions": 62,
+    "name": "getLocalImages_single",
+    "total_instructions": 341
+  },
+  "9": {
+    "basicblocks": 5,
+    "calls": "18 14 3 21",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1760,
+    "instructions": 287,
+    "loads": {
+      "L": 1
+    },
+    "name": "sortArray_impl_state_accessor<HLSMoveStream>",
+    "total_instructions": 13139
+  }
+}

@@ -1,0 +1,500 @@
+<stg><name>sortRemainingRowsOrCols<HLSMoveStream>_Pipeline_VITIS_LOOP_1106_36</name>
+
+
+<trans_list>
+
+<trans id="37" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="2">
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="5" op_0_bw="32">
+<![CDATA[
+newFuncRoot:0 %i = alloca i32 1
+
+]]></Node>
+<StgValue><ssdm name="i"/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+newFuncRoot:1 %sub1043_i_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %sub1043_i
+
+]]></Node>
+<StgValue><ssdm name="sub1043_i_read"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="5" op_0_bw="5" op_1_bw="5">
+<![CDATA[
+newFuncRoot:2 %prefetchCountParking_1_read = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %prefetchCountParking_1
+
+]]></Node>
+<StgValue><ssdm name="prefetchCountParking_1_read"/></StgValue>
+</operation>
+
+<operation id="8" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="8" bw="0" op_0_bw="5" op_1_bw="5">
+<![CDATA[
+newFuncRoot:3 %store_ln1106 = store i5 0, i5 %i
+
+]]></Node>
+<StgValue><ssdm name="store_ln1106"/></StgValue>
+</operation>
+
+<operation id="9" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="9" bw="0" op_0_bw="0">
+<![CDATA[
+newFuncRoot:4 %br_ln0 = br void %for.inc1048.i
+
+]]></Node>
+<StgValue><ssdm name="br_ln0"/></StgValue>
+</operation>
+
+<operation id="10" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="11" bw="5" op_0_bw="5" op_1_bw="0">
+<![CDATA[
+for.inc1048.i:0 %i_33 = load i5 %i
+
+]]></Node>
+<StgValue><ssdm name="i_33"/></StgValue>
+</operation>
+
+<operation id="11" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="12" bw="1" op_0_bw="5" op_1_bw="5">
+<![CDATA[
+for.inc1048.i:1 %icmp_ln1106 = icmp_eq  i5 %i_33, i5 %prefetchCountParking_1_read
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln1106"/></StgValue>
+</operation>
+
+<operation id="12" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<![CDATA[
+for.inc1048.i:2 %speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 1, i64 16, i64 8
+
+]]></Node>
+<StgValue><ssdm name="speclooptripcount_ln0"/></StgValue>
+</operation>
+
+<operation id="13" st_id="1" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="5" op_0_bw="5" op_1_bw="5">
+<![CDATA[
+for.inc1048.i:3 %i_34 = add i5 %i_33, i5 1
+
+]]></Node>
+<StgValue><ssdm name="i_34"/></StgValue>
+</operation>
+
+<operation id="14" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+for.inc1048.i:4 %br_ln1106 = br i1 %icmp_ln1106, void %for.inc1048.i.split, void %for.body1058.i.preheader.exitStub
+
+]]></Node>
+<StgValue><ssdm name="br_ln1106"/></StgValue>
+</operation>
+
+<operation id="15" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln1106" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="8" op_0_bw="5">
+<![CDATA[
+for.inc1048.i.split:1 %zext_ln1106_1 = zext i5 %i_33
+
+]]></Node>
+<StgValue><ssdm name="zext_ln1106_1"/></StgValue>
+</operation>
+
+<operation id="16" st_id="1" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln1106" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+for.inc1048.i.split:4 %sub_ln1111 = sub i8 %sub1043_i_read, i8 %zext_ln1106_1
+
+]]></Node>
+<StgValue><ssdm name="sub_ln1111"/></StgValue>
+</operation>
+
+<operation id="17" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln1106" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="22" bw="64" op_0_bw="8">
+<![CDATA[
+for.inc1048.i.split:5 %zext_ln1111 = zext i8 %sub_ln1111
+
+]]></Node>
+<StgValue><ssdm name="zext_ln1111"/></StgValue>
+</operation>
+
+<operation id="18" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln1106" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="23" bw="8" op_0_bw="64" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+for.inc1048.i.split:6 %parkingSpotsRemainingAtCurrentIndexXC_data_addr = getelementptr i64 %parkingSpotsRemainingAtCurrentIndexXC_data, i64 0, i64 %zext_ln1111
+
+]]></Node>
+<StgValue><ssdm name="parkingSpotsRemainingAtCurrentIndexXC_data_addr"/></StgValue>
+</operation>
+
+<operation id="19" st_id="1" stage="2" lat="2">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln1106" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="64" op_0_bw="8">
+<![CDATA[
+for.inc1048.i.split:7 %parkingSpotsRemainingAtCurrentIndexXC_data_load = load i8 %parkingSpotsRemainingAtCurrentIndexXC_data_addr
+
+]]></Node>
+<StgValue><ssdm name="parkingSpotsRemainingAtCurrentIndexXC_data_load"/></StgValue>
+</operation>
+
+<operation id="20" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln1106" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="27" bw="0" op_0_bw="5" op_1_bw="5" op_2_bw="0" op_3_bw="0">
+<![CDATA[
+for.inc1048.i.split:10 %store_ln1106 = store i5 %i_34, i5 %i
+
+]]></Node>
+<StgValue><ssdm name="store_ln1106"/></StgValue>
+</operation>
+
+<operation id="28" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln1106" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="30" bw="0">
+<![CDATA[
+for.body1058.i.preheader.exitStub:0 %ret_ln0 = ret
+
+]]></Node>
+<StgValue><ssdm name="ret_ln0"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="3">
+
+<operation id="21" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="17" bw="64" op_0_bw="5">
+<![CDATA[
+for.inc1048.i.split:0 %zext_ln1106 = zext i5 %i_33
+
+]]></Node>
+<StgValue><ssdm name="zext_ln1106"/></StgValue>
+</operation>
+
+<operation id="22" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="19" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
+<![CDATA[
+for.inc1048.i.split:2 %specpipeline_ln1108 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_18
+
+]]></Node>
+<StgValue><ssdm name="specpipeline_ln1108"/></StgValue>
+</operation>
+
+<operation id="23" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+for.inc1048.i.split:3 %specloopname_ln1106 = specloopname void @_ssdm_op_SpecLoopName, void @empty_52
+
+]]></Node>
+<StgValue><ssdm name="specloopname_ln1106"/></StgValue>
+</operation>
+
+<operation id="24" st_id="2" stage="1" lat="2">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="64" op_0_bw="8">
+<![CDATA[
+for.inc1048.i.split:7 %parkingSpotsRemainingAtCurrentIndexXC_data_load = load i8 %parkingSpotsRemainingAtCurrentIndexXC_data_addr
+
+]]></Node>
+<StgValue><ssdm name="parkingSpotsRemainingAtCurrentIndexXC_data_load"/></StgValue>
+</operation>
+
+<operation id="25" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="25" bw="4" op_0_bw="64" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+for.inc1048.i.split:8 %parkBackBuf_addr = getelementptr i64 %parkBackBuf, i64 0, i64 %zext_ln1106
+
+]]></Node>
+<StgValue><ssdm name="parkBackBuf_addr"/></StgValue>
+</operation>
+
+<operation id="26" st_id="2" stage="1" lat="1">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="26" bw="0" op_0_bw="64" op_1_bw="4">
+<![CDATA[
+for.inc1048.i.split:9 %store_ln1111 = store i64 %parkingSpotsRemainingAtCurrentIndexXC_data_load, i4 %parkBackBuf_addr
+
+]]></Node>
+<StgValue><ssdm name="store_ln1111"/></StgValue>
+</operation>
+
+<operation id="27" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="28" bw="0" op_0_bw="0">
+<![CDATA[
+for.inc1048.i.split:11 %br_ln1106 = br void %for.inc1048.i
+
+]]></Node>
+<StgValue><ssdm name="br_ln1106"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="38" name="prefetchCountParking_1" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="prefetchCountParking_1"/></StgValue>
+</port>
+<port id="39" name="sub1043_i" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="sub1043_i"/></StgValue>
+</port>
+<port id="40" name="parkingSpotsRemainingAtCurrentIndexXC_data" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="parkingSpotsRemainingAtCurrentIndexXC_data"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="41" name="parkBackBuf" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="parkBackBuf"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="43" from="StgValue_42" to="i" fromId="42" toId="5">
+</dataflow>
+<dataflow id="45" from="_ssdm_op_Read.ap_auto.i8" to="sub1043_i_read" fromId="44" toId="6">
+</dataflow>
+<dataflow id="46" from="sub1043_i" to="sub1043_i_read" fromId="39" toId="6">
+</dataflow>
+<dataflow id="48" from="_ssdm_op_Read.ap_auto.i5" to="prefetchCountParking_1_read" fromId="47" toId="7">
+</dataflow>
+<dataflow id="49" from="prefetchCountParking_1" to="prefetchCountParking_1_read" fromId="38" toId="7">
+</dataflow>
+<dataflow id="51" from="StgValue_50" to="store_ln1106" fromId="50" toId="8">
+</dataflow>
+<dataflow id="52" from="i" to="store_ln1106" fromId="5" toId="8">
+</dataflow>
+<dataflow id="53" from="i" to="i_33" fromId="5" toId="10">
+</dataflow>
+<dataflow id="54" from="i_33" to="icmp_ln1106" fromId="10" toId="11">
+</dataflow>
+<dataflow id="55" from="prefetchCountParking_1_read" to="icmp_ln1106" fromId="7" toId="11">
+</dataflow>
+<dataflow id="57" from="_ssdm_op_SpecLoopTripCount" to="speclooptripcount_ln0" fromId="56" toId="12">
+</dataflow>
+<dataflow id="59" from="StgValue_58" to="speclooptripcount_ln0" fromId="58" toId="12">
+</dataflow>
+<dataflow id="61" from="StgValue_60" to="speclooptripcount_ln0" fromId="60" toId="12">
+</dataflow>
+<dataflow id="63" from="StgValue_62" to="speclooptripcount_ln0" fromId="62" toId="12">
+</dataflow>
+<dataflow id="64" from="i_33" to="i_34" fromId="10" toId="13">
+</dataflow>
+<dataflow id="66" from="StgValue_65" to="i_34" fromId="65" toId="13">
+</dataflow>
+<dataflow id="67" from="icmp_ln1106" to="br_ln1106" fromId="11" toId="14">
+</dataflow>
+<dataflow id="68" from="i_33" to="zext_ln1106_1" fromId="10" toId="15">
+</dataflow>
+<dataflow id="69" from="sub1043_i_read" to="sub_ln1111" fromId="6" toId="16">
+</dataflow>
+<dataflow id="70" from="zext_ln1106_1" to="sub_ln1111" fromId="15" toId="16">
+</dataflow>
+<dataflow id="71" from="sub_ln1111" to="zext_ln1111" fromId="16" toId="17">
+</dataflow>
+<dataflow id="72" from="parkingSpotsRemainingAtCurrentIndexXC_data" to="parkingSpotsRemainingAtCurrentIndexXC_data_addr" fromId="40" toId="18">
+</dataflow>
+<dataflow id="74" from="StgValue_73" to="parkingSpotsRemainingAtCurrentIndexXC_data_addr" fromId="73" toId="18">
+</dataflow>
+<dataflow id="75" from="zext_ln1111" to="parkingSpotsRemainingAtCurrentIndexXC_data_addr" fromId="17" toId="18">
+</dataflow>
+<dataflow id="76" from="parkingSpotsRemainingAtCurrentIndexXC_data_addr" to="parkingSpotsRemainingAtCurrentIndexXC_data_load" fromId="18" toId="19">
+</dataflow>
+<dataflow id="77" from="i_34" to="store_ln1106" fromId="13" toId="20">
+</dataflow>
+<dataflow id="78" from="i" to="store_ln1106" fromId="5" toId="20">
+</dataflow>
+<dataflow id="79" from="i_33" to="zext_ln1106" fromId="10" toId="21">
+</dataflow>
+<dataflow id="81" from="_ssdm_op_SpecPipeline" to="specpipeline_ln1108" fromId="80" toId="22">
+</dataflow>
+<dataflow id="82" from="StgValue_42" to="specpipeline_ln1108" fromId="42" toId="22">
+</dataflow>
+<dataflow id="84" from="StgValue_83" to="specpipeline_ln1108" fromId="83" toId="22">
+</dataflow>
+<dataflow id="85" from="StgValue_83" to="specpipeline_ln1108" fromId="83" toId="22">
+</dataflow>
+<dataflow id="86" from="StgValue_83" to="specpipeline_ln1108" fromId="83" toId="22">
+</dataflow>
+<dataflow id="88" from="empty_18" to="specpipeline_ln1108" fromId="87" toId="22">
+</dataflow>
+<dataflow id="90" from="_ssdm_op_SpecLoopName" to="specloopname_ln1106" fromId="89" toId="23">
+</dataflow>
+<dataflow id="92" from="empty_52" to="specloopname_ln1106" fromId="91" toId="23">
+</dataflow>
+<dataflow id="93" from="parkingSpotsRemainingAtCurrentIndexXC_data_addr" to="parkingSpotsRemainingAtCurrentIndexXC_data_load" fromId="18" toId="24">
+</dataflow>
+<dataflow id="94" from="parkBackBuf" to="parkBackBuf_addr" fromId="41" toId="25">
+</dataflow>
+<dataflow id="95" from="StgValue_73" to="parkBackBuf_addr" fromId="73" toId="25">
+</dataflow>
+<dataflow id="96" from="zext_ln1106" to="parkBackBuf_addr" fromId="21" toId="25">
+</dataflow>
+<dataflow id="97" from="parkingSpotsRemainingAtCurrentIndexXC_data_load" to="store_ln1111" fromId="24" toId="26">
+</dataflow>
+<dataflow id="98" from="parkBackBuf_addr" to="store_ln1111" fromId="25" toId="26">
+</dataflow>
+<dataflow id="99" from="icmp_ln1106" to="StgValue_2" fromId="11" toId="2">
+</dataflow>
+</dataflows>
+
+
+</stg>

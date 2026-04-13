@@ -1,0 +1,1143 @@
+---
+MainSourceFile:  /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          1481147
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          1481617
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          1482088
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1248_1:  '
+    FileOffset:      1248
+    FilePath:        /tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_fixed_base.h
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          1766119
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1248_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_231_1:  '
+    FileOffset:      231
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2134604
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_231_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_246_1:  '
+    FileOffset:      246
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2134876
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_246_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_252_2:  '
+    FileOffset:      252
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2135000
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_252_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_263_1:  '
+    FileOffset:      263
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2135216
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_263_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_274_1:  '
+    FileOffset:      274
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2135445
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_274_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_286_1:  '
+    FileOffset:      286
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2135690
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_286_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_299_1:  '
+    FileOffset:      299
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2135961
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_299_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_342_1:  '
+    FileOffset:      342
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2136661
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_342_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_348_2:  '
+    FileOffset:      348
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2136785
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_348_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_360_1:  '
+    FileOffset:      360
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2136983
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_360_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_372_1:  '
+    FileOffset:      372
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2137167
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_372_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_434_1:  '
+    FileOffset:      434
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2138243
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_434_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_454_1:  '
+    FileOffset:      454
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2138529
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_454_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_517_1:  '
+    FileOffset:      517
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2139992
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_517_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_520_1:  '
+    FileOffset:      520
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2140103
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_520_1: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      553
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      559
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_601_1:  '
+    FileOffset:      601
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2141554
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_601_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_605_2:  '
+    FileOffset:      605
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.hpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2141694
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_605_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_51_1:  '
+    FileOffset:      51
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2412250
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_51_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_57_2:  '
+    FileOffset:      57
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2412379
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_57_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_106_1:  '
+    FileOffset:      106
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2413097
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_106_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_182_1:  '
+    FileOffset:      182
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2414112
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_182_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_206_1:  '
+    FileOffset:      206
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2414606
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_206_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_229_1:  '
+    FileOffset:      229
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2414932
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_229_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_260_1:  '
+    FileOffset:      260
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2415623
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_260_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_341_1:  '
+    FileOffset:      341
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2416817
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_341_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_407_1:  '
+    FileOffset:      407
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2417870
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_407_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_421_2:  '
+    FileOffset:      421
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2418135
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_421_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_435_3:  '
+    FileOffset:      435
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2418569
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_435_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_459_4:  '
+    FileOffset:      459
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2419154
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_459_4: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      518
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      519
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      520
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_525_1:  '
+    FileOffset:      525
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2420896
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_525_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_533_2:  '
+    FileOffset:      533
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2421130
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_533_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_549_3:  '
+    FileOffset:      549
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2421596
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_549_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_559_4:  '
+    FileOffset:      559
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2421815
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_559_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_609_5:  '
+    FileOffset:      609
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2423406
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_609_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_643_6:  '
+    FileOffset:      643
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2424508
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_643_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_658_7:  '
+    FileOffset:      658
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2424968
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_658_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_666_8:  '
+    FileOffset:      666
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2425190
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_666_8: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_684_9:  '
+    FileOffset:      684
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2425657
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_684_9: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_706_10:  '
+    FileOffset:      706
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2426501
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_706_10: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_726_11:  '
+    FileOffset:      726
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2427233
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_726_11: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_734_12:  '
+    FileOffset:      734
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2427501
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_734_12: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_752_13:  '
+    FileOffset:      752
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2428226
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_752_13: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_772_14:  '
+    FileOffset:      772
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2428954
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_772_14: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_780_15:  '
+    FileOffset:      780
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2429222
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_780_15: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_804_16:  '
+    FileOffset:      804
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2429886
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_804_16: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_823_17:  '
+    FileOffset:      823
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2430396
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_823_17: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_841_18:  '
+    FileOffset:      841
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2431116
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_841_18: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_866_19:  '
+    FileOffset:      866
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2431944
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_866_19: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_875_20:  '
+    FileOffset:      875
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2432138
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_875_20: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_914_21:  '
+    FileOffset:      914
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2434110
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_914_21: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_921_22:  '
+    FileOffset:      921
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2434329
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_921_22: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_929_23:  '
+    FileOffset:      929
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2434568
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_929_23: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_936_24:  '
+    FileOffset:      936
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2434803
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_936_24: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_944_25:  '
+    FileOffset:      944
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2435059
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_944_25: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      985
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      986
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_991_26:  '
+    FileOffset:      991
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2437211
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_991_26: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_998_27:  '
+    FileOffset:      998
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2437506
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_998_27: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1009_28:  '
+    FileOffset:      1009
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2437827
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1009_28: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1016_29:  '
+    FileOffset:      1016
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2438143
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1016_29: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1028_30:  '
+    FileOffset:      1028
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2438548
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1028_30: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1043_31:  '
+    FileOffset:      1043
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2439176
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1043_31: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1050_32:  '
+    FileOffset:      1050
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2439422
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1050_32: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1085_33:  '
+    FileOffset:      1085
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2441222
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1085_33: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1092_34:  '
+    FileOffset:      1092
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2441441
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1092_34: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1099_35:  '
+    FileOffset:      1099
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2441679
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1099_35: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1106_36:  '
+    FileOffset:      1106
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2441914
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1106_36: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1114_37:  '
+    FileOffset:      1114
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2442170
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1114_37: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1155
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1156
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1161_38:  '
+    FileOffset:      1161
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2444326
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1161_38: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1168_39:  '
+    FileOffset:      1168
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2444622
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1168_39: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1179_40:  '
+    FileOffset:      1179
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2444944
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1179_40: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1186_41:  '
+    FileOffset:      1186
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2445261
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1186_41: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1198_42:  '
+    FileOffset:      1198
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2445667
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1198_42: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1213_43:  '
+    FileOffset:      1213
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2446295
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1213_43: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1220_44:  '
+    FileOffset:      1220
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2446541
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1220_44: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1292_45:  '
+    FileOffset:      1292
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2449841
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1292_45: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1300_46:  '
+    FileOffset:      1300
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2450109
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1300_46: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1310_47:  '
+    FileOffset:      1310
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2450375
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1310_47: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1316_48:  '
+    FileOffset:      1316
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2450581
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1316_48: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1331_49:  '
+    FileOffset:      1331
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2451339
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1331_49: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1339_50:  '
+    FileOffset:      1339
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2451607
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1339_50: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1349_51:  '
+    FileOffset:      1349
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2451873
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1349_51: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1356_52:  '
+    FileOffset:      1356
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2452119
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1356_52: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1378_53:  '
+    FileOffset:      1378
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2452743
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1378_53: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1418
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1419
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1420
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1422
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1423
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1436_1:  '
+    FileOffset:      1436
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2453927
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1436_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1446_2:  '
+    FileOffset:      1446
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2454151
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1446_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1453_3:  '
+    FileOffset:      1453
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2454312
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1453_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1474_4:  '
+    FileOffset:      1474
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2454997
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1474_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1490_5:  '
+    FileOffset:      1490
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2455661
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1490_5: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1568
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1569
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1585_1:  '
+    FileOffset:      1585
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2458234
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1585_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1598_2:  '
+    FileOffset:      1598
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2458530
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1598_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1607_3:  '
+    FileOffset:      1607
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2458751
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1607_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1644_4:  '
+    FileOffset:      1644
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2460161
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1644_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1665_5:  '
+    FileOffset:      1665
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2460925
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1665_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1672_6:  '
+    FileOffset:      1672
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2461157
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1672_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1695_7:  '
+    FileOffset:      1695
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2462101
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1695_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1716_8:  '
+    FileOffset:      1716
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2462865
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1716_8: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1723_9:  '
+    FileOffset:      1723
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2463097
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1723_9: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1817
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1818
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      1819
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2060_1:  '
+    FileOffset:      2060
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2468394
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2060_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2070_2:  '
+    FileOffset:      2070
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2468581
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2070_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2126_1:  '
+    FileOffset:      2126
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2469617
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2126_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2156_2:  '
+    FileOffset:      2156
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2470309
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2156_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2162_3:  '
+    FileOffset:      2162
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2470457
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2162_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2183_4:  '
+    FileOffset:      2183
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2471036
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2183_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2189_5:  '
+    FileOffset:      2189
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2471184
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2189_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2302_1:  '
+    FileOffset:      2302
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2474608
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2302_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2304_2:  '
+    FileOffset:      2304
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2474699
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2304_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2312_3:  '
+    FileOffset:      2312
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2474896
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2312_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2314_4:  '
+    FileOffset:      2314
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2474991
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2314_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2353_5:  '
+    FileOffset:      2353
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2475998
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2353_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2355_6:  '
+    FileOffset:      2355
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2476089
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2355_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2367_7:  '
+    FileOffset:      2367
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2476480
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2367_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2375_8:  '
+    FileOffset:      2375
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2476806
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2375_8: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_2384_9:  '
+    FileOffset:      2384
+    FilePath:        /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp
+    Replacements:    
+      - FilePath:        /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp
+        Offset:          2477167
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_2384_9: '
+...

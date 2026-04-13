@@ -1,0 +1,649 @@
+{
+  "0": {
+    "basicblocks": 7,
+    "calls": "14 26 30 26 38 16",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 60,
+    "instructions": 91,
+    "loads": {
+      "L": 2
+    },
+    "name": "atomflow_controller",
+    "stores": {
+      "L": 1,
+      "T": 3
+    },
+    "total_instructions": 28999
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 315,
+    "instructions": 5,
+    "loads": {
+      "L": 1
+    },
+    "name": "operator()",
+    "total_instructions": 5
+  },
+  "10": {
+    "basicblocks": 1,
+    "calls": "45 4 35 8",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 12,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "name": "generic_cast_IEEE754<int, AP_TRN_ZERO, double>",
+    "total_instructions": 51
+  },
+  "11": {
+    "basicblocks": 1,
+    "calls": "19",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 54,
+    "instructions": 2,
+    "name": "__hls_fptosi_double_i16",
+    "total_instructions": 58
+  },
+  "12": {
+    "basicblocks": 5,
+    "calls": "31 31 6 47 51 37",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1760,
+    "instructions": 68,
+    "name": "sortArray_impl_state_accessor<HLSMoveStream>",
+    "total_instructions": 12662
+  },
+  "13": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 2092,
+    "instructions": 3,
+    "name": "roundCoordDown",
+    "total_instructions": 3
+  },
+  "14": {
+    "basicblocks": 4,
+    "calls": "42 7 15 34",
+    "file": "image_analysis.cpp",
+    "fileloc": 199,
+    "instructions": 47,
+    "loads": {
+      "L": 3
+    },
+    "name": "reconstruct",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 16097
+  },
+  "15": {
+    "basicblocks": 1,
+    "calls": "23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 36 36",
+    "file": "image_analysis.cpp",
+    "fileloc": 174,
+    "instructions": 160,
+    "name": "matrix_sum_prod",
+    "total_instructions": 14854
+  },
+  "16": {
+    "basicblocks": 4,
+    "calls": "33 40 33 40 12",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1882,
+    "instructions": 13,
+    "name": "sortLatticeByRowParallel_HLS",
+    "total_instructions": 12683
+  },
+  "17": {
+    "basicblocks": 1,
+    "calls": "28",
+    "file": "roundfloat.cpp",
+    "fileloc": 6,
+    "instructions": 2,
+    "name": "roundf",
+    "total_instructions": 136
+  },
+  "18": {
+    "basicblocks": 3,
+    "calls": "45 4 35 8",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 12,
+    "instructions": 33,
+    "loads": {
+      "L": 1
+    },
+    "name": "generic_cast_IEEE754<short, AP_TRN_ZERO, double>",
+    "total_instructions": 54
+  },
+  "19": {
+    "basicblocks": 1,
+    "calls": "18",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 116,
+    "instructions": 2,
+    "name": "generic_cast_IEEE754<short, double>",
+    "total_instructions": 56
+  },
+  "2": {
+    "basicblocks": 10,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 2050,
+    "instructions": 32,
+    "loads": {
+      "L": 2
+    },
+    "name": "hlsSort",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 32
+  },
+  "20": {
+    "basicblocks": 1,
+    "calls": "39 39 41",
+    "file": "hls_copysign.h",
+    "fileloc": 10,
+    "instructions": 12,
+    "loads": {
+      "L": 1
+    },
+    "name": "generic_copysign<float>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 44
+  },
+  "21": {
+    "basicblocks": 1,
+    "calls": "3",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 51,
+    "instructions": 2,
+    "name": "__hls_fptosi_float_i32",
+    "total_instructions": 55
+  },
+  "22": {
+    "basicblocks": 129,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 593,
+    "instructions": 583,
+    "loads": {
+      "L": 65
+    },
+    "name": "push_back",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 583
+  },
+  "23": {
+    "basicblocks": 1,
+    "calls": "36 36",
+    "file": "image_analysis.cpp",
+    "fileloc": 161,
+    "instructions": 282,
+    "loads": {
+      "L": 62
+    },
+    "name": "vector_sum_prod",
+    "stores": {
+      "L": 62
+    },
+    "total_instructions": 468
+  },
+  "24": {
+    "basicblocks": 1,
+    "calls": "39 48 32 29",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 12,
+    "instructions": 30,
+    "loads": {
+      "L": 1
+    },
+    "name": "generic_cast_IEEE754<int, AP_TRN_ZERO, float>",
+    "total_instructions": 51
+  },
+  "25": {
+    "basicblocks": 1,
+    "calls": "10",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 116,
+    "instructions": 2,
+    "name": "generic_cast_IEEE754<int, double>",
+    "total_instructions": 53
+  },
+  "26": {
+    "basicblocks": 3,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 229,
+    "instructions": 10,
+    "name": "Array2D",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 10
+  },
+  "27": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 624,
+    "instructions": 3,
+    "loads": {
+      "L": 1
+    },
+    "name": "size",
+    "total_instructions": 3
+  },
+  "28": {
+    "basicblocks": 5,
+    "calls": "39 20 44 9 41",
+    "file": "hls_round.h",
+    "fileloc": 159,
+    "instructions": 50,
+    "loads": {
+      "G": 2,
+      "L": 5
+    },
+    "name": "generic_round<float>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 134
+  },
+  "29": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 349,
+    "instructions": 3,
+    "loads": {
+      "L": 1
+    },
+    "name": "__signbit",
+    "total_instructions": 3
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "24",
+    "file": "hls_case_IEEE754.h",
+    "fileloc": 116,
+    "instructions": 2,
+    "name": "generic_cast_IEEE754<int, float>",
+    "total_instructions": 53
+  },
+  "30": {
+    "basicblocks": 6,
+    "calls": "46 1",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 9,
+    "instructions": 26,
+    "loads": {
+      "L": 1
+    },
+    "name": "emissions_to_statearray",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 53
+  },
+  "31": {
+    "basicblocks": 1,
+    "calls": "25",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 55,
+    "instructions": 2,
+    "name": "__hls_fptosi_double_i32",
+    "total_instructions": 55
+  },
+  "32": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 316,
+    "instructions": 4,
+    "loads": {
+      "L": 1
+    },
+    "name": "expv",
+    "total_instructions": 4
+  },
+  "33": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 328,
+    "instructions": 2,
+    "loads": {
+      "L": 1
+    },
+    "name": "rows",
+    "total_instructions": 2
+  },
+  "34": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 194,
+    "instructions": 4,
+    "name": "post_process",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 4
+  },
+  "35": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 485,
+    "instructions": 4,
+    "loads": {
+      "L": 1
+    },
+    "name": "expv",
+    "total_instructions": 4
+  },
+  "36": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 131,
+    "instructions": 93,
+    "loads": {
+      "L": 31
+    },
+    "name": "vector_sum",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 93
+  },
+  "37": {
+    "basicblocks": 57,
+    "calls": "50 22",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1557,
+    "instructions": 1009,
+    "loads": {
+      "L": 179
+    },
+    "name": "resolveSortingDeficiencies<HLSMoveStream>",
+    "stores": {
+      "L": 212
+    },
+    "total_instructions": 1812
+  },
+  "38": {
+    "basicblocks": 7,
+    "calls": "46 1",
+    "file": "atomflow_controller.cpp",
+    "fileloc": 33,
+    "instructions": 28,
+    "loads": {
+      "L": 1
+    },
+    "name": "load_target_geometry",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 55
+  },
+  "39": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 283,
+    "instructions": 8,
+    "name": "fp_struct",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 8
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 503,
+    "instructions": 6,
+    "loads": {
+      "L": 1
+    },
+    "name": "mantissa",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 6
+  },
+  "40": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 330,
+    "instructions": 2,
+    "loads": {
+      "L": 1
+    },
+    "name": "cols",
+    "total_instructions": 2
+  },
+  "41": {
+    "basicblocks": 1,
+    "calls": "49",
+    "file": "x_hls_utils.h",
+    "fileloc": 346,
+    "instructions": 2,
+    "name": "to_ieee",
+    "total_instructions": 16
+  },
+  "42": {
+    "basicblocks": 1,
+    "calls": "21 21 21 21",
+    "file": "image_analysis.cpp",
+    "fileloc": 9,
+    "instructions": 39,
+    "loads": {
+      "L": 1
+    },
+    "name": "getLocalImages_single",
+    "total_instructions": 811
+  },
+  "43": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 104,
+    "instructions": 21,
+    "loads": {
+      "L": 2
+    },
+    "name": "checkStrictlyIncreasing",
+    "total_instructions": 21
+  },
+  "44": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 309,
+    "instructions": 9,
+    "loads": {
+      "L": 3
+    },
+    "name": "data",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 9
+  },
+  "45": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 456,
+    "instructions": 8,
+    "name": "fp_struct",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 8
+  },
+  "46": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "sortLatticeByRow.hpp",
+    "fileloc": 338,
+    "instructions": 22,
+    "name": "resize",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 22
+  },
+  "47": {
+    "basicblocks": 28,
+    "calls": "1 50 22",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 391,
+    "instructions": 570,
+    "loads": {
+      "L": 97
+    },
+    "name": "clearFirstNRowsOrCols<HLSMoveStream>",
+    "stores": {
+      "L": 121
+    },
+    "total_instructions": 1378
+  },
+  "48": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 340,
+    "instructions": 6,
+    "loads": {
+      "L": 1
+    },
+    "name": "mantissa",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 6
+  },
+  "49": {
+    "basicblocks": 1,
+    "calls": "44",
+    "file": "x_hls_utils.h",
+    "fileloc": 322,
+    "instructions": 5,
+    "loads": {
+      "L": 1
+    },
+    "name": "to_float",
+    "total_instructions": 14
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "image_analysis.cpp",
+    "fileloc": 26,
+    "instructions": 17,
+    "name": "convert_address",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 17
+  },
+  "50": {
+    "basicblocks": 40,
+    "calls": "43 43 33 40 13 13 1 13 13 1",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 2103,
+    "instructions": 152,
+    "loads": {
+      "L": 17
+    },
+    "name": "execute",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 220
+  },
+  "51": {
+    "basicblocks": 206,
+    "calls": "50 22 50 22 11 11 11 11 2 2 50 22 50 22",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 508,
+    "instructions": 5634,
+    "loads": {
+      "L": 1098
+    },
+    "name": "sortRemainingRowsOrCols<HLSMoveStream>",
+    "stores": {
+      "L": 1222
+    },
+    "total_instructions": 9142
+  },
+  "6": {
+    "basicblocks": 29,
+    "calls": "1 1",
+    "file": "sortLatticeByRow.cpp",
+    "fileloc": 1410,
+    "instructions": 142,
+    "loads": {
+      "L": 4
+    },
+    "name": "findUnusableAtoms",
+    "stores": {
+      "L": 28
+    },
+    "total_instructions": 152
+  },
+  "7": {
+    "basicblocks": 5,
+    "calls": "5",
+    "file": "image_analysis.cpp",
+    "fileloc": 56,
+    "instructions": 364,
+    "loads": {
+      "L": 4
+    },
+    "name": "Image_extract_next",
+    "stores": {
+      "L": 63
+    },
+    "total_instructions": 381
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 512,
+    "instructions": 3,
+    "loads": {
+      "L": 1
+    },
+    "name": "__signbit",
+    "total_instructions": 3
+  },
+  "9": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "x_hls_utils.h",
+    "fileloc": 298,
+    "instructions": 7,
+    "name": "fp_struct",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 7
+  }
+}

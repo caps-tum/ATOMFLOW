@@ -1,0 +1,111 @@
+  **** HLS Build v2024.2 5238294
+INFO: [HLS 200-2005] Using work_dir /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2 
+INFO: [HLS 200-1611] Setting target device to 'xczu49dr-ffvf1760-2-e'
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/atomflow_controller.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/atomflow_controller.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src/image_analysis.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src/image_analysis.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(10)
+INFO: [HLS 200-10] Adding design file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'syn.cflags=-std=c++14 -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(11)
+INFO: [HLS 200-1465] Applying ini 'syn.csimflags=-std=c++14 -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(12)
+INFO: [HLS 200-1465] Applying ini 'tb.file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src/tb_atomflow_controller.cpp' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(13)
+INFO: [HLS 200-10] Adding test bench file '/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src/tb_atomflow_controller.cpp' to the project
+INFO: [HLS 200-1465] Applying ini 'tb.cflags=-std=c++14 -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src -I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(14)
+INFO: [HLS 200-1465] Applying ini 'syn.top=atomflow_controller' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(7)
+INFO: [HLS 200-1465] Applying ini 'flow_target=vivado' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying ini 'part=xczu49dr-ffvf1760-2-e' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(1)
+INFO: [HLS 200-1465] Applying ini 'clock=10ns' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(15)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1465] Applying ini 'package.output.format=ip_catalog' from /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/hls_config_atomflow.cfg(5)
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+WARNING: /tools/Xilinx/Vivado/2024.2/tps/lnx64/jre11.0.16_1 does not exist.
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Thu Mar 26 11:04:30 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/hls_data.json outdir=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip srcdir=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls sort_interfaces_ports=false
+INFO: Copied 1 ipmisc file(s) to /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/misc
+INFO: Copied 142 verilog file(s) to /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/hdl/verilog
+INFO: Copied 134 vhdl file(s) to /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/drivers
+Generating 8 subcores in /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/hdl/ip.tmp:
+impl/misc/atomflow_controller_fadd_32ns_32ns_32_4_full_dsp_0_ip.tcl
+impl/misc/atomflow_controller_fcmp_32ns_32ns_1_2_no_dsp_1_ip.tcl
+impl/misc/atomflow_controller_fdiv_32ns_32ns_32_9_no_dsp_0_ip.tcl
+impl/misc/atomflow_controller_fmul_32ns_32ns_32_3_max_dsp_1_ip.tcl
+impl/misc/atomflow_controller_fsub_32ns_32ns_32_4_full_dsp_1_ip.tcl
+impl/misc/atomflow_controller_sitodp_32ns_64_4_no_dsp_1_ip.tcl
+impl/misc/atomflow_controller_sitofp_32ns_32_4_no_dsp_1_ip.tcl
+impl/misc/atomflow_controller_uitodp_64ns_64_4_no_dsp_1_ip.tcl
+INFO: Using COE_DIR=/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/hdl/verilog
+INFO: Generating atomflow_controller_fadd_32ns_32ns_32_4_full_dsp_0_ip via file impl/misc/atomflow_controller_fadd_32ns_32ns_32_4_full_dsp_0_ip.tcl
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_fadd_32ns_32ns_32_4_full_dsp_0_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_fadd_32ns_32ns_32_4_full_dsp_0_ip'...
+INFO: Done generating atomflow_controller_fadd_32ns_32ns_32_4_full_dsp_0_ip via file impl/misc/atomflow_controller_fadd_32ns_32ns_32_4_full_dsp_0_ip.tcl
+INFO: Generating atomflow_controller_fcmp_32ns_32ns_1_2_no_dsp_1_ip via file impl/misc/atomflow_controller_fcmp_32ns_32ns_1_2_no_dsp_1_ip.tcl
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_fcmp_32ns_32ns_1_2_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_fcmp_32ns_32ns_1_2_no_dsp_1_ip'...
+INFO: Done generating atomflow_controller_fcmp_32ns_32ns_1_2_no_dsp_1_ip via file impl/misc/atomflow_controller_fcmp_32ns_32ns_1_2_no_dsp_1_ip.tcl
+INFO: Generating atomflow_controller_fdiv_32ns_32ns_32_9_no_dsp_0_ip via file impl/misc/atomflow_controller_fdiv_32ns_32ns_32_9_no_dsp_0_ip.tcl
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_fdiv_32ns_32ns_32_9_no_dsp_0_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_fdiv_32ns_32ns_32_9_no_dsp_0_ip'...
+INFO: Done generating atomflow_controller_fdiv_32ns_32ns_32_9_no_dsp_0_ip via file impl/misc/atomflow_controller_fdiv_32ns_32ns_32_9_no_dsp_0_ip.tcl
+INFO: Generating atomflow_controller_fmul_32ns_32ns_32_3_max_dsp_1_ip via file impl/misc/atomflow_controller_fmul_32ns_32ns_32_3_max_dsp_1_ip.tcl
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_fmul_32ns_32ns_32_3_max_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_fmul_32ns_32ns_32_3_max_dsp_1_ip'...
+INFO: Done generating atomflow_controller_fmul_32ns_32ns_32_3_max_dsp_1_ip via file impl/misc/atomflow_controller_fmul_32ns_32ns_32_3_max_dsp_1_ip.tcl
+INFO: Generating atomflow_controller_fsub_32ns_32ns_32_4_full_dsp_1_ip via file impl/misc/atomflow_controller_fsub_32ns_32ns_32_4_full_dsp_1_ip.tcl
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_fsub_32ns_32ns_32_4_full_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_fsub_32ns_32ns_32_4_full_dsp_1_ip'...
+INFO: Done generating atomflow_controller_fsub_32ns_32ns_32_4_full_dsp_1_ip via file impl/misc/atomflow_controller_fsub_32ns_32ns_32_4_full_dsp_1_ip.tcl
+INFO: Generating atomflow_controller_sitodp_32ns_64_4_no_dsp_1_ip via file impl/misc/atomflow_controller_sitodp_32ns_64_4_no_dsp_1_ip.tcl
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_sitodp_32ns_64_4_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_sitodp_32ns_64_4_no_dsp_1_ip'...
+INFO: Done generating atomflow_controller_sitodp_32ns_64_4_no_dsp_1_ip via file impl/misc/atomflow_controller_sitodp_32ns_64_4_no_dsp_1_ip.tcl
+INFO: Generating atomflow_controller_sitofp_32ns_32_4_no_dsp_1_ip via file impl/misc/atomflow_controller_sitofp_32ns_32_4_no_dsp_1_ip.tcl
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_sitofp_32ns_32_4_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_sitofp_32ns_32_4_no_dsp_1_ip'...
+INFO: Done generating atomflow_controller_sitofp_32ns_32_4_no_dsp_1_ip via file impl/misc/atomflow_controller_sitofp_32ns_32_4_no_dsp_1_ip.tcl
+INFO: Generating atomflow_controller_uitodp_64ns_64_4_no_dsp_1_ip via file impl/misc/atomflow_controller_uitodp_64ns_64_4_no_dsp_1_ip.tcl
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'atomflow_controller_uitodp_64ns_64_4_no_dsp_1_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'atomflow_controller_uitodp_64ns_64_4_no_dsp_1_ip'...
+INFO: Done generating atomflow_controller_uitodp_64ns_64_4_no_dsp_1_ip via file impl/misc/atomflow_controller_uitodp_64ns_64_4_no_dsp_1_ip.tcl
+INFO: Import ports from HDL: /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/hdl/vhdl/atomflow_controller.vhd (atomflow_controller)
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2024.2/data/ip'.
+INFO: Add axi4full interface m_axi_gmem0
+INFO: Add axi4full interface m_axi_gmem5
+INFO: Add axi4full interface m_axi_gmem1
+INFO: Add axi4full interface m_axi_gmem2
+INFO: Add axi4full interface m_axi_gmem6
+INFO: Add axi4full interface m_axi_gmem3
+INFO: Add axi4full interface m_axi_gmem4
+INFO: Add axi4stream interface moveStream
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/component.xml
+INFO: Created IP archive /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/impl/ip/xilinx_com_hls_atomflow_controller_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 26 11:05:11 2026...
+INFO: [HLS 200-802] Generated output file atomflow_controller_2024_2/atomflow_controller.zip
+INFO: [HLS 200-112] Total CPU user time: 80.38 seconds. Total CPU system time: 1.01 seconds. Total elapsed time: 83.71 seconds; peak allocated memory: 409.281 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 1m 27s

@@ -1,0 +1,149 @@
+
+
+================================================================
+== Vitis HLS Report for 'sortRemainingRowsOrCols_HLSMoveStream_Pipeline_VITIS_LOOP_1085_33'
+================================================================
+* Date:           Sat Mar 28 14:02:29 2026
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        atomflow_controller_2024_2
+* Solution:       hls (Vivado IP Flow Target)
+* Product family: zynquplusRFSOC
+* Target device:  xczu49dr-ffvf1760-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  1.914 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min    |    max   | min | max |                      Type                      |
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+    |        2|       18|  20.000 ns|  0.180 us|    1|   17|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+-----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- VITIS_LOOP_1085_33  |        0|       16|         2|          1|          1|  0 ~ 16|       yes|
+        +----------------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.66>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 5 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %unusableInfo_usableAtoms_data, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 6 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%indexXC_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %indexXC"   --->   Operation 7 'read' 'indexXC_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%prefetchCountUsable_read = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %prefetchCountUsable"   --->   Operation 8 'read' 'prefetchCountUsable_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.42ns)   --->   "%store_ln1085 = store i5 0, i5 %i" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 9 'store' 'store_ln1085' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc1000.i"   --->   Operation 10 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%i_39 = load i5 %i" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 11 'load' 'i_39' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.78ns)   --->   "%icmp_ln1085 = icmp_eq  i5 %i_39, i5 %prefetchCountUsable_read" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 12 'icmp' 'icmp_ln1085' <Predicate = true> <Delay = 0.78> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.78ns)   --->   "%i_40 = add i5 %i_39, i5 1" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 13 'add' 'i_40' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%br_ln1085 = br i1 %icmp_ln1085, void %for.inc1000.i.split, void %VITIS_LOOP_1092_34.i.loopexit.exitStub" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 14 'br' 'br_ln1085' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_s = bitconcatenate i16 @_ssdm_op_BitConcatenate.i16.i8.i3.i5, i8 %indexXC_read, i3 0, i5 %i_39" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 15 'bitconcatenate' 'tmp_s' <Predicate = (!icmp_ln1085)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln1090 = zext i16 %tmp_s" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 16 'zext' 'zext_ln1090' <Predicate = (!icmp_ln1085)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%unusableInfo_usableAtoms_data_addr = getelementptr i32 %unusableInfo_usableAtoms_data, i64 0, i64 %zext_ln1090" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 17 'getelementptr' 'unusableInfo_usableAtoms_data_addr' <Predicate = (!icmp_ln1085)> <Delay = 0.00>
+ST_1 : Operation 18 [2/2] (1.23ns)   --->   "%unusableInfo_usableAtoms_data_load = load i16 %unusableInfo_usableAtoms_data_addr" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 18 'load' 'unusableInfo_usableAtoms_data_load' <Predicate = (!icmp_ln1085)> <Delay = 1.23> <CoreInst = "RAM_2P_BRAM">   --->   Core 93 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 65536> <RAM>
+ST_1 : Operation 19 [1/1] (0.42ns)   --->   "%store_ln1085 = store i5 %i_40, i5 %i" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 19 'store' 'store_ln1085' <Predicate = (!icmp_ln1085)> <Delay = 0.42>
+ST_1 : Operation 28 [1/1] (0.42ns)   --->   "%ret_ln0 = ret"   --->   Operation 28 'ret' 'ret_ln0' <Predicate = (icmp_ln1085)> <Delay = 0.42>
+
+State 2 <SV = 1> <Delay = 1.91>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%zext_ln1085 = zext i5 %i_39" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 20 'zext' 'zext_ln1085' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%specpipeline_ln1087 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_18" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1087->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 21 'specpipeline' 'specpipeline_ln1087' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%speclooptripcount_ln1088 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 0, i64 16, i64 8" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1088->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 22 'speclooptripcount' 'speclooptripcount_ln1088' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%specloopname_ln1085 = specloopname void @_ssdm_op_SpecLoopName, void @empty_49" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 23 'specloopname' 'specloopname_ln1085' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/2] ( I:1.23ns O:1.23ns )   --->   "%unusableInfo_usableAtoms_data_load = load i16 %unusableInfo_usableAtoms_data_addr" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 24 'load' 'unusableInfo_usableAtoms_data_load' <Predicate = true> <Delay = 1.23> <CoreInst = "RAM_2P_BRAM">   --->   Core 93 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 65536> <RAM>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%usableFrontBuf_addr = getelementptr i32 %usableFrontBuf, i64 0, i64 %zext_ln1085" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 25 'getelementptr' 'usableFrontBuf_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] ( I:0.67ns O:0.67ns )   --->   "%store_ln1090 = store i32 %unusableInfo_usableAtoms_data_load, i4 %usableFrontBuf_addr" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 26 'store' 'store_ln1090' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%br_ln1085 = br void %for.inc1000.i" [/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833]   --->   Operation 27 'br' 'br_ln1085' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10.000ns, clock uncertainty: 2.700ns.
+
+ <State 1>: 1.664ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln1085', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833) of constant 0 on local variable 'i', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833 [9]  (0.427 ns)
+	'load' operation 5 bit ('i', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833) on local variable 'i', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1085->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833 [12]  (0.000 ns)
+	'getelementptr' operation 16 bit ('unusableInfo_usableAtoms_data_addr', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833) [20]  (0.000 ns)
+	'load' operation 32 bit ('unusableInfo_usableAtoms_data_load', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833) on array 'unusableInfo_usableAtoms_data' [24]  (1.237 ns)
+
+ <State 2>: 1.914ns
+The critical path consists of the following:
+	'load' operation 32 bit ('unusableInfo_usableAtoms_data_load', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833) on array 'unusableInfo_usableAtoms_data' [24]  (1.237 ns)
+	'store' operation 0 bit ('store_ln1090', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833) of variable 'unusableInfo_usableAtoms_data_load', /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1090->/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1833 on array 'usableFrontBuf' [26]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

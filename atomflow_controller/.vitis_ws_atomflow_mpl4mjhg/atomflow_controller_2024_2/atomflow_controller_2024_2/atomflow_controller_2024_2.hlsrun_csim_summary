@@ -1,0 +1,158 @@
+<ENTRY>
+{
+ "thisFile": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/atomflow_controller_2024_2.hlsrun_csim_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Mar 26 11:02:12 2026",
+ "timestampMillis": "1774519332467",
+ "buildStep": {
+  "cmdId": "dbcf72df-e7fa-442c-b2f2-0048aff130aa",
+  "name": "vitis-run",
+  "logFile": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/logs/atomflow_controller_2024_2.steps.log",
+  "commandLine": "/tools/Xilinx/Vitis/2024.2/bin/unwrapped/lnx64.o/vitis-run  --mode hls --csim --config /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/../../hls_config_atomflow.cfg --work_dir atomflow_controller_2024_2 ",
+  "args": [
+   "--mode",
+   "hls",
+   "--csim",
+   "--config",
+   "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/../../hls_config_atomflow.cfg",
+   "--work_dir",
+   "atomflow_controller_2024_2"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Mar 26 11:02:12 2026",
+ "timestampMillis": "1774519332467",
+ "status": {
+  "cmdId": "dbcf72df-e7fa-442c-b2f2-0048aff130aa",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Mar 26 11:02:15 2026",
+ "timestampMillis": "1774519335339",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_C_SIM",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "atomflow_controller",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/atomflow_controller.cpp",
+     "/home/xiaorang/Documents/ATOMFLOW/Image_analysis/src/image_analysis.cpp",
+     "/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2024.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Mar 26 11:02:15 2026",
+ "timestampMillis": "1774519335339",
+ "buildStep": {
+  "cmdId": "65d69d92-ba40-4c62-a0dd-e2b569fc3c80",
+  "name": "",
+  "logFile": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Mar 26 11:02:15 2026",
+ "timestampMillis": "1774519335339",
+ "status": {
+  "cmdId": "65d69d92-ba40-4c62-a0dd-e2b569fc3c80",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Mar 26 11:02:21 2026",
+ "timestampMillis": "1774519341079",
+ "status": {
+  "cmdId": "65d69d92-ba40-4c62-a0dd-e2b569fc3c80",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Mar 26 11:02:21 2026",
+ "timestampMillis": "1774519341162",
+ "status": {
+  "cmdId": "dbcf72df-e7fa-442c-b2f2-0048aff130aa",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Mar 26 11:02:21 2026",
+ "timestampMillis": "1774519341162",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Mar 26 11:02:21 2026",
+ "timestampMillis": "1774519341162",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

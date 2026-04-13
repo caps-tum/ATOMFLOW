@@ -1,0 +1,815 @@
+In file included from /home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:6:
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:233:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Array2D_XLX_SEP_ PragmaOptions=min=1024 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:248:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Array2D_XLX_SEP_ PragmaOptions=min=1 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:254:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Array2D_XLX_SEP_ PragmaOptions=min=0 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:265:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Array2D_XLX_SEP_ PragmaOptions=min=1024 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:276:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Array2D_XLX_SEP_ PragmaOptions=min=1024 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:288:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=operator=_XLX_SEP_ PragmaOptions=min=1024 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:301:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=operator=_XLX_SEP_ PragmaOptions=min=1024 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:344:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resize_XLX_SEP_ PragmaOptions=min=1 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:350:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resize_XLX_SEP_ PragmaOptions=min=0 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:362:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=fill_XLX_SEP_ PragmaOptions=min=1 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:374:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clear_XLX_SEP_ PragmaOptions=min=1024 max=1024_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1024 max=1024
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:431:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Step_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:436:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_flatten_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Step_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS loop_flatten off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:437:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=Step_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:451:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=ParallelMove_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:456:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_flatten_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=ParallelMove_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS loop_flatten off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:457:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=ParallelMove_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:551:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=HLSMoveList_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:553:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=HLSMoveList_XLX_SEP_ PragmaOptions=variable=data type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=data type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:559:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clear_XLX_SEP_ PragmaOptions=variable=data type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=data type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:602:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=push_back_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:603:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=push_back_XLX_SEP_ PragmaOptions=min=N max=N_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=N max=N
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:606:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=push_back_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL
+        ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.hpp:616:37: warning: unused parameter 'i' [-Wunused-parameter]
+    ParallelMove& operator[](size_t i) {
+                                    ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:27:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=to_double_index_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:39:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=xc_center_offset_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:48:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=insertionSortSmall_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:53:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=insertionSortSmall_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:59:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=insertionSortSmall_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:60:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=insertionSortSmall_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:108:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=checkStrictlyIncreasing_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:109:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=checkStrictlyIncreasing_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:125:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clear_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:127:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=aggregate_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clear_XLX_SEP_ PragmaOptions=variable=count bit_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS AGGREGATE variable=count bit
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:133:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=push_back_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:139:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pop_back_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:145:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=operator[]_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:151:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=operator[]_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:157:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=size_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:163:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=empty_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:169:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=back_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:177:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_front_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:184:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_front_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:185:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_front_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:198:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_range_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:208:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_range_XLX_SEP_ PragmaOptions=II=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:209:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_range_XLX_SEP_ PragmaOptions=min=1 max=100_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=100
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:219:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=insert_sorted_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:231:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=insert_sorted_XLX_SEP_ PragmaOptions=II=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:232:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=insert_sorted_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:254:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=copy_subrange_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:262:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=copy_subrange_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:263:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=copy_subrange_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:287:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clear_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:293:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=push_back_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:299:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pop_back_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:305:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=operator[]_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:311:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=operator[]_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:317:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=size_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:323:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=empty_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:329:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=back_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:336:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_front_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:343:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_front_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:344:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=erase_front_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:367:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=accessStateArrayDimIndepedent_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:396:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:398:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=function_instantiate_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=variable=vertical_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS FUNCTION_INSTANTIATE variable=vertical
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:409:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=64_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=64
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:410:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:415:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=variable=occupiedIndices cyclic factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS ARRAY_PARTITION variable=occupiedIndices cyclic factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:423:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:424:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:437:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:440:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:461:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:462:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=clearFirstNRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:516:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:518:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=variable=usableAtoms type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=usableAtoms type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:519:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=variable=unusableAtoms type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=unusableAtoms type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:520:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=variable=targetSites type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=targetSites type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:528:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:529:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:536:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:537:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:551:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:552:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_XC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_XC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:562:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_flatten_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_FLATTEN off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:563:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:564:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=50_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=50
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:612:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:613:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:645:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:646:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:660:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:661:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=32_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=32
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:668:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:669:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=32_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=32
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:687:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:688:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_flatten_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_FLATTEN off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:689:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:709:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:710:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:729:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:730:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:737:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:738:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:755:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:756:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:775:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:776:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:783:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:784:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:807:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:810:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:811:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:826:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:827:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:844:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:845:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:869:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=4_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=4
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:878:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:879:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=3_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=3
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:916:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:917:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:923:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:924:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:931:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:932:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:938:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:939:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:947:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:948:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:985:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=variable=tempUsable type=RAM_1P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=tempUsable type=RAM_1P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:986:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=variable=tempParking type=RAM_1P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=tempParking type=RAM_1P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:993:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:994:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1000:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1001:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1011:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1012:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1018:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1019:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1030:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1031:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1045:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1046:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1052:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1053:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1087:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1088:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1094:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1095:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1101:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1102:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1108:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1109:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1117:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1118:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1155:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=variable=tempUsableH type=RAM_1P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=tempUsableH type=RAM_1P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1156:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=variable=tempParkingH type=RAM_1P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=tempParkingH type=RAM_1P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1163:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1164:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1170:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1171:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1181:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1182:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1188:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1189:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=HLS_MAX_ARRAY_AC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1200:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1201:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=0 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1215:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1216:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1222:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1223:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1295:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1296:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1303:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1304:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1312:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1318:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1334:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1335:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1342:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1343:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1351:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1352:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1358:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1359:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1381:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortRemainingRowsOrCols_XLX_SEP_ PragmaOptions=min=1 max=512_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=512
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1416:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1418:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=variable=usableAtoms type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=usableAtoms type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1419:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=variable=unusableAtoms type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=unusableAtoms type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1420:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=variable=targetSites type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=targetSites type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1422:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=variable=stateArray type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=stateArray type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1423:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=variable=targetGeometry type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=targetGeometry type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1438:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=factor=8_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=8
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1439:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=min=1 max=HLS_MAX_ARRAY_XC_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_XC
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1449:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_flatten_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_FLATTEN off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1450:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1451:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=min=1 max=50_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=50
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1456:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=II=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1459:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=min=1 max=50_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=50
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1478:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=min=1 max=5_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1493:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=II=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1494:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=findUnusableAtoms_XLX_SEP_ PragmaOptions=min=1 max=5_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=5
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1565:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1566:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=function_instantiate_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=variable=vertical_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS FUNCTION_INSTANTIATE variable=vertical
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1568:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=variable=usableAtoms type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=usableAtoms type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1569:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=variable=targetSites type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=targetSites type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1588:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_flatten_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_FLATTEN off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1589:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1591:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=0 max=10_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=10
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1601:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1602:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=0 max=4_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=4
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1610:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1611:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=0 max=3_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=3
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1647:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=II=8_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=8
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1648:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1667:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1668:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1674:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1675:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1698:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=II=8_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=8
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1699:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1718:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1719:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1725:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=factor=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL factor=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1726:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=resolveSortingDeficiencies_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1768:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortArray_impl_state_accessor_XLX_SEP_ PragmaOptions=mode=s_axilite port=return_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=return
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1817:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortArray_impl_state_accessor_XLX_SEP_ PragmaOptions=variable=unusableInfo.usableAtoms type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=unusableInfo.usableAtoms type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1818:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortArray_impl_state_accessor_XLX_SEP_ PragmaOptions=variable=unusableInfo.unusableAtoms type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=unusableInfo.unusableAtoms type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:1819:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortArray_impl_state_accessor_XLX_SEP_ PragmaOptions=variable=unusableInfo.targetSites type=RAM_2P impl=BRAM_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=unusableInfo.targetSites type=RAM_2P impl=BRAM
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2053:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=hlsSort_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2063:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=hlsSort_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2064:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_flatten_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=hlsSort_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_FLATTEN off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2065:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=hlsSort_XLX_SEP_ PragmaOptions=min=1 avg=8 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 avg=8 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2073:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=hlsSort_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2074:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=hlsSort_XLX_SEP_ PragmaOptions=min=1 avg=8 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 avg=8 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2106:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2129:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=min=2 avg=2 max=20_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=2 avg=2 max=20
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2159:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2160:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2165:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=II=2_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=2
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2166:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2186:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE off
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2187:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2192:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=II=4_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=4
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2193:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=execute_XLX_SEP_ PragmaOptions=min=1 max=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=1 max=16
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2265:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=m_axi port=stateArray_mem bundle=stateArray_mem depth=20000_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=m_axi port=stateArray_mem bundle=stateArray_mem depth=20000
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2266:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=m_axi port=targetGeometry_mem bundle=targetGeometry_mem depth=7200_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=m_axi port=targetGeometry_mem bundle=targetGeometry_mem depth=7200
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2267:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=m_axi port=moveList_mem bundle=moveList_mem depth=2789376_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=m_axi port=moveList_mem bundle=moveList_mem depth=2789376
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2269:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=rows bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=rows bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2270:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=cols bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=cols bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2271:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=compZoneRowStart bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=compZoneRowStart bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2272:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=compZoneRowEnd bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=compZoneRowEnd bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2273:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=compZoneColStart bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=compZoneColStart bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2274:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=compZoneColEnd bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=compZoneColEnd bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2275:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=moveCount bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=moveCount bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2276:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=mode=s_axilite port=return bundle=axi_control_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE mode=s_axilite port=return bundle=axi_control
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2303:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=min=80 max=256 avg=80_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=80 max=256 avg=80
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2305:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2306:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=min=250 max=256 avg=250_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=250 max=256 avg=250
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2313:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=min=80 max=256 avg=80_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=80 max=256 avg=80
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2315:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2316:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=min=90 max=256 avg=90_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=90 max=256 avg=90
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2354:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=min=80 max=256 avg=80_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=80 max=256 avg=80
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2356:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2357:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=min=250 max=256 avg=250_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=250 max=256 avg=250
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2368:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=min=0 max=512 avg=512_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS LOOP_TRIPCOUNT min=0 max=512 avg=512
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2376:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+/home/xiaorang/Documents/ATOMFLOW/sorting-organized-main/src/sortLatticeByRow.cpp:2385:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=sortLattice_AXI_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+271 warnings generated.

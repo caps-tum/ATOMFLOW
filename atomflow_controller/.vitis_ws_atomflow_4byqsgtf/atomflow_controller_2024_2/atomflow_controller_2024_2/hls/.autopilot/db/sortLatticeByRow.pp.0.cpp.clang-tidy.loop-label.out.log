@@ -1,0 +1,637 @@
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:44990:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:44990:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:45004:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:45004:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:45018:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high+1; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:45018:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:46652:7: warning: Added loop label VITIS_LOOP_1248_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1248_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:46652:7: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48442:9: warning: Added loop label VITIS_LOOP_231_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_231_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48442:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48457:9: warning: Added loop label VITIS_LOOP_246_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < total; ++i) {
+        ^~~
+        VITIS_LOOP_246_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48457:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48463:9: warning: Added loop label VITIS_LOOP_252_2:   [xilinx-label-all-loops]
+        for (size_t i = total; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_252_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48463:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48474:9: warning: Added loop label VITIS_LOOP_263_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_263_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48474:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48485:9: warning: Added loop label VITIS_LOOP_274_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_274_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48485:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48497:9: warning: Added loop label VITIS_LOOP_286_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_286_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48497:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48510:9: warning: Added loop label VITIS_LOOP_299_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_299_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48510:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48553:9: warning: Added loop label VITIS_LOOP_342_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < total; ++i) {
+        ^~~
+        VITIS_LOOP_342_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48553:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48559:9: warning: Added loop label VITIS_LOOP_348_2:   [xilinx-label-all-loops]
+        for (size_t i = total; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_348_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48559:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48571:9: warning: Added loop label VITIS_LOOP_360_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < total; ++i) {
+        ^~~
+        VITIS_LOOP_360_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48571:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48583:9: warning: Added loop label VITIS_LOOP_372_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < 1024; ++i) {
+        ^~~
+        VITIS_LOOP_372_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48583:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48638:2: warning: Added loop label VITIS_LOOP_434_1:   [xilinx-label-all-loops]
+ for(size_t i = 0; i < 16; i++) {
+ ^~~
+ VITIS_LOOP_434_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48638:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48658:2: warning: Added loop label VITIS_LOOP_454_1:   [xilinx-label-all-loops]
+ for(size_t i = 0; i < 20; i++) {
+ ^~~
+ VITIS_LOOP_454_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48658:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48721:3: warning: Added loop label VITIS_LOOP_517_1:   [xilinx-label-all-loops]
+  for(size_t i = 0; i < 200; i++) bits[i] = false;
+  ^~~
+  VITIS_LOOP_517_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48721:3: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48724:3: warning: Added loop label VITIS_LOOP_520_1:   [xilinx-label-all-loops]
+  for(size_t i = 0; i < 200; i++) bits[i] = false;
+  ^~~
+  VITIS_LOOP_520_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48724:3: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48750:45: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=data type=RAM_2P impl=BRAM
+                                            ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48756:45: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=data type=RAM_2P impl=BRAM
+                                            ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48798:9: warning: Added loop label VITIS_LOOP_601_1:   [xilinx-label-all-loops]
+        for (unsigned int w = 0; w < N; ++w) {
+        ^~~
+        VITIS_LOOP_601_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48798:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48802:13: warning: Added loop label VITIS_LOOP_605_2:   [xilinx-label-all-loops]
+            for (int b = 0; b < 64; ++b) {
+            ^~~
+            VITIS_LOOP_605_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:48802:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58565:5: warning: Added loop label VITIS_LOOP_51_1:   [xilinx-label-all-loops]
+    for(size_t i = 1; i < n; ++i) {
+    ^~~
+    VITIS_LOOP_51_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58565:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58571:9: warning: Added loop label VITIS_LOOP_57_2:   [xilinx-label-all-loops]
+        while(j > 0 && begin[j - 1] > key) {
+        ^~~~~
+        VITIS_LOOP_57_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58571:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58601:5: warning: Added loop label VITIS_LOOP_106_1:   [xilinx-label-all-loops]
+    for(size_t i = 1; i < count; ++i) {
+    ^~~
+    VITIS_LOOP_106_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58601:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58677:13: warning: Added loop label VITIS_LOOP_182_1:   [xilinx-label-all-loops]
+            for(size_t i = 0; i < HLS_MAX_ARRAY_AC; i++) {
+            ^~~
+            VITIS_LOOP_182_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58677:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58701:9: warning: Added loop label VITIS_LOOP_206_1:   [xilinx-label-all-loops]
+        for(size_t i = start_idx; i < shift_end; i++) {
+        ^~~
+        VITIS_LOOP_206_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58701:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58724:9: warning: Added loop label VITIS_LOOP_229_1:   [xilinx-label-all-loops]
+        for(size_t i = 0; i < HLS_MAX_ARRAY_AC; i++) {
+        ^~~
+        VITIS_LOOP_229_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58724:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58755:9: warning: Added loop label VITIS_LOOP_260_1:   [xilinx-label-all-loops]
+        for(size_t i = 0; i < num && dest.count < HLS_MAX_ARRAY_AC; i++) {
+        ^~~
+        VITIS_LOOP_260_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58755:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58836:13: warning: Added loop label VITIS_LOOP_341_1:   [xilinx-label-all-loops]
+            for(size_t i = 0; i < HLS_MAX_ARRAY_AC; i++) {
+            ^~~
+            VITIS_LOOP_341_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58836:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58883:5: warning: Added loop label VITIS_LOOP_407_1:   [xilinx-label-all-loops]
+    for(unsigned int i = 0; i < count; i++) {
+    ^~~
+    VITIS_LOOP_407_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58883:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58897:9: warning: Added loop label VITIS_LOOP_421_2:   [xilinx-label-all-loops]
+        for(unsigned int indexAC = 0; indexAC < arraySizeAC; indexAC++) {
+        ^~~
+        VITIS_LOOP_421_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58897:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58911:9: warning: Added loop label VITIS_LOOP_435_3:   [xilinx-label-all-loops]
+        while(processedCount < occupiedCount) {
+        ^~~~~
+        VITIS_LOOP_435_3: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58911:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58935:13: warning: Added loop label VITIS_LOOP_459_4:   [xilinx-label-all-loops]
+            for(unsigned int j = 0; j < maxTones && (processedCount + j) < occupiedCount; j++) {
+            ^~~
+            VITIS_LOOP_459_4: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58935:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58973:52: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=usableAtoms type=RAM_2P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58974:54: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=unusableAtoms type=RAM_2P impl=BRAM
+                                                     ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58975:52: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=targetSites type=RAM_2P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58980:5: warning: Added loop label VITIS_LOOP_525_1:   [xilinx-label-all-loops]
+    for(int i = (compZoneACStart - targetGapAC + 1) / targetGapAC; i >= 0; i--)
+    ^~~
+    VITIS_LOOP_525_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58980:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58988:5: warning: Added loop label VITIS_LOOP_533_2:   [xilinx-label-all-loops]
+    for(size_t i = arraySizeAC; i >= compZoneACEnd + targetGapAC - 1; i -= targetGapAC)
+    ^~~
+    VITIS_LOOP_533_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:58988:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59004:5: warning: Added loop label VITIS_LOOP_549_3:   [xilinx-label-all-loops]
+    for(size_t i = 0; i < arraySizeXC; i++) {
+    ^~~
+    VITIS_LOOP_549_3: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59004:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59014:5: warning: Added loop label VITIS_LOOP_559_4:   [xilinx-label-all-loops]
+    for(size_t indexXC = sortingChannelWidth + 1; indexXC < arraySizeXC; indexXC++)
+    ^~~
+    VITIS_LOOP_559_4: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59014:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59064:13: warning: Added loop label VITIS_LOOP_609_5:   [xilinx-label-all-loops]
+            for(unsigned short iter = 0; iter < HLS_MAX_ARRAY_AC; iter++)
+            ^~~
+            VITIS_LOOP_609_5: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59064:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59098:17: warning: Added loop label VITIS_LOOP_643_6:   [xilinx-label-all-loops]
+                for(unsigned short readIdx = frontIdx; readIdx <= backIdx && readIdx < HLS_MAX_ARRAY_AC; readIdx++) {
+                ^~~
+                VITIS_LOOP_643_6: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59098:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59113:17: warning: Added loop label VITIS_LOOP_658_7:   [xilinx-label-all-loops]
+                for(size_t i = 1; i < n && i < HLS_MAX_ARRAY_AC; i++) {
+                ^~~
+                VITIS_LOOP_658_7: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59113:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59121:21: warning: Added loop label VITIS_LOOP_666_8:   [xilinx-label-all-loops]
+                    while(j >= 0 && unusableAtoms[indexXC].data[j] > key) {
+                    ^~~~~
+                    VITIS_LOOP_666_8: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59121:21: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59139:9: warning: Added loop label VITIS_LOOP_684_9:   [xilinx-label-all-loops]
+        while(indexAC_idx < local_unusable_size)
+        ^~~~~
+        VITIS_LOOP_684_9: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59139:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59161:17: warning: Added loop label VITIS_LOOP_706_10:   [xilinx-label-all-loops]
+                while(indexAC_idx < local_unusable_size_inner && start.rowSelectionCount < maxTones)
+                ^~~~~
+                VITIS_LOOP_706_10: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59161:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59181:17: warning: Added loop label VITIS_LOOP_726_11:   [xilinx-label-all-loops]
+                for(int i = 0; i < indicesLowerOrEqualMiddle; i++)
+                ^~~
+                VITIS_LOOP_726_11: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59181:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59189:17: warning: Added loop label VITIS_LOOP_734_12:   [xilinx-label-all-loops]
+                for(int i = 0; i < indicesHigherMiddle; i++)
+                ^~~
+                VITIS_LOOP_734_12: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59189:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59207:17: warning: Added loop label VITIS_LOOP_752_13:   [xilinx-label-all-loops]
+                while(indexAC_idx < local_unusable_size_h && start.colSelectionCount < maxTones)
+                ^~~~~
+                VITIS_LOOP_752_13: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59207:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59227:17: warning: Added loop label VITIS_LOOP_772_14:   [xilinx-label-all-loops]
+                for(int i = 0; i < indicesLowerOrEqualMiddle; i++)
+                ^~~
+                VITIS_LOOP_772_14: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59227:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59235:17: warning: Added loop label VITIS_LOOP_780_15:   [xilinx-label-all-loops]
+                for(int i = 0; i < indicesHigherMiddle; i++)
+                ^~~
+                VITIS_LOOP_780_15: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59235:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59259:13: warning: Added loop label VITIS_LOOP_804_16:   [xilinx-label-all-loops]
+            while(indexAC_idx2 < local_usable_size)
+            ^~~~~
+            VITIS_LOOP_804_16: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59259:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59278:21: warning: Added loop label VITIS_LOOP_823_17:   [xilinx-label-all-loops]
+                    while(indexAC_idx2 < local_usable_size && start.rowSelectionCount < maxTones)
+                    ^~~~~
+                    VITIS_LOOP_823_17: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59278:21: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59296:21: warning: Added loop label VITIS_LOOP_841_18:   [xilinx-label-all-loops]
+                    while(indexAC_idx2 < local_usable_size && start.colSelectionCount < maxTones)
+                    ^~~~~
+                    VITIS_LOOP_841_18: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59296:21: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59321:13: warning: Added loop label VITIS_LOOP_866_19:   [xilinx-label-all-loops]
+            for(size_t outer_usable_iter = 0; outer_usable_iter < 10; outer_usable_iter++)
+            ^~~
+            VITIS_LOOP_866_19: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59321:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59330:17: warning: Added loop label VITIS_LOOP_875_20:   [xilinx-label-all-loops]
+                for(size_t parking_fill_iter = 0; parking_fill_iter < 5; parking_fill_iter++)
+                ^~~
+                VITIS_LOOP_875_20: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59330:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59369:25: warning: Added loop label VITIS_LOOP_914_21:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountUsable; i++) {
+                        ^~~
+                        VITIS_LOOP_914_21: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59369:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59376:25: warning: Added loop label VITIS_LOOP_921_22:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountUsable; i++) {
+                        ^~~
+                        VITIS_LOOP_921_22: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59376:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59384:25: warning: Added loop label VITIS_LOOP_929_23:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountParking; i++) {
+                        ^~~
+                        VITIS_LOOP_929_23: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59384:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59391:25: warning: Added loop label VITIS_LOOP_936_24:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountParking; i++) {
+                        ^~~
+                        VITIS_LOOP_936_24: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59391:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59399:25: warning: Added loop label VITIS_LOOP_944_25:   [xilinx-label-all-loops]
+                        for(unsigned short iter = 0; iter < maxIter; iter++)
+                        ^~~
+                        VITIS_LOOP_944_25: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59399:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59440:51: error: Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=tempUsable type=RAM_1P impl=BRAM
+                                                  ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59441:52: error: Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=tempParking type=RAM_1P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59446:25: warning: Added loop label VITIS_LOOP_991_26:   [xilinx-label-all-loops]
+                        for(size_t readIdx = usableFrontIdx; readIdx < (size_t)(usableDynSize - usableBackIdx); readIdx++) {
+                        ^~~
+                        VITIS_LOOP_991_26: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59446:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59453:25: warning: Added loop label VITIS_LOOP_998_27:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < writeIdx; i++) {
+                        ^~~
+                        VITIS_LOOP_998_27: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59453:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59464:25: warning: Added loop label VITIS_LOOP_1009_28:   [xilinx-label-all-loops]
+                        for(size_t readIdx = parkingFrontIdx; readIdx < (size_t)(parkingDynSize - parkingBackIdx); readIdx++) {
+                        ^~~
+                        VITIS_LOOP_1009_28: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59464:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59471:25: warning: Added loop label VITIS_LOOP_1016_29:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < writeIdx; i++) {
+                        ^~~
+                        VITIS_LOOP_1016_29: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59471:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59483:25: warning: Added loop label VITIS_LOOP_1028_30:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < start.rowSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1028_30: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59483:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59498:25: warning: Added loop label VITIS_LOOP_1043_31:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < start.rowSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1043_31: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59498:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59505:25: warning: Added loop label VITIS_LOOP_1050_32:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < end.rowSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1050_32: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59505:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59540:25: warning: Added loop label VITIS_LOOP_1085_33:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountUsable; i++) {
+                        ^~~
+                        VITIS_LOOP_1085_33: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59540:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59547:25: warning: Added loop label VITIS_LOOP_1092_34:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountUsable; i++) {
+                        ^~~
+                        VITIS_LOOP_1092_34: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59547:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59554:25: warning: Added loop label VITIS_LOOP_1099_35:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountParking; i++) {
+                        ^~~
+                        VITIS_LOOP_1099_35: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59554:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59561:25: warning: Added loop label VITIS_LOOP_1106_36:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < prefetchCountParking; i++) {
+                        ^~~
+                        VITIS_LOOP_1106_36: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59561:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59569:25: warning: Added loop label VITIS_LOOP_1114_37:   [xilinx-label-all-loops]
+                        for(unsigned short iter = 0; iter < maxIter; iter++)
+                        ^~~
+                        VITIS_LOOP_1114_37: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59569:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59610:52: error: Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=tempUsableH type=RAM_1P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59611:53: error: Invalid Directive: for current device, RAM_1P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=tempParkingH type=RAM_1P impl=BRAM
+                                                    ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59616:25: warning: Added loop label VITIS_LOOP_1161_38:   [xilinx-label-all-loops]
+                        for(size_t readIdx = usableFrontIdx; readIdx < (size_t)(usableDynSize - usableBackIdx); readIdx++) {
+                        ^~~
+                        VITIS_LOOP_1161_38: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59616:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59623:25: warning: Added loop label VITIS_LOOP_1168_39:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < writeIdx; i++) {
+                        ^~~
+                        VITIS_LOOP_1168_39: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59623:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59634:25: warning: Added loop label VITIS_LOOP_1179_40:   [xilinx-label-all-loops]
+                        for(size_t readIdx = parkingFrontIdx; readIdx < (size_t)(parkingDynSize - parkingBackIdx); readIdx++) {
+                        ^~~
+                        VITIS_LOOP_1179_40: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59634:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59641:25: warning: Added loop label VITIS_LOOP_1186_41:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < writeIdx; i++) {
+                        ^~~
+                        VITIS_LOOP_1186_41: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59641:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59653:25: warning: Added loop label VITIS_LOOP_1198_42:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < start.colSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1198_42: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59653:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59668:25: warning: Added loop label VITIS_LOOP_1213_43:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < start.colSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1213_43: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59668:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59675:25: warning: Added loop label VITIS_LOOP_1220_44:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < end.colSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1220_44: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59675:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59747:25: warning: Added loop label VITIS_LOOP_1292_45:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < usedSourceIndices.size(); i++)
+                        ^~~
+                        VITIS_LOOP_1292_45: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59747:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59755:25: warning: Added loop label VITIS_LOOP_1300_46:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < usedTargetIndices.size(); i++)
+                        ^~~
+                        VITIS_LOOP_1300_46: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59755:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59765:25: warning: Added loop label VITIS_LOOP_1310_47:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < start.rowSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1310_47: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59765:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59771:25: warning: Added loop label VITIS_LOOP_1316_48:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < end.rowSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1316_48: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59771:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59786:25: warning: Added loop label VITIS_LOOP_1331_49:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < usedSourceIndices.size(); i++)
+                        ^~~
+                        VITIS_LOOP_1331_49: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59786:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59794:25: warning: Added loop label VITIS_LOOP_1339_50:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < usedTargetIndices.size(); i++)
+                        ^~~
+                        VITIS_LOOP_1339_50: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59794:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59804:25: warning: Added loop label VITIS_LOOP_1349_51:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < start.colSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1349_51: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59804:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59811:25: warning: Added loop label VITIS_LOOP_1356_52:   [xilinx-label-all-loops]
+                        for(size_t i = 0; i < end.colSelectionCount; i++) {
+                        ^~~
+                        VITIS_LOOP_1356_52: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59811:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59833:5: warning: Added loop label VITIS_LOOP_1378_53:   [xilinx-label-all-loops]
+    for(size_t i = 0; i < moveList.size(); i++)
+    ^~~
+    VITIS_LOOP_1378_53: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59833:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59855:52: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=usableAtoms type=RAM_2P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59856:54: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=unusableAtoms type=RAM_2P impl=BRAM
+                                                     ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59857:52: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=targetSites type=RAM_2P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59859:51: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=stateArray type=RAM_2P impl=BRAM
+                                                  ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59860:55: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=targetGeometry type=RAM_2P impl=BRAM
+                                                      ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59873:5: warning: Added loop label VITIS_LOOP_1436_1:   [xilinx-label-all-loops]
+    for(size_t i=0; i<arraySizeXC; i++) {
+    ^~~
+    VITIS_LOOP_1436_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59873:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59883:5: warning: Added loop label VITIS_LOOP_1446_2:   [xilinx-label-all-loops]
+    for(size_t indexXC = 0; indexXC < arraySizeXC; indexXC++)
+    ^~~
+    VITIS_LOOP_1446_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59883:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59890:2: warning: Added loop label VITIS_LOOP_1453_3:   [xilinx-label-all-loops]
+ for(size_t indexAC = 0; indexAC < arraySizeAC; indexAC++)
+ ^~~
+ VITIS_LOOP_1453_3: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59890:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59911:17: warning: Added loop label VITIS_LOOP_1474_4:   [xilinx-label-all-loops]
+                for(int rowShift = -usabilityPreventingNeighborhoodMaskRowDist;
+                ^~~
+                VITIS_LOOP_1474_4: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59911:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59927:25: warning: Added loop label VITIS_LOOP_1490_5:   [xilinx-label-all-loops]
+                        for(int k = 0; k < totalColIters; ++k)
+                        ^~~
+                        VITIS_LOOP_1490_5: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59927:25: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59984:52: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=usableAtoms type=RAM_2P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:59985:52: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=targetSites type=RAM_2P impl=BRAM
+                                                   ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60001:5: warning: Added loop label VITIS_LOOP_1585_1:   [xilinx-label-all-loops]
+    for(size_t targetIndexXC = 0; targetIndexXC < arraySizeXC; targetIndexXC++)
+    ^~~
+    VITIS_LOOP_1585_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60001:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60014:9: warning: Added loop label VITIS_LOOP_1598_2:   [xilinx-label-all-loops]
+        while(target_count_local > 0 && deficiency_iter_count < 10000)
+        ^~~~~
+        VITIS_LOOP_1598_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60014:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60023:13: warning: Added loop label VITIS_LOOP_1607_3:   [xilinx-label-all-loops]
+            while(usableAtoms[lastIndexXCWithUsableAtoms].empty() && empty_search_count < 10000)
+            ^~~~~
+            VITIS_LOOP_1607_3: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60023:13: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60060:17: warning: Added loop label VITIS_LOOP_1644_4:   [xilinx-label-all-loops]
+                for(size_t i = 0; i < count; i++)
+                ^~~
+                VITIS_LOOP_1644_4: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60060:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60081:17: warning: Added loop label VITIS_LOOP_1665_5:   [xilinx-label-all-loops]
+                for(size_t i = 0; i < start.rowSelectionCount; i++) {
+                ^~~
+                VITIS_LOOP_1665_5: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60081:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60088:17: warning: Added loop label VITIS_LOOP_1672_6:   [xilinx-label-all-loops]
+                for(size_t i = 0; i < end.rowSelectionCount; i++) {
+                ^~~
+                VITIS_LOOP_1672_6: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60088:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60111:17: warning: Added loop label VITIS_LOOP_1695_7:   [xilinx-label-all-loops]
+                for(size_t i = 0; i < count; i++)
+                ^~~
+                VITIS_LOOP_1695_7: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60111:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60132:17: warning: Added loop label VITIS_LOOP_1716_8:   [xilinx-label-all-loops]
+                for(size_t i = 0; i < start.colSelectionCount; i++) {
+                ^~~
+                VITIS_LOOP_1716_8: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60132:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60139:17: warning: Added loop label VITIS_LOOP_1723_9:   [xilinx-label-all-loops]
+                for(size_t i = 0; i < end.colSelectionCount; i++) {
+                ^~~
+                VITIS_LOOP_1723_9: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60139:17: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60221:65: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=unusableInfo.usableAtoms type=RAM_2P impl=BRAM
+                                                                ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60222:67: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=unusableInfo.unusableAtoms type=RAM_2P impl=BRAM
+                                                                  ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60223:65: error: Invalid Directive: for current device, RAM_2P + BRAM is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=unusableInfo.targetSites type=RAM_2P impl=BRAM
+                                                                ^
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60300:5: warning: Added loop label VITIS_LOOP_2060_1:   [xilinx-label-all-loops]
+    for(size_t pass = 0; pass < 16; pass++)
+    ^~~
+    VITIS_LOOP_2060_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60300:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60310:9: warning: Added loop label VITIS_LOOP_2070_2:   [xilinx-label-all-loops]
+        for(size_t i = 0; i < 16; i++)
+        ^~~
+        VITIS_LOOP_2070_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60310:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60366:5: warning: Added loop label VITIS_LOOP_2126_1:   [xilinx-label-all-loops]
+    for(size_t stepIdx = 0; stepIdx < 20; stepIdx++)
+    ^~~
+    VITIS_LOOP_2126_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60366:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60396:5: warning: Added loop label VITIS_LOOP_2156_2:   [xilinx-label-all-loops]
+    for(size_t rowTone = 0; rowTone < firstStep.rowSelectionCount; rowTone++)
+    ^~~
+    VITIS_LOOP_2156_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60396:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60402:2: warning: Added loop label VITIS_LOOP_2162_3:   [xilinx-label-all-loops]
+ for(size_t colTone = 0; colTone < firstStep.colSelectionCount; colTone++)
+ ^~~
+ VITIS_LOOP_2162_3: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60402:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60423:5: warning: Added loop label VITIS_LOOP_2183_4:   [xilinx-label-all-loops]
+    for(size_t rowTone = 0; rowTone < firstStep.rowSelectionCount; rowTone++)
+    ^~~
+    VITIS_LOOP_2183_4: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60423:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60429:2: warning: Added loop label VITIS_LOOP_2189_5:   [xilinx-label-all-loops]
+ for(size_t colTone = 0; colTone < firstStep.colSelectionCount; colTone++)
+ ^~~
+ VITIS_LOOP_2189_5: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60429:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60525:5: warning: Added loop label VITIS_LOOP_2302_1:   [xilinx-label-all-loops]
+    for(unsigned int r = 0; r < rows; r++) {
+    ^~~
+    VITIS_LOOP_2302_1: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60525:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60527:2: warning: Added loop label VITIS_LOOP_2304_2:   [xilinx-label-all-loops]
+ for(unsigned int c = 0; c < cols; c++) {
+ ^~~
+ VITIS_LOOP_2304_2: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60527:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60535:5: warning: Added loop label VITIS_LOOP_2312_3:   [xilinx-label-all-loops]
+    for(unsigned int r = 0; r < geomRows; r++) {
+    ^~~
+    VITIS_LOOP_2312_3: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60535:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60537:2: warning: Added loop label VITIS_LOOP_2314_4:   [xilinx-label-all-loops]
+ for(unsigned int c = 0; c < geomCols; c++) {
+ ^~~
+ VITIS_LOOP_2314_4: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60537:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60576:5: warning: Added loop label VITIS_LOOP_2353_5:   [xilinx-label-all-loops]
+    for(unsigned int r = 0; r < rows; r++) {
+    ^~~
+    VITIS_LOOP_2353_5: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60576:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60578:2: warning: Added loop label VITIS_LOOP_2355_6:   [xilinx-label-all-loops]
+ for(unsigned int c = 0; c < cols; c++) {
+ ^~~
+ VITIS_LOOP_2355_6: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60578:2: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60590:5: warning: Added loop label VITIS_LOOP_2367_7:   [xilinx-label-all-loops]
+    for(unsigned int moveIdx = 0; moveIdx < movesToWrite; moveIdx++) {
+    ^~~
+    VITIS_LOOP_2367_7: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60590:5: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60598:9: warning: Added loop label VITIS_LOOP_2375_8:   [xilinx-label-all-loops]
+        for(size_t wordIdx = 0; wordIdx < wordsPerMove; wordIdx++) {
+        ^~~
+        VITIS_LOOP_2375_8: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60598:9: note: FIX-IT applied suggested code changes
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60607:13: warning: Added loop label VITIS_LOOP_2384_9:   [xilinx-label-all-loops]
+            for(size_t byteIdx = wordsPerMove * 8; byteIdx < bytesPerMove; byteIdx++) {
+            ^~~
+            VITIS_LOOP_2384_9: 
+/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp:60607:13: note: FIX-IT applied suggested code changes

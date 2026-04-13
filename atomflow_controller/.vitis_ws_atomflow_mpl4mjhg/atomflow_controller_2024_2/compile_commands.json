@@ -1,0 +1,69 @@
+[
+  {
+    "directory": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2",
+    "arguments": [
+      "/tools/Xilinx/Vitis/2024.2/vcxx/libexec/clang++",
+      "--gcc-toolchain=/tools/Xilinx/Vitis/2024.2/tps/lnx64/gcc-8.3.0",
+      "-fhls",
+      "-hls-syn-headers-dir=/tools/Xilinx/Vitis/2024.2/common/technology/autopilot",
+      "-fhlstoplevel=atomflow_controller",
+      "-std=c++14",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src",
+      "-c",
+      "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/atomflow_controller.cpp"
+    ],
+    "file": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/atomflow_controller.cpp"
+  },
+  {
+    "directory": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2",
+    "arguments": [
+      "/tools/Xilinx/Vitis/2024.2/vcxx/libexec/clang++",
+      "--gcc-toolchain=/tools/Xilinx/Vitis/2024.2/tps/lnx64/gcc-8.3.0",
+      "-fhls",
+      "-hls-syn-headers-dir=/tools/Xilinx/Vitis/2024.2/common/technology/autopilot",
+      "-fhlstoplevel=atomflow_controller",
+      "-std=c++14",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src",
+      "-c",
+      "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src/image_analysis.cpp"
+    ],
+    "file": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src/image_analysis.cpp"
+  },
+  {
+    "directory": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2",
+    "arguments": [
+      "/tools/Xilinx/Vitis/2024.2/vcxx/libexec/clang++",
+      "--gcc-toolchain=/tools/Xilinx/Vitis/2024.2/tps/lnx64/gcc-8.3.0",
+      "-fhls",
+      "-hls-syn-headers-dir=/tools/Xilinx/Vitis/2024.2/common/technology/autopilot",
+      "-fhlstoplevel=atomflow_controller",
+      "-std=c++14",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src",
+      "-c",
+      "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.cpp"
+    ],
+    "file": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src/sortLatticeByRow.cpp"
+  },
+  {
+    "directory": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_mpl4mjhg/atomflow_controller_2024_2",
+    "arguments": [
+      "/tools/Xilinx/Vitis/2024.2/vcxx/libexec/clang++",
+      "--gcc-toolchain=/tools/Xilinx/Vitis/2024.2/tps/lnx64/gcc-8.3.0",
+      "-fhls-tb",
+      "-hls-sim-headers-dir=/tools/Xilinx/Vitis/2024.2/include",
+      "-std=c++14",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../Image_analysis/src",
+      "-I/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/../sorting-organized-main/src",
+      "-c",
+      "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src/tb_atomflow_controller.cpp"
+    ],
+    "file": "/home/xiaorang/Documents/ATOMFLOW/atomflow_controller/src/tb_atomflow_controller.cpp"
+  }
+]
