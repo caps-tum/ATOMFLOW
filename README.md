@@ -85,15 +85,16 @@ TODO: `load_target_geometry` iterates MAX_ROWS×MAX_COLS = 512×512 regardless o
 ATOMFLOW/
 ├── sorting-organized-main/
 │   └── src/
-│       ├── sortLatticeByRow.hpp   # HLSMoveList, HLSMoveStream, function declarations
-│       └── sortLatticeByRow.cpp   # sorting algorithm (templated on ML)
+│       ├── sortLatticeByRow.hpp
+│       └── sortLatticeByRow.cpp
 ├── atomflow_controller/
-│   ├── atomflow_controller.cpp    # HLS top-level function
+│   ├── atomflow_controller.cpp
 │   ├── src/
 │   │   ├── atomflow_controller.hpp
-│   │   └── tb_atomflow_controller.cpp   # testbench (Tests 1-3)
-│   └── hls_run_atomflow_controller.py   # Vitis HLS run script
-|── image_analysis/ # files for atom detection
+│   │   └── tb_atomflow_controller.cpp
+│   └── hls_run_atomflow_controller.py
+└── image_analysis/
+```
 
 ---
 
