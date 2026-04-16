@@ -522,15 +522,8 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
     (void)spacingXC; // unused
     HLSSizeTList parkingSpotsPerSuitableIndexXC;
     parkingSpotsPerSuitableIndexXC.clear();
-    for(int i = (compZoneACStart - targetGapAC + 1) / targetGapAC; i >= 0; i--)
-    {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
-#endif
-        parkingSpotsPerSuitableIndexXC.push_back(i * targetGapAC);
-    }
-    for(size_t i = arraySizeAC; i >= compZoneACEnd + targetGapAC - 1; i -= targetGapAC)
+    int minParkingSpot = (int)compZoneACStart - ((int)compZoneACStart / targetGapAC) * targetGapAC;
+    for(int i = minParkingSpot; i <= (int)compZoneACStart - targetGapAC; i += targetGapAC)
     {
 #ifdef __SYNTHESIS__
 #pragma HLS PIPELINE II=1
@@ -538,6 +531,15 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
 #endif
         parkingSpotsPerSuitableIndexXC.push_back(i);
     }
+    for(size_t i = compZoneACEnd + targetGapAC - 1; i < arraySizeAC; i += targetGapAC)
+    {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
+#endif
+        parkingSpotsPerSuitableIndexXC.push_back(i);
+    }
+    
     size_t currentTargetIndexXC = compZoneXCStart;
     unsigned int requiredAtoms = 0;
     HLSSizeTList parkingSpotsRemainingAtCurrentIndexXC;
@@ -863,378 +865,16 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
         else
         {
             // RESTRUCTURED: Use bounded for-loop instead of while for better HLS scheduling
-            for(size_t outer_usable_iter = 0; outer_usable_iter < 10; outer_usable_iter++)
+            for(size_t outer_usable_iter = 0; outer_usable_iter < 30; outer_usable_iter++)
             {
 #ifdef __SYNTHESIS__
-#pragma HLS LOOP_TRIPCOUNT min=0 max=4
+#pragma HLS LOOP_TRIPCOUNT min=0 max=7 avg=5
 // AGGRESSIVE: Typical batch sizes drain atoms in 2-4 iterations
 #endif
                 if(usableAtoms[indexXC].empty()) break;
-                
-                // RESTRUCTURED: Bounded for-loop for parking spot filling
-                for(size_t parking_fill_iter = 0; parking_fill_iter < 5; parking_fill_iter++)
-                {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE off
-#pragma HLS LOOP_TRIPCOUNT min=0 max=3
-// AGGRESSIVE: Parking spots filled in 1-3 batches
-#endif
-                    if(usableAtoms[indexXC].size() <= requiredAtoms) break;
-                    if(parkingSpotsRemainingAtCurrentIndexXC.empty()) break;
-                    ParallelMove move;
-                    ParallelMove::Step start, elbow1, elbow2, end;
-                    
-                    if(vertical)
-                    {
-                        start.colSelection[start.colSelectionCount++] = to_double_index(indexXC);
-                        elbow1.colSelection[elbow1.colSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        elbow2.colSelection[elbow2.colSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        end.colSelection[end.colSelectionCount++] = to_double_index(currentTargetIndexXC);
 
-                        // PIPELINED: Index-based selection using local prefetch to enable II=1
-                        unsigned short maxIter = maxTones;
-                        if(maxIter > MAX_SELECTION_SIZE) maxIter = MAX_SELECTION_SIZE;
-
-                        // Track consumption via indices instead of mutating lists
-                        unsigned short usableFrontIdx = 0, usableBackIdx = 0;
-                        unsigned short parkingFrontIdx = 0, parkingBackIdx = 0;
-                        unsigned short usableDynSize = usableAtoms[indexXC].size();
-                        unsigned short parkingDynSize = parkingSpotsRemainingAtCurrentIndexXC.size();
-
-                        // Prefetch up to maxIter values from front/back into small local buffers
-                        unsigned short prefetchCountUsable = maxIter;
-                        if(prefetchCountUsable > usableDynSize) prefetchCountUsable = usableDynSize;
-                        unsigned short prefetchCountParking = maxIter;
-                        if(prefetchCountParking > parkingDynSize) prefetchCountParking = parkingDynSize;
-
-                        int usableFrontBuf[MAX_SELECTION_SIZE];
-                        int usableBackBuf[MAX_SELECTION_SIZE];
-                        size_t parkFrontBuf[MAX_SELECTION_SIZE];
-                        size_t parkBackBuf[MAX_SELECTION_SIZE];
-                        for(size_t i = 0; i < prefetchCountUsable; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            usableFrontBuf[i] = usableAtoms[indexXC].data[i];
-                        }
-                        for(size_t i = 0; i < prefetchCountUsable; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            // BUGFIX: read back elements from usableAtoms, not unusableAtoms
-                            usableBackBuf[i] = usableAtoms[indexXC].data[usableDynSize - 1 - i];
-                        }
-                        for(size_t i = 0; i < prefetchCountParking; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            parkFrontBuf[i] = parkingSpotsRemainingAtCurrentIndexXC.data[i];
-                        }
-                        for(size_t i = 0; i < prefetchCountParking; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            parkBackBuf[i] = parkingSpotsRemainingAtCurrentIndexXC.data[parkingDynSize - 1 - i];
-                        }
-
-                        for(unsigned short iter = 0; iter < maxIter; iter++)
-                        {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            // Check conditions using tracked indices
-                            if((unsigned int)(usableDynSize - usableFrontIdx - usableBackIdx) <= requiredAtoms) break;
-                            if(parkingDynSize - parkingFrontIdx - parkingBackIdx == 0) break;
-                            if(start.rowSelectionCount >= maxTones) break;
-
-                            if(usableFrontIdx >= prefetchCountUsable || usableBackIdx >= prefetchCountUsable) break;
-                            if(parkingFrontIdx >= prefetchCountParking || parkingBackIdx >= prefetchCountParking) break;
-
-                            int usableFront = usableFrontBuf[usableFrontIdx];
-                            int usableBack = usableBackBuf[usableBackIdx];
-                            size_t parkingFront = parkFrontBuf[parkingFrontIdx];
-                            size_t parkingBack = parkBackBuf[parkingBackIdx];
-
-                            if(abs(usableFront - (int)parkingFront) < abs(usableBack - (int)parkingBack))
-                            {
-                                start.rowSelection[start.rowSelectionCount++] = (double)usableFront;
-                                end.rowSelection[end.rowSelectionCount++] = (double)parkingFront;
-                                usableFrontIdx++;
-                                parkingFrontIdx++;
-                            }
-                            else
-                            {
-                                start.rowSelection[start.rowSelectionCount++] = (double)usableBack;
-                                end.rowSelection[end.rowSelectionCount++] = (double)parkingBack;
-                                usableBackIdx++;
-                                parkingBackIdx++;
-                            }
-                        }
-                        
-                        // Deferred mutations: compact lists after pipelined selection
-                        // Use temp buffers to avoid II violations from in-place compaction
-                        int tempUsable[HLS_MAX_ARRAY_AC];
-                        size_t tempParking[HLS_MAX_ARRAY_AC];
-#ifdef __SYNTHESIS__
-                        // LUT REDUCTION: Use BRAM for temp buffers to save LUTs
-                        #pragma HLS BIND_STORAGE variable=tempUsable type=RAM_1P impl=BRAM
-                        #pragma HLS BIND_STORAGE variable=tempParking type=RAM_1P impl=BRAM
-#endif
-                        
-                        // Compact usableAtoms[indexXC] via temp buffer
-                        size_t writeIdx = 0;
-                        for(size_t readIdx = usableFrontIdx; readIdx < (size_t)(usableDynSize - usableBackIdx); readIdx++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            tempUsable[writeIdx++] = usableAtoms[indexXC].data[readIdx];
-                        }
-                        for(size_t i = 0; i < writeIdx; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            usableAtoms[indexXC].data[i] = tempUsable[i];
-                        }
-                        usableAtoms[indexXC].count = writeIdx;
-                        
-                        // Compact parkingSpotsRemainingAtCurrentIndexXC via temp buffer
-                        writeIdx = 0;
-                        for(size_t readIdx = parkingFrontIdx; readIdx < (size_t)(parkingDynSize - parkingBackIdx); readIdx++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            tempParking[writeIdx++] = parkingSpotsRemainingAtCurrentIndexXC.data[readIdx];
-                        }
-                        for(size_t i = 0; i < writeIdx; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            parkingSpotsRemainingAtCurrentIndexXC.data[i] = tempParking[i];
-                        }
-                        parkingSpotsRemainingAtCurrentIndexXC.count = writeIdx;
-                        
-                        // Append selected parking spots to usableAtoms[currentTargetIndexXC]
-                        // Use local counter to avoid II violation from push_back's count++ dependency
-                        size_t targetCount = usableAtoms[currentTargetIndexXC].count;
-                        for(size_t i = 0; i < start.rowSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            if(targetCount < HLS_MAX_ARRAY_AC) {
-                                usableAtoms[currentTargetIndexXC].data[targetCount++] = (int)end.rowSelection[i];
-                            }
-                        }
-                        usableAtoms[currentTargetIndexXC].count = targetCount;
-                        
-                        hlsSort(start.rowSelection, start.rowSelection + start.rowSelectionCount);
-                        hlsSort(end.rowSelection, end.rowSelection + end.rowSelectionCount);
-                        
-                        // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
-                        for(size_t i = 0; i < start.rowSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            elbow1.rowSelection[elbow1.rowSelectionCount++] = start.rowSelection[i];
-                        }
-                        for(size_t i = 0; i < end.rowSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            elbow2.rowSelection[elbow2.rowSelectionCount++] = end.rowSelection[i];
-                        }
-                    }
-                    else
-                    {
-                        start.rowSelection[start.rowSelectionCount++] = to_double_index(indexXC);
-                        elbow1.rowSelection[elbow1.rowSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        elbow2.rowSelection[elbow2.rowSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        end.rowSelection[end.rowSelectionCount++] = to_double_index(currentTargetIndexXC);
-
-                        // PIPELINED: Index-based selection using local prefetch to enable II=1
-                        unsigned short maxIter = maxTones;
-                        if(maxIter > MAX_SELECTION_SIZE) maxIter = MAX_SELECTION_SIZE;
-
-                        // Track consumption via indices instead of mutating lists
-                        unsigned short usableFrontIdx = 0, usableBackIdx = 0;
-                        unsigned short parkingFrontIdx = 0, parkingBackIdx = 0;
-                        unsigned short usableDynSize = usableAtoms[indexXC].size();
-                        unsigned short parkingDynSize = parkingSpotsRemainingAtCurrentIndexXC.size();
-
-                        // Prefetch up to maxIter values from front/back into small local buffers
-                        unsigned short prefetchCountUsable = maxIter;
-                        if(prefetchCountUsable > usableDynSize) prefetchCountUsable = usableDynSize;
-                        unsigned short prefetchCountParking = maxIter;
-                        if(prefetchCountParking > parkingDynSize) prefetchCountParking = parkingDynSize;
-
-                        int usableFrontBuf[MAX_SELECTION_SIZE];
-                        int usableBackBuf[MAX_SELECTION_SIZE];
-                        size_t parkFrontBuf[MAX_SELECTION_SIZE];
-                        size_t parkBackBuf[MAX_SELECTION_SIZE];
-                        for(size_t i = 0; i < prefetchCountUsable; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            usableFrontBuf[i] = usableAtoms[indexXC].data[i];
-                        }
-                        for(size_t i = 0; i < prefetchCountUsable; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            usableBackBuf[i] = usableAtoms[indexXC].data[usableDynSize - 1 - i];
-                        }
-                        for(size_t i = 0; i < prefetchCountParking; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            parkFrontBuf[i] = parkingSpotsRemainingAtCurrentIndexXC.data[i];
-                        }
-                        for(size_t i = 0; i < prefetchCountParking; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            parkBackBuf[i] = parkingSpotsRemainingAtCurrentIndexXC.data[parkingDynSize - 1 - i];
-                        }
-
-                        for(unsigned short iter = 0; iter < maxIter; iter++)
-                        {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            // Check conditions using tracked indices
-                            if((unsigned int)(usableDynSize - usableFrontIdx - usableBackIdx) <= requiredAtoms) break;
-                            if(parkingDynSize - parkingFrontIdx - parkingBackIdx == 0) break;
-                            if(start.colSelectionCount >= maxTones) break;
-
-                            if(usableFrontIdx >= prefetchCountUsable || usableBackIdx >= prefetchCountUsable) break;
-                            if(parkingFrontIdx >= prefetchCountParking || parkingBackIdx >= prefetchCountParking) break;
-
-                            int usableFront = usableFrontBuf[usableFrontIdx];
-                            int usableBack = usableBackBuf[usableBackIdx];
-                            size_t parkingFront = parkFrontBuf[parkingFrontIdx];
-                            size_t parkingBack = parkBackBuf[parkingBackIdx];
-
-                            if(abs(usableFront - (int)parkingFront) < abs(usableBack - (int)parkingBack))
-                            {
-                                start.colSelection[start.colSelectionCount++] = (double)usableFront;
-                                end.colSelection[end.colSelectionCount++] = (double)parkingFront;
-                                usableFrontIdx++;
-                                parkingFrontIdx++;
-                            }
-                            else
-                            {
-                                start.colSelection[start.colSelectionCount++] = (double)usableBack;
-                                end.colSelection[end.colSelectionCount++] = (double)parkingBack;
-                                usableBackIdx++;
-                                parkingBackIdx++;
-                            }
-                        }
-                        
-                        // Deferred mutations: compact lists after pipelined selection
-                        // Use temp buffers to avoid II violations from in-place compaction
-                        int tempUsableH[HLS_MAX_ARRAY_AC];
-                        size_t tempParkingH[HLS_MAX_ARRAY_AC];
-#ifdef __SYNTHESIS__
-                        // LUT REDUCTION: Use BRAM for temp buffers to save LUTs
-                        #pragma HLS BIND_STORAGE variable=tempUsableH type=RAM_1P impl=BRAM
-                        #pragma HLS BIND_STORAGE variable=tempParkingH type=RAM_1P impl=BRAM
-#endif
-                        
-                        // Compact usableAtoms[indexXC] via temp buffer
-                        size_t writeIdx = 0;
-                        for(size_t readIdx = usableFrontIdx; readIdx < (size_t)(usableDynSize - usableBackIdx); readIdx++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            tempUsableH[writeIdx++] = usableAtoms[indexXC].data[readIdx];
-                        }
-                        for(size_t i = 0; i < writeIdx; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            usableAtoms[indexXC].data[i] = tempUsableH[i];
-                        }
-                        usableAtoms[indexXC].count = writeIdx;
-                        
-                        // Compact parkingSpotsRemainingAtCurrentIndexXC via temp buffer
-                        writeIdx = 0;
-                        for(size_t readIdx = parkingFrontIdx; readIdx < (size_t)(parkingDynSize - parkingBackIdx); readIdx++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            tempParkingH[writeIdx++] = parkingSpotsRemainingAtCurrentIndexXC.data[readIdx];
-                        }
-                        for(size_t i = 0; i < writeIdx; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
-#endif
-                            parkingSpotsRemainingAtCurrentIndexXC.data[i] = tempParkingH[i];
-                        }
-                        parkingSpotsRemainingAtCurrentIndexXC.count = writeIdx;
-                        
-                        // Append selected parking spots to usableAtoms[currentTargetIndexXC]
-                        // Use local counter to avoid II violation from push_back's count++ dependency
-                        size_t targetCount = usableAtoms[currentTargetIndexXC].count;
-                        for(size_t i = 0; i < start.colSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
-#endif
-                            if(targetCount < HLS_MAX_ARRAY_AC) {
-                                usableAtoms[currentTargetIndexXC].data[targetCount++] = (int)end.colSelection[i];
-                            }
-                        }
-                        usableAtoms[currentTargetIndexXC].count = targetCount;
-                        
-                        hlsSort(start.colSelection, start.colSelection + start.colSelectionCount);
-                        hlsSort(end.colSelection, end.colSelection + end.colSelectionCount);
-                        
-                        // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
-                        for(size_t i = 0; i < start.colSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            elbow1.colSelection[elbow1.colSelectionCount++] = start.colSelection[i];
-                        }
-                        for(size_t i = 0; i < end.colSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            elbow2.colSelection[elbow2.colSelectionCount++] = end.colSelection[i];
-                        }
-                    }
-                    
-                    move.steps[move.stepsCount++] = start;
-                    move.steps[move.stepsCount++] = elbow1;
-                    move.steps[move.stepsCount++] = elbow2;
-                    move.steps[move.stepsCount++] = end;
-                    // Execute immediately AND queue for deferred execution
-                    move.execute(stateArray);
-                    moveList.push_back(move);
-                }
-                if(targetSites[currentTargetIndexXC].empty())
+                if(targetSites[currentTargetIndexXC].empty() && 
+                    (parkingSpotsRemainingAtCurrentIndexXC.empty() || usableAtoms[indexXC].size() <= requiredAtoms))
                 {
                     if(currentTargetIndexXC < targetIndexXC)
                     {
@@ -1253,123 +893,259 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                         break;
                     }
                 }
+
+                ParallelMove move;
+                ParallelMove::Step start, elbow1, elbow2, end;      
+                     
+                if(vertical)
+                {
+                    start.colSelection[start.colSelectionCount++] = to_double_index(indexXC);
+                    elbow1.colSelection[elbow1.colSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
+                    elbow2.colSelection[elbow2.colSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
+                    end.colSelection[end.colSelectionCount++] = to_double_index(currentTargetIndexXC);
+                }
                 else
                 {
-                    unsigned int usedIndices = maxTones;
-                    if(targetSites[currentTargetIndexXC].size() < usedIndices)
-                    {
-                        usedIndices = targetSites[currentTargetIndexXC].size();
-                    }
-                    if(usableAtoms[indexXC].size() < usedIndices)
-                    {
-                        usedIndices = usableAtoms[indexXC].size();
-                    }
+                    start.rowSelection[start.rowSelectionCount++] = to_double_index(indexXC);
+                    elbow1.rowSelection[elbow1.rowSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
+                    elbow2.rowSelection[elbow2.rowSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
+                    end.rowSelection[end.rowSelectionCount++] = to_double_index(currentTargetIndexXC);
+                }  
 
-                    unsigned int excessAtoms = usableAtoms[indexXC].size() - usedIndices;
-                    HLSIntList usedSourceIndices;
-                    usableAtoms[indexXC].copy_subrange(excessAtoms / 2, usedIndices, usedSourceIndices);
-                    usableAtoms[indexXC].erase_range(excessAtoms / 2, usedIndices);
+                // Deferred mutations: compact lists after pipelined selection
+                // Use temp buffers to avoid II violations from in-place compaction
+                int tempUsable[HLS_MAX_ARRAY_AC];
+                size_t tempTarget[HLS_MAX_ARRAY_AC];
+#ifdef __SYNTHESIS__
+                // LUT REDUCTION: Use BRAM for temp buffers to save LUTs
+                #pragma HLS BIND_STORAGE variable=tempUsable type=RAM_1P impl=BRAM
+                #pragma HLS BIND_STORAGE variable=tempTarget type=RAM_1P impl=BRAM
+#endif                      
 
-                    unsigned int excessTargets = targetSites[currentTargetIndexXC].size() - usedIndices;
-                    HLSIntList usedTargetIndices;
-                    targetSites[currentTargetIndexXC].copy_subrange(excessTargets / 2, usedIndices, usedTargetIndices);
-                    targetSites[currentTargetIndexXC].erase_range(excessTargets / 2, usedIndices);
+                if(!parkingSpotsRemainingAtCurrentIndexXC.empty() && usableAtoms[indexXC].size() > requiredAtoms)
+                {
+                    // PIPELINED: Index-based selection using local prefetch to enable II=1
+                    unsigned short maxIter = maxTones;
+                    if(maxIter > MAX_SELECTION_SIZE) maxIter = MAX_SELECTION_SIZE;
 
-                    requiredAtoms -= usedIndices;
-                    totalRequiredAtoms -= usedIndices;
+                    // Track consumption via indices instead of mutating lists
+                    unsigned short usableAtomCount = usableAtoms[indexXC].size();
+                    unsigned short excessAtoms = usableAtomCount - requiredAtoms;
+                    unsigned short parkingDynSize = parkingSpotsRemainingAtCurrentIndexXC.size();
 
-                    ParallelMove move;
-                    ParallelMove::Step start, elbow1, elbow2, end;
-                    
-                    if(vertical)
-                    {
-                        start.colSelection[start.colSelectionCount++] = to_double_index(indexXC);
-                        elbow1.colSelection[elbow1.colSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        elbow2.colSelection[elbow2.colSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        end.colSelection[end.colSelectionCount++] = to_double_index(currentTargetIndexXC);
-                        
-                        // HLS: pipeline list materialization from arrays to reduce per-iteration overhead
-                        for(size_t i = 0; i < usedSourceIndices.size(); i++)
+                    // Prefetch up to maxIter values from front/back into small local buffers
+                    unsigned short usedIndices = maxIter;
+                    if(usedIndices > excessAtoms) usedIndices = excessAtoms;
+                    if(usedIndices > parkingDynSize) usedIndices = parkingDynSize;
+
+                    unsigned short indicesFromFront = usedIndices / 2;
+                    unsigned short indicesFromBack = usedIndices - indicesFromFront;
+
+                    for(size_t i = 0; i < indicesFromFront; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE/2
+#endif
+                        if(vertical)
                         {
+                            start.rowSelection[start.rowSelectionCount++] = usableAtoms[indexXC].data[i];
+                            end.rowSelection[end.rowSelectionCount++] = parkingSpotsRemainingAtCurrentIndexXC.data[i];
+                        }
+                        else
+                        {
+                            start.colSelection[start.colSelectionCount++] = usableAtoms[indexXC].data[i];
+                            end.colSelection[end.colSelectionCount++] = parkingSpotsRemainingAtCurrentIndexXC.data[i];
+                        }
+                    }
+                    for(size_t i = 0; i < indicesFromBack; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE/2
+#endif
+                        if(vertical)
+                        {
+                            start.rowSelection[start.rowSelectionCount++] = 
+                                usableAtoms[indexXC].data[usableAtomCount - indicesFromBack + i];;
+                            end.rowSelection[end.rowSelectionCount++] = 
+                                parkingSpotsRemainingAtCurrentIndexXC.data[parkingDynSize - indicesFromBack + i];
+                        }
+                        else
+                        {
+                            start.colSelection[start.colSelectionCount++] = 
+                                usableAtoms[indexXC].data[usableAtomCount - indicesFromBack + i];;
+                            end.colSelection[end.colSelectionCount++] = 
+                                parkingSpotsRemainingAtCurrentIndexXC.data[parkingDynSize - indicesFromBack + i];
+                        }
+                    }
+                        
+                    // Compact usableAtoms[indexXC] via temp buffer
+                    size_t writeIdx = 0;
+                    for(size_t readIdx = indicesFromFront; readIdx < (size_t)(usableAtomCount - indicesFromBack); readIdx++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+#endif
+                        tempUsable[writeIdx++] = usableAtoms[indexXC].data[readIdx];
+                    }
+                    for(size_t i = 0; i < writeIdx; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+#endif
+                        usableAtoms[indexXC].data[i] = tempUsable[i];
+                    }
+                    usableAtoms[indexXC].count = writeIdx;
+                        
+                    // Compact parkingSpotsRemainingAtCurrentIndexXC via temp buffer
+                    writeIdx = 0;
+                    for(size_t readIdx = indicesFromFront; readIdx < (size_t)(parkingDynSize - indicesFromBack); readIdx++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+#endif
+                        tempTarget[writeIdx++] = parkingSpotsRemainingAtCurrentIndexXC.data[readIdx];
+                    }
+                    for(size_t i = 0; i < writeIdx; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+#endif
+                        parkingSpotsRemainingAtCurrentIndexXC.data[i] = tempTarget[i];
+                    }
+                    parkingSpotsRemainingAtCurrentIndexXC.count = writeIdx;
+
+                    // Append selected parking spots to usableAtoms[currentTargetIndexXC]
+                    // Use local counter to avoid II violation from push_back's count++ dependency
+                    size_t targetCount = usableAtoms[currentTargetIndexXC].count;
+                    for(size_t i = 0; i < usedIndices; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
+#endif
+                        if(targetCount < HLS_MAX_ARRAY_AC) {
+                            usableAtoms[currentTargetIndexXC].data[targetCount++] = (int)end.colSelection[i];
+                        }
+                    }
+                    usableAtoms[currentTargetIndexXC].count = targetCount;
+                        
+                    // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
+                    for(size_t i = 0; i < usedIndices; i++) {
 #ifdef __SYNTHESIS__
 #pragma HLS PIPELINE II=1
 #pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            start.rowSelection[start.rowSelectionCount++] = usedSourceIndices[i];
-                        }
-                        for(size_t i = 0; i < usedTargetIndices.size(); i++)
+#endif 
+                        if(vertical)
                         {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            end.rowSelection[end.rowSelectionCount++] = usedTargetIndices[i];
-                        }
-                        
-                        // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
-                        for(size_t i = 0; i < start.rowSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#endif
                             elbow1.rowSelection[elbow1.rowSelectionCount++] = start.rowSelection[i];
-                        }
-                        for(size_t i = 0; i < end.rowSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#endif
                             elbow2.rowSelection[elbow2.rowSelectionCount++] = end.rowSelection[i];
                         }
-                    }
-                    else
-                    {
-                        start.rowSelection[start.rowSelectionCount++] = to_double_index(indexXC);
-                        elbow1.rowSelection[elbow1.rowSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        elbow2.rowSelection[elbow2.rowSelectionCount++] = to_double_index(indexXC) - xc_center_offset(sortingChannelWidth);
-                        end.rowSelection[end.rowSelectionCount++] = to_double_index(currentTargetIndexXC);
-                        
-                        // HLS: pipeline list materialization from arrays to reduce per-iteration overhead
-                        for(size_t i = 0; i < usedSourceIndices.size(); i++)
+                        else 
                         {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            start.colSelection[start.colSelectionCount++] = usedSourceIndices[i];
-                        }
-                        for(size_t i = 0; i < usedTargetIndices.size(); i++)
-                        {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
-                            end.colSelection[end.colSelectionCount++] = usedTargetIndices[i];
-                        }
-                        
-                        // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
-                        for(size_t i = 0; i < start.colSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
                             elbow1.colSelection[elbow1.colSelectionCount++] = start.colSelection[i];
-                        }
-                        for(size_t i = 0; i < end.colSelectionCount; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif
                             elbow2.colSelection[elbow2.colSelectionCount++] = end.colSelection[i];
                         }
                     }
-                    
-                    move.steps[move.stepsCount++] = start;
-                    move.steps[move.stepsCount++] = elbow1;
-                    move.steps[move.stepsCount++] = elbow2;
-                    move.steps[move.stepsCount++] = end;
-                    // Execute immediately AND queue for deferred execution
-                    move.execute(stateArray);
-                    moveList.push_back(move);
                 }
+                else
+                {
+                    unsigned int sourceAtoms = usableAtoms[indexXC].size();
+                    unsigned int targetCount = targetSites[currentTargetIndexXC].size();
+
+                    unsigned int usedIndices = maxTones;
+                    if(targetCount < usedIndices)
+                    {
+                        usedIndices = targetCount;
+                    }
+                    if(sourceAtoms < usedIndices)
+                    {
+                        usedIndices = sourceAtoms;
+                    }
+
+                    unsigned int excessAtoms = sourceAtoms - usedIndices;
+                    unsigned int excessTargets = targetSites[currentTargetIndexXC].size() - usedIndices;
+
+                    for(size_t i = 0; i < usedIndices; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE/2
+#endif
+                        if(vertical)
+                        {
+                            start.rowSelection[start.rowSelectionCount++] = usableAtoms[indexXC].data[excessAtoms / 2 + i];
+                            end.rowSelection[end.rowSelectionCount++] = targetSites[currentTargetIndexXC][excessTargets / 2 + i];
+                        }
+                        else
+                        {
+                            start.colSelection[start.colSelectionCount++] = usableAtoms[indexXC].data[excessAtoms / 2 + i];
+                            end.colSelection[end.colSelectionCount++] = targetSites[currentTargetIndexXC][excessTargets / 2 + i];
+                        }
+                    }
+                        
+                    // Compact usableAtoms[indexXC] via temp buffer
+                    size_t writeIdx = excessAtoms / 2;
+                    for(size_t readIdx = excessAtoms / 2 + usedIndices; readIdx < sourceAtoms; readIdx++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC / 2
+#endif
+                        tempUsable[writeIdx++] = usableAtoms[indexXC].data[readIdx];
+                    }
+                    for(size_t i = excessAtoms / 2; i < writeIdx; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+#endif
+                        usableAtoms[indexXC].data[i] = tempUsable[i];
+                    }
+                    usableAtoms[indexXC].count = writeIdx;
+                        
+                    // Compact parkingSpotsRemainingAtCurrentIndexXC via temp buffer
+                    writeIdx = excessTargets / 2;
+                    for(size_t readIdx = excessTargets / 2 + usedIndices; readIdx < targetCount; readIdx++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC / 2
+#endif
+                        tempTarget[writeIdx++] = targetSites[currentTargetIndexXC].data[readIdx];
+                    }
+                    for(size_t i = excessTargets / 2; i < writeIdx; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
+#endif
+                        targetSites[currentTargetIndexXC].data[i] = tempTarget[i];
+                    }
+                    targetSites[currentTargetIndexXC].count = writeIdx;
+
+                    requiredAtoms -= usedIndices;
+                    totalRequiredAtoms -= usedIndices;
+                        
+                    // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
+                    for(size_t i = 0; i < usedIndices; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
+#endif 
+                        if(vertical)
+                        {
+                            elbow1.rowSelection[elbow1.rowSelectionCount++] = start.rowSelection[i];
+                            elbow2.rowSelection[elbow2.rowSelectionCount++] = end.rowSelection[i];
+                        }
+                        else 
+                        {
+                            elbow1.colSelection[elbow1.colSelectionCount++] = start.colSelection[i];
+                            elbow2.colSelection[elbow2.colSelectionCount++] = end.colSelection[i];
+                        }
+                    }
+                }
+                    
+                move.steps[move.stepsCount++] = start;
+                move.steps[move.stepsCount++] = elbow1;
+                move.steps[move.stepsCount++] = elbow2;
+                move.steps[move.stepsCount++] = end;
+                // Execute immediately AND queue for deferred execution
+                move.execute(stateArray);
+                moveList.push_back(move);
             }
         }
     }
@@ -2121,31 +1897,31 @@ bool ParallelMove::execute(Array2D& stateArray,
         return false;
     }
 
+// Only do validity checks during C simulation
+#ifndef __SYNTHESIS__
     // RESTRUCTURED: Fixed bound loop for HLS optimization
     // In practice, stepsCount is typically 2-3 (start/end or start/elbow/end)
     for(size_t stepIdx = 0; stepIdx < MAX_MOVE_STEPS; stepIdx++)
     {
-#ifdef __SYNTHESIS__
-#pragma HLS LOOP_TRIPCOUNT min=2 avg=2 max=MAX_MOVE_STEPS
-#endif
         if(stepIdx >= (size_t)this->stepsCount) break;
         
         const auto& step = this->steps[stepIdx];
         
         // Check row selection ordering (direct, no streams - avoids hls::stream depth=1 deadlock)
-        if(step.rowSelectionCount > 0) {
+        if(step.rowSelectionCount > 1) {
             if(!checkStrictlyIncreasing(step.rowSelection, step.rowSelectionCount)) {
                 return false;
             }
         }
         
         // Check col selection ordering (direct, no streams)
-        if(step.colSelectionCount > 0) {
+        if(step.colSelectionCount > 1) {
             if(!checkStrictlyIncreasing(step.colSelection, step.colSelectionCount)) {
                 return false;
             }
         }
     }
+#endif
 
     // Grid bounds for coordinate validation
     int16_t rowMax = (int16_t)(stateArray.rows() - 1);
@@ -2173,8 +1949,7 @@ bool ParallelMove::execute(Array2D& stateArray,
                 firstStep.colSelection[colTone] <= colMax)
             {
                 // Clear source position immediately
-                stateArray(roundCoordDown(firstStep.rowSelection[rowTone]),
-                    roundCoordDown(firstStep.colSelection[colTone])) = false;
+                stateArray(firstStep.rowSelection[rowTone], firstStep.colSelection[colTone]) = false;
             }
         }
     }
@@ -2214,12 +1989,10 @@ bool ParallelMove::execute(Array2D& stateArray,
                     if(destRowNotParking && destColNotParking)
                     {
                         // Write to destination
-                        stateArray(roundCoordDown(lastStep.rowSelection[rowTone]),
-                            roundCoordDown(lastStep.colSelection[colTone])) = true;
+                        stateArray(lastStep.rowSelection[rowTone], lastStep.colSelection[colTone]) = true;
                         if(alreadyMoved != nullptr)
                         {
-                            (*alreadyMoved)(roundCoordDown(lastStep.rowSelection[rowTone]),
-                                roundCoordDown(lastStep.colSelection[colTone])) = true;
+                            (*alreadyMoved)(lastStep.rowSelection[rowTone], lastStep.colSelection[colTone]) = true;
                         }
                     }
                     // else: destination is -1 (parking), atom is discarded (source already cleared)

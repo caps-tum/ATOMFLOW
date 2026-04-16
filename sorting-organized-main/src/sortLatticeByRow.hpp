@@ -53,7 +53,7 @@
 
 // Array2D configuration
 #ifndef ARRAY2D_MAX_SIZE
-#define ARRAY2D_MAX_SIZE 1024   // 32x32 with margin (was 25000)
+#define ARRAY2D_MAX_SIZE 25000   // 32x32 with margin (was 25000)
 #endif
 // Mini-checklist (Array2D capacity)
 // - Ensure rows*cols <= ARRAY2D_MAX_SIZE for your largest problem
@@ -98,7 +98,7 @@
 #define NUM_THREADS 8
 
 // HLS-compatible fixed sizes for ParallelMove
-#define MAX_MOVE_STEPS 20           // Max steps in a single move
+#define MAX_MOVE_STEPS 4            // Max steps in a single move
 #define MAX_SELECTION_SIZE 16       // ULTRA-AGGRESSIVE: Reduced to 16 to meet <700 BRAM target
 // Mini-checklist (move capacities)
 // - MAX_SELECTION_SIZE <= AOD_TOTAL_LIMIT
@@ -421,44 +421,19 @@ public:
         // int16_t instead of double: coordinates are integer grid indices
         // (max ~500), negative value -1 used as parking sentinel.
         // Size per Step: 2×16×2 + 2 = 66 bytes (vs 256 bytes before)
-        int16_t colSelection[MAX_SELECTION_SIZE];
-        int16_t rowSelection[MAX_SELECTION_SIZE];
+        int16_t colSelection[AOD_COL_LIMIT];
+        int16_t rowSelection[AOD_ROW_LIMIT];
         uint8_t colSelectionCount;
         uint8_t rowSelectionCount;
 
-        Step() : colSelectionCount(0), rowSelectionCount(0) {
-#ifdef __SYNTHESIS__
-#pragma HLS INLINE
-#endif
-            // HLS: Prevent flattening with outer loops in calling context
-            for(size_t i = 0; i < MAX_SELECTION_SIZE; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS loop_flatten off
-#pragma HLS PIPELINE off
-#endif
-                colSelection[i] = 0;
-                rowSelection[i] = 0;
-            }
-        }
+        Step() : colSelectionCount(0), rowSelectionCount(0) {}
     };
 
     // HLS-compatible: fixed-size array instead of std::vector
     Step steps[MAX_MOVE_STEPS];
     uint8_t stepsCount;
-    
-    ParallelMove() : stepsCount(0) {
-#ifdef __SYNTHESIS__
-#pragma HLS INLINE
-#endif
-        // HLS: Prevent flattening with outer loops in calling context
-        for(size_t i = 0; i < MAX_MOVE_STEPS; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS loop_flatten off
-#pragma HLS PIPELINE off
-#endif
-            steps[i] = Step();
-        }
-    }
+
+    ParallelMove() : stepsCount(0) {}
     
     /// @brief Construct a ParallelMove from start/end steps.
     static ParallelMove fromStartAndEnd(
