@@ -1,6 +1,0 @@
-
-Family       : zynquplus
-Device       : xczu49dr
-Package      : -ffvf1760
-Speed Grade  : -2-e
-Clock Period : 10

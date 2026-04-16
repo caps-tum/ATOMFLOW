@@ -1,5 +1,0 @@
-19 errors generated.
-Error while processing /home/xiaorang/Documents/ATOMFLOW/atomflow_controller/.vitis_ws_atomflow_4byqsgtf/atomflow_controller_2024_2/atomflow_controller_2024_2/hls/.autopilot/db/sortLatticeByRow.pp.0.cpp.
-clang-tidy applied 116 of 116 suggested fixes.
-Suppressed 230 warnings (230 in non-user code).
-Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
