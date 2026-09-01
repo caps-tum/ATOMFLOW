@@ -12,32 +12,13 @@
     }
   },
   "extra": {},
-  "generated_utc": "2026-09-01T10:02:07+00:00",
+  "generated_utc": "2026-09-01T14:01:47+00:00",
   "git": {
     "branch": "main",
-    "clean": false,
-    "commit": "f213784838769b94331c14eb920610f17d56b2d4",
-    "describe": "f213784-dirty",
-    "modified_files": [
-      "Image_analysis/src/image_analysis.cpp",
-      "Image_analysis/src/image_analysis.hpp",
-      "README.md",
-      "atomflow_control.ipynb",
-      "atomflow_controller/atomflow_control.py",
-      "atomflow_controller/atomflow_controller.cpp",
-      "atomflow_controller/create_bd.tcl",
-      "atomflow_controller/hls_config_atomflow.cfg",
-      "atomflow_controller/hls_run_atomflow_controller.py",
-      "atomflow_controller/recreate_project.tcl",
-      "atomflow_controller/src/atomflow_controller.hpp",
-      "atomflow_controller/src/tb_atomflow_controller.cpp",
-      "build.sh",
-      "gitignore",
-      "sorting-organized-main/Bitstream_movelist/.sortLattice_AXI_axi_control_s_axi.vhd.swp",
-      "sorting-organized-main/src/sortLatticeByRow.cpp",
-      "sorting-organized-main/src/sortLatticeByRow.hpp",
-      "tools/"
-    ]
+    "clean": true,
+    "commit": "cb5c8dfb9a52d8b0cbd9d6dbaa8f14cea7faa266",
+    "describe": "cb5c8df",
+    "modified_files": []
   },
   "host": "i10se23",
   "protocol": {
@@ -60,6 +41,8 @@
     }
   },
   "tools": {
-    "python": "3.12.3"
+    "python": "3.13.2",
+    "vitis_hls": "Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.2 (64-bit)",
+    "vivado": "vivado v2024.2 (64-bit)"
   }
 }

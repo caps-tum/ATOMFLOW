@@ -31,6 +31,4 @@ __pycache__/
 *~
 .DS_Store
 .ipynb_checkpoints/
-
-# Review scratch (not part of the deliverable)
 optimization.md
