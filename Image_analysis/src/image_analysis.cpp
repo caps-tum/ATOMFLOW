@@ -2,6 +2,7 @@
 #include "image_analysis.hpp"
 #include <cmath>
 #include <cstdint>
+#include <cassert>
 #include <ostream>
 #include "iostream"
 #include "hls_burst_maxi.h"
@@ -53,7 +54,7 @@ void convert_address(
     last_word_end_bit = end_bit % W;
 }
 
-void Image_extract_next(int curr_idx, hls::stream<local_image_info>& localImages, 
+void Image_extract_next(int curr_idx, int psfSupersample, hls::stream<local_image_info>& localImages, 
     hls::burst_maxi<ap_uint<512>> fullImage, //IMAGE_DTYPE fullImage[FULL_IMAGE_SIZE], 
     IMAGE_DTYPE curr_fullImage[31][31], 
     //hls::stream<IMAGE_DTYPE> (&curr_fullImage_streams)[31],
@@ -66,11 +67,26 @@ void Image_extract_next(int curr_idx, hls::stream<local_image_info>& localImages
     //#pragma HLS ARRAY_PARTITION variable=curr_localImage dim=1 type=complete
 
     local_image_info curr_info = localImages.read();
+    // X_min/Y_min are signed and become negative for an atom whose window would
+    // extend past the image edge.  They are used unsigned in the address maths
+    // below, so a negative origin would wrap to a huge AXI address.
+    // atomflow_controller() rejects such atoms up front
+    // (ATOMFLOW_STATUS_ERR_ATOM_OOB); the assert documents the precondition for
+    // callers that use reconstruct() directly.
+#ifndef __SYNTHESIS__
+    assert(curr_info.X_min >= 0 && curr_info.Y_min >= 0 &&
+           "atom window extends past image edge - validate before calling reconstruct()");
+#endif
     unsigned int xmin = curr_info.X_min;
     unsigned int ymin = curr_info.Y_min;
-    int xidx = (curr_info.dx + 1) % 1;
-    int yidx = (curr_info.dy + 1) % 1;
-    unsigned int proj_offset = yidx * 1 + xidx;    
+    // Sub-pixel PSF phase selection.  Written in terms of psfSupersample rather
+    // than the literal 1 it used to hard-code, so the intent is visible; with
+    // the only supported value (PSF_SUPERSAMPLE_ONLY == 1) both indices are 0
+    // and proj_offset is 0, exactly as before.
+    int phases = (psfSupersample > 0) ? psfSupersample : 1;
+    int xidx = ((curr_info.dx % phases) + phases) % phases;
+    int yidx = ((curr_info.dy % phases) + phases) % phases;
+    unsigned int proj_offset = yidx * phases + xidx;    
 
     //imageProjs_local.read_request(proj_offset*IMAGE_PROJECTION_LOCAL, 31*31);    
     // one row = 31 * 32 -> round up -> 2*512 bits. 31 row -> 62. allocation is 64 rows (1024 elements)
@@ -105,7 +121,10 @@ void Image_extract_next(int curr_idx, hls::stream<local_image_info>& localImages
         ap_uint<1024> fdin;
         ap_uint<512> fd0 = fullImage.read();
         ap_uint<512> fd1 = fullImage.read();
-        ap_uint<512> fd2;
+        // fd2 only exists when the 31-pixel row spans a third 512-bit word.
+        // It is still concatenated into dtmp below, so it must be defined:
+        // leaving it uninitialised feeds X's into the window extraction.
+        ap_uint<512> fd2 = 0;
         if(full_burst_len[i] > 2)
             fd2 = fullImage.read();
         ap_uint<1536> dtmp;
@@ -193,7 +212,13 @@ void matrix_sum_prod(IMAGE_DTYPE mat[31][31], IMAGE_DTYPE mat1[31][31], IMAGE_DT
 
 void post_process(IMAGE_DTYPE projSumUsed, IMAGE_DTYPE sum, IMAGE_DTYPE curr_imageProjs, IMAGE_DTYPE& dout){
     #pragma HLS PIPELINE II=1
-    dout = sum * (curr_imageProjs / projSumUsed);
+    // projSumUsed is the sum of the PSF window.  It is zero only for a degenerate
+    // (all-zero) PSF; dividing by it would emit inf/NaN, which then propagates
+    // through the occupancy threshold as a spurious "occupied" site.  Report no
+    // emission instead.
+    dout = (projSumUsed != (IMAGE_DTYPE)0)
+             ? sum * (curr_imageProjs / projSumUsed)
+             : (IMAGE_DTYPE)0;
 }
 
 void reconstruct(int atomLocationsSize,int projShape0, int projShape1, atom_location atomLocations[2000],
@@ -266,7 +291,7 @@ void reconstruct(int atomLocationsSize,int projShape0, int projShape1, atom_loca
         getLocalImages_single(idx, psfSupersample, projShape0, projShape1, atomLocations, localImages);
         //Image_extract(idx, localImages, fullImage, curr_fullImage, 
         //    imageProjs_local, curr_localImage, imageProjs, curr_imageProjs); //,fullImage_rows, fullImage_cols
-        Image_extract_next(idx, localImages, fullImage, curr_fullImage, 
+        Image_extract_next(idx, psfSupersample, localImages, fullImage, curr_fullImage, 
             imageProjs_local, curr_localImage, imageProjs, curr_imageProjs);            
         
         

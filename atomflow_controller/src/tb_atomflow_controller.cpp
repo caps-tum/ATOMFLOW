@@ -3,12 +3,12 @@
  *
  * Calls three IPs:
  *   IP1  reconstruct()                  — image analysis (called inside atomflow_controller)
- *   IP2  sortLatticeByRowParallel_HLS() — sorting (called inside atomflow_controller + directly below)
+ *   IP2  sortLatticeByRowParallel_HLS() — sorting (called inside atomflow_controller)
  *   IP3  atomflow_controller()          — combined controller under test
  *
  * Test 1: MODE_QUBIT_READOUT  → emissions computed, moveCount == 0
  * Test 2: MODE_INITIALIZATION → emissions computed, moveCount > 0
- * Test 3: direct sort check   → call IP2 on reconstructed state, verify target filled
+ * Test 3: 16x32 parking grid  → call full controller with 16x16 zone detections
  */
 
 #include <iostream>
@@ -175,6 +175,136 @@ static void make_target(uint8_t* tgt, int rows, int cols)
     }
 }
 
+// ── atom-number conservation check ──────────────────────────────────────────
+// Replays moves one at a time and verifies the lattice population only ever
+// drops by the number of atoms a move deliberately discards (destination -1,
+// or a destination outside the grid).  Any INCREASE means atoms were created.
+static int count_atoms(const Array2D& a)
+{
+    int n = 0;
+    for (size_t r = 0; r < (size_t)a.rows(); ++r)
+        for (size_t c = 0; c < (size_t)a.cols(); ++c)
+            if (const_cast<Array2D&>(a)(r, c)) ++n;
+    return n;
+}
+
+static bool check_conservation(Array2D state, const ParallelMove* moves,
+                               unsigned int moveCount, const char* label)
+{
+    int before = count_atoms(state);
+    int created = 0, discarded = 0;
+    for (unsigned int m = 0; m < moveCount; ++m) {
+        int pre = count_atoms(state);
+        moves[m].execute(state);
+        int post = count_atoms(state);
+        if (post > pre) {
+            created += (post - pre);
+            std::cout << "    move #" << m << ": CREATED " << (post - pre)
+                      << " atoms out of nothing\n";
+        } else discarded += (pre - post);
+    }
+    int after = count_atoms(state);
+    std::cout << "  " << label << " conservation: " << before << " atoms -> "
+              << after << " (" << discarded << " discarded, "
+              << created << " created)"
+              << (created == 0 ? "  OK\n" : "  VIOLATION\n");
+    return created == 0;
+}
+
+// ── move stream audit (issues 3.3 / out-of-range destinations) ───────────────
+// Classifies every emitted move WITHOUT changing behaviour:
+//   executable       — non-empty selections, in-bounds destination
+//   sentinel discard — destination -1 (the only documented discard encoding)
+//   offgrid discard  — destination < -1 or >= grid size; produced on purpose by
+//                      the unusable-atom removal path (sortRemainingRowsOrCols)
+//                      but not part of any documented protocol
+//   NOP              — a step has an empty row/col selection; execute() rejects
+//                      it, yet its 5 beats still cross the wire (host filters)
+static bool audit_moves(const ParallelMove* moves, unsigned int moveCount,
+                        int rows, int cols)
+{
+    unsigned int nExec = 0, nSentinel = 0, nOffgrid = 0, nNop = 0, nMismatch = 0;
+    unsigned int nFlagDisagree = 0;
+    std::cout << "\n  Move audit (grid " << rows << "x" << cols << "):\n";
+    for (unsigned int m = 0; m < moveCount; ++m) {
+        const ParallelMove& mv = moves[m];
+        bool empty_sel = (mv.stepsCount == 0), mismatch = false;
+        bool off_grid = false, sentinel = false;
+        if (mv.stepsCount > 0) {
+            const ParallelMove::Step& fs = mv.steps[0];
+            const ParallelMove::Step& ls = mv.steps[mv.stepsCount - 1];
+            mismatch = (fs.colSelectionCount != ls.colSelectionCount ||
+                        fs.rowSelectionCount != ls.rowSelectionCount);
+            for (size_t st = 0; st < mv.stepsCount; ++st)
+                if (mv.steps[st].colSelectionCount == 0 ||
+                    mv.steps[st].rowSelectionCount == 0) empty_sel = true;
+            for (size_t i = 0; i < ls.rowSelectionCount; ++i) {
+                int16_t v = ls.rowSelection[i];
+                if (v == -1) sentinel = true;
+                else if (v < -1 || v >= rows) off_grid = true;
+            }
+            for (size_t i = 0; i < ls.colSelectionCount; ++i) {
+                int16_t v = ls.colSelection[i];
+                if (v == -1) sentinel = true;
+                else if (v < -1 || v >= cols) off_grid = true;
+            }
+        }
+        // ordering: every multi-tone selection must be strictly increasing;
+        // C-sim execute() rejects violations but synthesized RTL executes them
+        bool bad_order = false;
+        for (size_t st = 0; st < mv.stepsCount; ++st) {
+            const ParallelMove::Step& sp = mv.steps[st];
+            for (size_t i = 1; i < sp.rowSelectionCount; ++i)
+                if (sp.rowSelection[i] <= sp.rowSelection[i-1]) bad_order = true;
+            for (size_t i = 1; i < sp.colSelectionCount; ++i)
+                if (sp.colSelection[i] <= sp.colSelection[i-1]) bad_order = true;
+        }
+        const char* cls = 0;
+        if (empty_sel)      { cls = "NOP (empty selection)";              ++nNop; }
+        else if (mismatch)  { cls = "INVALID (first/last count mismatch)"; ++nMismatch; }
+        else if (bad_order) { cls = "INVALID (selection not strictly increasing:"
+                                    " C-sim rejects, RTL would execute)";  ++nMismatch; }
+        else if (off_grid)  { cls = "discard (off-grid, undocumented)";    ++nOffgrid; }
+        else if (sentinel)  { cls = "discard (-1 sentinel)";               ++nSentinel; }
+        else                { ++nExec; }
+        // Cross-check the on-wire flag against what the coordinates imply.
+        // A disagreement means the producer and the host disagree about the
+        // packet's meaning — exactly the protocol drift the flag exists to stop.
+        bool flagSaysDiscard = (mv.flags & MOVE_FLAG_DISCARD) != 0;
+        bool coordsSayDiscard = sentinel || off_grid;
+        if (!empty_sel && flagSaysDiscard != coordsSayDiscard) {
+            ++nFlagDisagree;
+            std::cout << "    move #" << m << ": FLAG MISMATCH (flags=0x"
+                      << std::hex << (unsigned)mv.flags << std::dec
+                      << " but coordinates say discard=" << coordsSayDiscard << ")\n";
+        }
+        if (cls) std::cout << "    move #" << m << ": " << cls << "\n";
+        if (bad_order) {  // dump the offending move in full
+            for (size_t st = 0; st < mv.stepsCount; ++st) {
+                const ParallelMove::Step& sp = mv.steps[st];
+                std::cout << "      step " << st << ": rows[";
+                for (size_t i = 0; i < sp.rowSelectionCount; ++i)
+                    std::cout << (i ? "," : "") << sp.rowSelection[i];
+                std::cout << "] cols[";
+                for (size_t i = 0; i < sp.colSelectionCount; ++i)
+                    std::cout << (i ? "," : "") << sp.colSelection[i];
+                std::cout << "]\n";
+            }
+        }
+    }
+    std::cout << "    summary: " << moveCount << " raw = "
+              << nExec << " executable + " << nSentinel << " sentinel-discard + "
+              << nOffgrid << " offgrid-discard + " << nNop << " NOP + "
+              << nMismatch << " mismatch\n";
+    std::cout << "    MOVE_FLAG_DISCARD agrees with coordinates on all "
+              << moveCount << " moves: "
+              << (nFlagDisagree == 0 ? "yes" : "NO") << "\n";
+    if (nNop + nMismatch > 0)
+        std::cout << "    -> " << (nNop + nMismatch) << " moves are pure wire waste"
+                  << " and currently force host-side cleaning\n";
+    return nFlagDisagree == 0;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 int main()
 {
@@ -218,6 +348,8 @@ int main()
     static IMAGE_DTYPE emissions[MAX_ATOM_SITES];
     static ParallelMove moveList_buf[HLS_MAX_MOVES];      // deserialized from stream
     unsigned int       moveCount = 0;
+    unsigned int       status    = 0;
+    unsigned int       tFilled = 0, tRequired = 0;
 
     make_target(tgt, ROWS, COLS);
 
@@ -237,14 +369,17 @@ int main()
             projs_local_packed, projs, projs_local_sz,
             fullImg_packed, frows, fcols,
             emissions, ROWS, COLS, tgt,
-            ZRS, ZRE, ZCS, ZCE, moveStream, &moveCount);
+            ZRS, ZRE, ZCS, ZCE, moveStream, &moveCount, &status,
+            &tFilled, &tRequired);
         // READOUT mode: stream empty, nothing to drain
     }
 
-    // Check: moveCount == 0
-    std::cout << "  moveCount = " << moveCount << "  (expected 0)\n";
-    if (moveCount == 0) { std::cout << "  PASS\n"; pass++; }
-    else                { std::cout << "  FAIL\n"; fail++; }
+    // Check: moveCount == 0, status == OK
+    std::cout << "  moveCount = " << moveCount << "  (expected 0)"
+              << "  status = " << status << "\n";
+    if (moveCount == 0 && status == ATOMFLOW_STATUS_OK)
+         { std::cout << "  PASS\n"; pass++; }
+    else { std::cout << "  FAIL\n"; fail++; }
 
     // Check: emissions non-zero, compute adaptive threshold
     float emin = 1e30f, emax = -1e30f;
@@ -286,15 +421,26 @@ int main()
             projs_local_packed, projs, projs_local_sz,
             fullImg_packed, frows, fcols,
             emissions, ROWS, COLS, tgt,
-            ZRS, ZRE, ZCS, ZCE, moveStream, &moveCount);
+            ZRS, ZRE, ZCS, ZCE, moveStream, &moveCount, &status,
+            &tFilled, &tRequired);
         // Drain stream → moveList_buf for move replay below
         drain_movestream(moveStream, moveList_buf, moveCount);
     }
 
-    // Check: moveCount > 0
-    std::cout << "  moveCount = " << moveCount << "  (expected > 0)\n";
-    if (moveCount > 0) { std::cout << "  PASS\n"; pass++; }
-    else               { std::cout << "  FAIL: no moves generated\n"; fail++; }
+    // Check: moveCount > 0; status must be written (16x16 has no parking, so
+    // a partial fill legitimately reports ERR_SORT — record, don't fail on it)
+    std::cout << "  moveCount = " << moveCount << "  (expected > 0)"
+              << "  status = " << status
+              << (status == ATOMFLOW_STATUS_OK ? " (OK)" :
+                  status == ATOMFLOW_STATUS_ERR_SORT ? " (ERR_SORT)" : " (UNEXPECTED)")
+              << "  targets = " << tFilled << "/" << tRequired << "\n";
+    // No parking columns here, so the fill is partial by construction and the
+    // controller must say so rather than reporting OK.
+    if (moveCount > 0 && status == ATOMFLOW_STATUS_ERR_SORT && tFilled < tRequired)
+         { std::cout << "  PASS (partial fill correctly reported)\n"; pass++; }
+    else { std::cout << "  FAIL: partial fill not reported\n"; fail++; }
+    if (!audit_moves(moveList_buf, moveCount, ROWS, COLS))
+        { std::cout << "  FAIL: flag/coordinate disagreement\n"; fail++; } else pass++;
 
     // Full movement list
     if (moveCount > 0) {
@@ -329,6 +475,16 @@ int main()
         for (int r = 0; r < ROWS; ++r)
             for (int c = 0; c < COLS; ++c)
                 t2_state(r, c) = (emissions[r * COLS + c] > threshold);
+
+        // Atom conservation before replaying for the fill map
+        {
+            Array2D t2_conserve(ROWS, COLS, false);
+            for (int r = 0; r < ROWS; ++r)
+                for (int c = 0; c < COLS; ++c)
+                    t2_conserve(r, c) = (emissions[r * COLS + c] > threshold);
+            if (!check_conservation(t2_conserve, moveList_buf, moveCount, "Test 2"))
+                { std::cout << "  FAIL: atoms created\n"; fail++; } else pass++;
+        }
 
         // Apply all moves in sequence
         if (moveCount > 0) {
@@ -370,13 +526,13 @@ int main()
     }
 
     // =========================================================================
-    // TEST 3 — IP2: sortLatticeByRowParallel_HLS  (direct call)
+    // TEST 3 — IP3: full controller with zone-only detection and parking
     //
-    // Embed the 16×16 emission-derived occupancy into cols 8-23 of a 16×32
-    // lattice.  Cols 0-7 and 24-31 are empty parking space → 0 mismatch.
+    // The controller embeds 16×16 detections into cols 8-23 of a 16×32 lattice.
+    // Cols 0-7 and 24-31 start empty and are used only during sorting.
     // Zone: [0,16)×[8,24)   Target: oxxxxxxooxxxxxxo on rows r%4==0,1
     // =========================================================================
-    std::cout << "\n=== TEST 3: sortLatticeByRowParallel_HLS  (real emissions, 16x32) ===\n";
+    std::cout << "\n=== TEST 3: atomflow_controller  (16x16 detection, 16x32 parking grid) ===\n";
     {
         const unsigned int T3_TR  = 16, T3_TC  = 32;   // total lattice
         const unsigned int T3_ZR  = ROWS, T3_ZC = COLS; // zone size = 16×16
@@ -384,23 +540,53 @@ int main()
         const unsigned int T3_ZCS = (T3_TC - T3_ZC) / 2;  // 8
         const unsigned int T3_ZCE = T3_ZCS + T3_ZC;        // 24
 
-        // Build stateArray: embed 16×16 emission occupancy into zone cols
+        // Target: oxxxxxxooxxxxxxo on rows r%4∈{0,1}, zone-relative (16×16)
+        static uint8_t t3_target_mem[T3_ZR * T3_ZC];
+        make_target(t3_target_mem, T3_ZR, T3_ZC);
+        Array2D t3_target(T3_ZR, T3_ZC, false);
+        for (unsigned int r = 0; r < T3_ZR; ++r)
+            for (unsigned int c = 0; c < T3_ZC; ++c)
+                t3_target(r, c) = (t3_target_mem[r * T3_ZC + c] != 0);
+
+        // Run the complete controller: reconstruct 16×16 detections, embed
+        // them in the central zone, and sort using the empty side columns.
+        static IMAGE_DTYPE t3_emissions[MAX_ATOM_SITES];
+        memset(t3_emissions, 0, sizeof(t3_emissions));
+        unsigned int t3_move_count = 0;
+        unsigned int t3_status = 0;
+        unsigned int t3_filled = 0, t3_required = 0;
+        hls::stream<ap_uint<512>> t3_stream("t3_stream");
+        atomflow_controller(
+            MODE_INITIALIZATION, threshold,
+            nLocs, ps0, ps1, locs, psfSS, projSz,
+            projs_local_packed, projs, projs_local_sz,
+            fullImg_packed, frows, fcols,
+            t3_emissions, T3_TR, T3_TC, t3_target_mem,
+            T3_ZRS, T3_ZRE, T3_ZCS, T3_ZCE,
+            t3_stream, &t3_move_count, &t3_status,
+            &t3_filled, &t3_required);
+        unsigned int t3_stream_beats = (unsigned int)t3_stream.size();
+        drain_movestream(t3_stream, moveList_buf, t3_move_count);
+
+        // Rebuild the controller's initial physical grid for move replay.
         Array2D t3_state(T3_TR, T3_TC, false);
         for (int r = 0; r < ROWS; ++r)
             for (int c = 0; c < COLS; ++c)
-                t3_state(r, T3_ZCS + c) = (emissions[r * COLS + c] > threshold);
-
-        // Target: oxxxxxxooxxxxxxo on rows r%4∈{0,1}, zone-relative (16×16)
-        Array2D t3_target(T3_ZR, T3_ZC, false);
-        for (unsigned int r = 0; r < T3_ZR; ++r)
-            if (r % 4 == 0 || r % 4 == 1)
-                for (int c : {1,2,3,4,5,6, 9,10,11,12,13,14})
-                    t3_target(r, c) = true;
+                t3_state(r, T3_ZCS + c) = (t3_emissions[r * COLS + c] > threshold);
+        {
+            Array2D t3_conserve(T3_TR, T3_TC, false);
+            for (int r = 0; r < ROWS; ++r)
+                for (int c = 0; c < COLS; ++c)
+                    t3_conserve(r, T3_ZCS + c) = (t3_emissions[r * COLS + c] > threshold);
+            if (!check_conservation(t3_conserve, moveList_buf, t3_move_count, "Test 3"))
+                { std::cout << "  FAIL: atoms created\n"; fail++; } else pass++;
+        }
+        for (unsigned int m = 0; m < t3_move_count; ++m)
+            moveList_buf[m].execute(t3_state);
 
         int t3_atoms = 0, t3_tgts = 0;
-        for (unsigned int r = 0; r < T3_TR; ++r)
-            for (unsigned int c = 0; c < T3_TC; ++c)
-                if (t3_state(r, c)) ++t3_atoms;
+        for (int i = 0; i < nLocs; ++i)
+            if (t3_emissions[i] > threshold) ++t3_atoms;
         for (unsigned int r = 0; r < T3_ZR; ++r)
             for (unsigned int c = 0; c < T3_ZC; ++c)
                 if (t3_target(r, c)) ++t3_tgts;
@@ -409,12 +595,6 @@ int main()
                   << "  zone=[" << T3_ZRS << "," << T3_ZRE
                   << ")x[" << T3_ZCS << "," << T3_ZCE << ")\n";
         std::cout << "  atoms=" << t3_atoms << "  target sites=" << t3_tgts << "\n";
-
-        // Call IP2 directly via streaming overload
-        hls::stream<ap_uint<512>> t3_stream("t3_stream");
-        HLSMoveStream t3_moves(t3_stream);
-        sortLatticeByRowParallel_HLS(t3_state, T3_ZRS, T3_ZRE, T3_ZCS, T3_ZCE,
-                                     t3_target, t3_moves);
 
         // Validate: only count unfilled target sites as failures
         // (extra atoms at non-target positions are acceptable)
@@ -429,8 +609,26 @@ int main()
 
         std::cout << "  filled: " << t3_met << "/" << t3_total
                   << "  extra atoms=" << t3_extra << "\n";
-        if (t3_met == t3_total) { std::cout << "  PASS\n"; pass++; }
-        else                    { std::cout << "  FAIL\n"; fail++; }
+        const unsigned int t3_beats_per_move =
+            (unsigned int)((sizeof(ParallelMove) + 63) / 64);
+        bool t3_stream_ok =
+            t3_stream_beats == t3_move_count * t3_beats_per_move;
+        std::cout << "  status = " << t3_status
+                  << (t3_status == ATOMFLOW_STATUS_OK ? " (OK)" : " (NOT OK)")
+                  << "  targets = " << t3_filled << "/" << t3_required
+                  << "  (controller's own count)\n";
+        // The controller's self-reported fill must match the host's replay
+        if (t3_filled != (unsigned)t3_met || t3_required != (unsigned)t3_total) {
+            std::cout << "  FAIL: controller reports " << t3_filled << "/" << t3_required
+                      << " but host replay says " << t3_met << "/" << t3_total << "\n";
+            fail++;
+        } else pass++;
+        if (t3_met == t3_total && t3_move_count > 0 && t3_stream_ok &&
+            t3_status == ATOMFLOW_STATUS_OK)
+            { std::cout << "  PASS\n"; pass++; }
+        else { std::cout << "  FAIL\n"; fail++; }
+        if (!audit_moves(moveList_buf, t3_move_count, (int)T3_TR, (int)T3_TC))
+            { std::cout << "  FAIL: flag/coordinate disagreement\n"; fail++; } else pass++;
 
         // Post-sort zone map
         std::cout << "\n  Post-sort zone (•=target filled, o=extra, □=missing, ·=empty):\n";
@@ -446,8 +644,155 @@ int main()
             }
             std::cout << "\n";
         }
-        std::cout << "  moves=" << t3_moves.count
-                  << "  stream beats=" << t3_stream.size() << "\n";
+        std::cout << "  moves=" << t3_move_count
+                  << "  stream beats=" << t3_stream_beats << "\n";
+    }
+
+    // =========================================================================
+    // TEST 4 — input validation: invalid configs must emit zero moves and a
+    // specific error status; a valid config with nothing to do must report OK.
+    // (Before the status register existed these cases were indistinguishable.)
+    // =========================================================================
+    std::cout << "\n=== TEST 4: input validation negative paths ===\n";
+    {
+        struct NegCase {
+            const char*  name;
+            int          gr, gc, nloc;
+            unsigned int r0, r1, c0, c1;
+            unsigned int expect_status;
+        };
+        const NegCase cases[] = {
+            {"grid_cols > MAX_COLS",          16, 64, nLocs, 0,16,  8,24, ATOMFLOW_STATUS_ERR_ZONE},
+            {"grid_rows = 0",                  0, 32, nLocs, 0,16,  8,24, ATOMFLOW_STATUS_ERR_ZONE},
+            {"zone rows inverted",            16, 32, nLocs, 16,0,  8,24, ATOMFLOW_STATUS_ERR_ZONE},
+            {"zone cols inverted",            16, 32, nLocs, 0,16, 24,8,  ATOMFLOW_STATUS_ERR_ZONE},
+            {"zone col end beyond grid",      16, 32, nLocs, 0,16,  8,40, ATOMFLOW_STATUS_ERR_ZONE},
+            {"zone row end beyond grid",      16, 32, nLocs, 0,20,  8,24, ATOMFLOW_STATUS_ERR_ZONE},
+            {"atom count != zone area",       16, 32, nLocs - 1, 0,16, 8,24, ATOMFLOW_STATUS_ERR_ATOM_COUNT},
+            // A negative count is caught by the image-parameter check, which runs
+            // first because it gates all DDR traffic.
+            {"atom count negative",           16, 32, -1,    0,16,  8,24, ATOMFLOW_STATUS_ERR_IMAGE_CFG},
+        };
+        static uint8_t t4_target_mem[16 * 16];
+        make_target(t4_target_mem, 16, 16);
+        static IMAGE_DTYPE t4_emissions[MAX_ATOM_SITES];
+
+        bool t4_ok = true;
+        for (const NegCase& c : cases) {
+            hls::stream<ap_uint<512>> t4_stream("t4_stream");
+            unsigned int mc = 0xDEADBEEF, st = 0, t4f = 0, t4r = 0;
+            atomflow_controller(
+                MODE_INITIALIZATION, threshold,
+                c.nloc, ps0, ps1, locs, psfSS, projSz,
+                projs_local_packed, projs, projs_local_sz,
+                fullImg_packed, frows, fcols,
+                t4_emissions, c.gr, c.gc, t4_target_mem,
+                c.r0, c.r1, c.c0, c.c1, t4_stream, &mc, &st, &t4f, &t4r);
+            bool ok = (mc == 0 && t4_stream.size() == 0 && st == c.expect_status);
+            std::cout << (ok ? "  ok   " : "  FAIL ")
+                      << "moveCount=" << mc << " beats=" << t4_stream.size()
+                      << " status=" << st << " (expect " << c.expect_status << ")"
+                      << "  <- " << c.name << "\n";
+            if (!ok) t4_ok = false;
+            while (!t4_stream.empty()) t4_stream.read();
+        }
+
+        // ── image-parameter negative paths ──────────────────────────────
+        // The reconstruction datapath implements one fixed configuration; the
+        // controller must reject anything else instead of silently computing
+        // wrong emissions.
+        {
+            struct ImgCase {
+                const char* name;
+                int ps0, ps1, psf, projSz, frows, fcols;
+                unsigned int expect_status;
+            };
+            const ImgCase icases[] = {
+                {"projShape0 != 31",     30, 31, 1, projSz, frows, fcols, ATOMFLOW_STATUS_ERR_IMAGE_CFG},
+                {"projShape1 != 31",     31, 32, 1, projSz, frows, fcols, ATOMFLOW_STATUS_ERR_IMAGE_CFG},
+                {"psfSupersample != 1",  31, 31, 2, projSz, frows, fcols, ATOMFLOW_STATUS_ERR_IMAGE_CFG},
+                {"image wider than PIXEL",31,31, 1, projSz, frows, PIXEL+1, ATOMFLOW_STATUS_ERR_IMAGE_CFG},
+                {"fullImage_rows = 0",   31, 31, 1, projSz, 0,     fcols, ATOMFLOW_STATUS_ERR_IMAGE_CFG},
+                {"imageProjectionSize too big", 31,31,1,
+                                          IMAGE_PROJECTION_SIZE+1, frows, fcols, ATOMFLOW_STATUS_ERR_IMAGE_CFG},
+            };
+            for (const ImgCase& c : icases) {
+                hls::stream<ap_uint<512>> st_s("t4_img");
+                unsigned int mc = 0xDEADBEEF, st = 0, t4f = 0, t4r = 0;
+                atomflow_controller(
+                    MODE_INITIALIZATION, threshold,
+                    nLocs, c.ps0, c.ps1, locs, c.psf, c.projSz,
+                    projs_local_packed, projs, projs_local_sz,
+                    fullImg_packed, c.frows, c.fcols,
+                    t4_emissions, 16, 32, t4_target_mem,
+                    0, 16, 8, 24, st_s, &mc, &st, &t4f, &t4r);
+                bool ok = (mc == 0 && st_s.size() == 0 && st == c.expect_status);
+                std::cout << (ok ? "  ok   " : "  FAIL ")
+                          << "moveCount=" << mc << " status=" << st
+                          << " (expect " << c.expect_status << ")  <- " << c.name << "\n";
+                if (!ok) t4_ok = false;
+                while (!st_s.empty()) st_s.read();
+            }
+
+            // An atom whose 31x31 window would run off the image edge: the
+            // extraction path would turn the negative origin into a huge AXI
+            // address, so this must be refused rather than read.
+            {
+                static atom_location edge_locs[MAX_ATOM_SITES];
+                memcpy(edge_locs, locs, sizeof(atom_location) * (size_t)nLocs);
+                edge_locs[0].x = 2.0f;   // window origin = 2 - 15 = -13
+                edge_locs[0].y = 2.0f;
+                hls::stream<ap_uint<512>> st_s("t4_edge");
+                unsigned int mc = 0xDEADBEEF, st = 0, t4f = 0, t4r = 0;
+                atomflow_controller(
+                    MODE_INITIALIZATION, threshold,
+                    nLocs, ps0, ps1, edge_locs, psfSS, projSz,
+                    projs_local_packed, projs, projs_local_sz,
+                    fullImg_packed, frows, fcols,
+                    t4_emissions, 16, 32, t4_target_mem,
+                    0, 16, 8, 24, st_s, &mc, &st, &t4f, &t4r);
+                bool ok = (mc == 0 && st_s.size() == 0 &&
+                           st == ATOMFLOW_STATUS_ERR_ATOM_OOB);
+                std::cout << (ok ? "  ok   " : "  FAIL ")
+                          << "moveCount=" << mc << " status=" << st
+                          << " (expect " << ATOMFLOW_STATUS_ERR_ATOM_OOB
+                          << ")  <- atom window off image edge\n";
+                if (!ok) t4_ok = false;
+                while (!st_s.empty()) st_s.read();
+            }
+        }
+
+        // Positive control: valid geometry, empty target -> nothing to do,
+        // and (unlike every case above) status must be OK.
+        {
+            static uint8_t empty_target[16 * 16];
+            memset(empty_target, 0, sizeof(empty_target));
+            hls::stream<ap_uint<512>> t4_stream("t4_ok_stream");
+            unsigned int mc = 0xDEADBEEF, st = 0, t4f = 0, t4r = 0;
+            atomflow_controller(
+                MODE_INITIALIZATION, threshold,
+                nLocs, ps0, ps1, locs, psfSS, projSz,
+                projs_local_packed, projs, projs_local_sz,
+                fullImg_packed, frows, fcols,
+                t4_emissions, 16, 32, empty_target,
+                0, 16, 8, 24, t4_stream, &mc, &st, &t4f, &t4r);
+            // A valid config must never yield a config-error code; the sorter
+            // may legally emit discard moves for the now-unneeded atoms, so we
+            // pin only the status-code contract here and report the rest.
+            bool ok = (st == ATOMFLOW_STATUS_OK || st == ATOMFLOW_STATUS_ERR_SORT);
+            std::cout << (ok ? "  ok   " : "  FAIL ")
+                      << "moveCount=" << mc << " beats=" << t4_stream.size()
+                      << " status=" << st << " (expect OK=" << ATOMFLOW_STATUS_OK
+                      << " or ERR_SORT=" << ATOMFLOW_STATUS_ERR_SORT
+                      << ", never a config error)  <- valid config, empty target\n";
+            if (!ok) t4_ok = false;
+            drain_movestream(t4_stream, moveList_buf, mc);
+            if (!audit_moves(moveList_buf, mc, 16, 32)) t4_ok = false;
+            while (!t4_stream.empty()) t4_stream.read();
+        }
+
+        if (t4_ok) { std::cout << "  PASS\n"; pass++; }
+        else       { std::cout << "  FAIL\n"; fail++; }
     }
 
     // ── Final result ─────────────────────────────────────────────────────────

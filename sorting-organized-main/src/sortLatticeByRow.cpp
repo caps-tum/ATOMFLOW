@@ -11,6 +11,7 @@
 #include <iostream>
 #ifndef __SYNTHESIS__
 #include <deque>
+#include <cstdio>
 #endif
 
 // Fixed-size limits for HLS-safe buffers (supports 80x250 testbench)
@@ -40,6 +41,7 @@ static inline int16_t xc_center_offset(unsigned int sortingChannelWidth) {
 #endif
     return static_cast<int16_t>((sortingChannelWidth + 1) >> 1);
 }
+
 
 // Small, deterministic insertion sort for short double arrays (length <= MAX_SELECTION_SIZE).
 // Prefer this over hlsSort here to shorten the critical path in resolveSortingDeficiencies.
@@ -114,6 +116,85 @@ static inline bool checkStrictlyIncreasing(const int16_t* selection, size_t coun
         }
     }
     return true;
+}
+
+/**
+ * @brief Decide whether a planned move is physically meaningful and legal.
+ *
+ * Checked identically in C simulation and in synthesis, BEFORE the move is
+ * executed or streamed, so the lattice state and the emitted stream can never
+ * diverge between the two.  (Rejecting inside execute() cannot work in RTL:
+ * by then the move's beats have already been written to the AXI-Stream.)
+ *
+ * A move must:
+ *   - carry at least one tone on BOTH AOD axes;
+ *   - keep the same tone counts in its first and last step;
+ *   - list every selection strictly increasing (an AOD cannot address the same
+ *     row/column twice, and the hardware requires monotonic tone ordering).
+ *
+ * Anything else is a no-op that only burns AXI-Stream beats and forces the host
+ * to filter the raw stream.
+ *
+ * @param m Planned move.
+ * @return true if the move should be executed and streamed.
+ */
+static inline bool move_is_emittable(const ParallelMove& m) {
+#ifdef __SYNTHESIS__
+#pragma HLS INLINE
+#endif
+    if(m.stepsCount == 0) return false;
+    const ParallelMove::Step& firstStep = m.steps[0];
+    const ParallelMove::Step& lastStep  = m.steps[m.stepsCount - 1];
+    if(firstStep.rowSelectionCount == 0 || firstStep.colSelectionCount == 0) return false;
+    if(firstStep.rowSelectionCount != lastStep.rowSelectionCount) return false;
+    if(firstStep.colSelectionCount != lastStep.colSelectionCount) return false;
+    for(size_t stepIdx = 0; stepIdx < MAX_MOVE_STEPS; stepIdx++) {
+#ifdef __SYNTHESIS__
+#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_MOVE_STEPS
+#endif
+        if(stepIdx >= (size_t)m.stepsCount) break;
+        const ParallelMove::Step& step = m.steps[stepIdx];
+        if(!checkStrictlyIncreasing(step.rowSelection, step.rowSelectionCount)) return false;
+        if(!checkStrictlyIncreasing(step.colSelection, step.colSelectionCount)) return false;
+    }
+    return true;
+}
+
+/**
+ * @brief Stamp MOVE_FLAG_DISCARD when a move sweeps atoms out of the array.
+ *
+ * Runs identically in C simulation and synthesis, immediately before the move
+ * is executed and serialised, so the flag the host decodes always matches the
+ * coordinates in the same packet.
+ *
+ * @param m Move to annotate (modified in place).
+ * @param rowMax Highest valid row index.
+ * @param colMax Highest valid column index.
+ */
+static inline void annotate_move_flags(ParallelMove& m, int16_t rowMax, int16_t colMax) {
+#ifdef __SYNTHESIS__
+#pragma HLS INLINE
+#endif
+    if(m.stepsCount == 0) return;
+    const ParallelMove::Step& lastStep = m.steps[m.stepsCount - 1];
+    bool discard = false;
+    for(size_t i = 0; i < lastStep.rowSelectionCount; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
+#endif
+        int16_t v = lastStep.rowSelection[i];
+        if(v < 0 || v > rowMax) discard = true;
+    }
+    for(size_t i = 0; i < lastStep.colSelectionCount; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
+#endif
+        int16_t v = lastStep.colSelection[i];
+        if(v < 0 || v > colMax) discard = true;
+    }
+    m.flags = discard ? (uint8_t)MOVE_FLAG_DISCARD : (uint8_t)0;
 }
 
 struct HLSIntList {
@@ -477,8 +558,12 @@ void clearFirstNRowsOrCols(Array2D& stateArray,
             
             move.steps[move.stepsCount++] = start;
             move.steps[move.stepsCount++] = end;
-            move.execute(stateArray);
-            moveList.push_back(move);
+            if(move_is_emittable(move)) {
+                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                          (int16_t)(stateArray.cols() - 1));
+                move.execute(stateArray);
+                moveList.push_back(move);
+            }
         }
     }
 }
@@ -602,8 +687,14 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
             unsigned short discardCount = 0;
             
             // TIMING OPT: Track front/back indices AND write position to eliminate ALL count dependencies
-            unsigned short frontIdx = 0;
-            unsigned short backIdx = currentSize > 0 ? currentSize - 1 : 0;
+            // NOTE: these MUST be signed.  backIdx is decremented until it passes
+            // frontIdx; with an unsigned type, consuming the last element wraps
+            // backIdx to 65535, so the `frontIdx > backIdx` guard never fires and
+            // the compaction below copies the whole 256-entry array (count=256),
+            // injecting uninitialised tail entries as phantom atoms at index 0.
+            // Width is unchanged (16-bit) so timing is unaffected.
+            short frontIdx = 0;
+            short backIdx = currentSize > 0 ? (short)(currentSize - 1) : (short)-1;
             unsigned short unusableWriteIdx = unusableAtoms[indexXC].count;
             
             // Pipeline-friendly: bounded loop with simple operations
@@ -642,7 +733,7 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
             // Compact usableAtoms by shifting remaining elements to front
             if(discardCount > 0) {
                 unsigned short writeIdx = 0;
-                for(unsigned short readIdx = frontIdx; readIdx <= backIdx && readIdx < HLS_MAX_ARRAY_AC; readIdx++) {
+                for(short readIdx = frontIdx; readIdx <= backIdx && readIdx < (short)HLS_MAX_ARRAY_AC; readIdx++) {
 #ifdef __SYNTHESIS__
 #pragma HLS PIPELINE II=1
 #pragma HLS LOOP_TRIPCOUNT min=0 max=HLS_MAX_ARRAY_AC
@@ -793,8 +884,12 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
             move.steps[move.stepsCount++] = elbow;
             move.steps[move.stepsCount++] = end;
             // Execute immediately AND queue for deferred execution
-            move.execute(stateArray);
-            moveList.push_back(move);
+            if(move_is_emittable(move)) {
+                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                          (int16_t)(stateArray.cols() - 1));
+                move.execute(stateArray);
+                moveList.push_back(move);
+            }
         }
         if(targetIndexXC < compZoneXCStart)
         {
@@ -856,8 +951,12 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                 move.steps[move.stepsCount++] = start;
                 move.steps[move.stepsCount++] = end;
                 // Execute immediately AND queue for deferred execution
-                move.execute(stateArray);
-                moveList.push_back(move);
+                if(move_is_emittable(move)) {
+                    annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                              (int16_t)(stateArray.cols() - 1));
+                    move.execute(stateArray);
+                    moveList.push_back(move);
+                }
             }
             usableAtoms[targetIndexXC] = usableAtoms[indexXC];
             usableAtoms[indexXC].clear();
@@ -1144,23 +1243,22 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                 move.steps[move.stepsCount++] = elbow2;
                 move.steps[move.stepsCount++] = end;
                 // Execute immediately AND queue for deferred execution
-                move.execute(stateArray);
-                moveList.push_back(move);
+                if(move_is_emittable(move)) {
+                    annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                              (int16_t)(stateArray.cols() - 1));
+                    move.execute(stateArray);
+                    moveList.push_back(move);
+                }
             }
         }
     }
 
-    // Pass B: execute staged moves in order after planning completes
-    for(size_t i = 0; i < moveList.size(); i++)
-    {
-#ifdef __SYNTHESIS__
-#pragma HLS LOOP_TRIPCOUNT min=1 max=512
-        // In SYNTHESIS mode, Pass B does nothing (moves handled during planning)
-        // This section only executes in C mode to complete the simulation
-#else
-        moveList[i].execute(stateArray);
-#endif
-    }
+    // NOTE: there is deliberately no second execution pass here.  Moves are
+    // executed once, during planning, in both C simulation and synthesis.  A
+    // simulation-only replay used to live at this point; it applied every move
+    // to stateArray a second time, so the C model's final lattice disagreed
+    // with the lattice produced by replaying the emitted move stream (and with
+    // the RTL, which never ran the replay at all).
 
     return earlyExitTriggered ? true : (totalRequiredAtoms == 0);
 }
@@ -1510,8 +1608,12 @@ bool resolveSortingDeficiencies(Array2D& stateArray,
             move.steps[move.stepsCount++] = elbow2;
             move.steps[move.stepsCount++] = end;
             // Execute immediately AND queue for deferred execution
-            move.execute(stateArray);
-            moveList.push_back(move);
+            if(move_is_emittable(move)) {
+                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                          (int16_t)(stateArray.cols() - 1));
+                move.execute(stateArray);
+                moveList.push_back(move);
+            }
         }
         // Write back the target count once after loop completes
         targetSites[targetIndexXC].count = target_count_local;
@@ -1890,45 +1992,61 @@ bool ParallelMove::execute(Array2D& stateArray,
     if(firstStep.colSelectionCount != lastStep.colSelectionCount || 
        firstStep.rowSelectionCount != lastStep.rowSelectionCount)
     {
+#ifndef __SYNTHESIS__
+        fprintf(stderr, "[execute] REJECTED move: first/last selection count mismatch "
+                        "(cols %u->%u, rows %u->%u)\n",
+                (unsigned)firstStep.colSelectionCount, (unsigned)lastStep.colSelectionCount,
+                (unsigned)firstStep.rowSelectionCount, (unsigned)lastStep.rowSelectionCount);
+#endif
         return false;
     }
     if(firstStep.colSelectionCount == 0 || firstStep.rowSelectionCount == 0)
     {
+#ifndef __SYNTHESIS__
+        // A move with an empty row or column selection is a physical no-op; it
+        // should never have been emitted (see Pass A usedIndices==0 emission).
+        fprintf(stderr, "[execute] REJECTED move: empty selection "
+                        "(cols=%u rows=%u, steps=%u)\n",
+                (unsigned)firstStep.colSelectionCount,
+                (unsigned)firstStep.rowSelectionCount,
+                (unsigned)this->stepsCount);
+#endif
         return false;
     }
 
-// Only do validity checks during C simulation
-#ifndef __SYNTHESIS__
-    // RESTRUCTURED: Fixed bound loop for HLS optimization
-    // In practice, stepsCount is typically 2-3 (start/end or start/elbow/end)
-    for(size_t stepIdx = 0; stepIdx < MAX_MOVE_STEPS; stepIdx++)
-    {
-        if(stepIdx >= (size_t)this->stepsCount) break;
-        
-        const auto& step = this->steps[stepIdx];
-        
-        // Check row selection ordering (direct, no streams - avoids hls::stream depth=1 deadlock)
-        if(step.rowSelectionCount > 1) {
-            if(!checkStrictlyIncreasing(step.rowSelection, step.rowSelectionCount)) {
-                return false;
-            }
-        }
-        
-        // Check col selection ordering (direct, no streams)
-        if(step.colSelectionCount > 1) {
-            if(!checkStrictlyIncreasing(step.colSelection, step.colSelectionCount)) {
-                return false;
-            }
-        }
-    }
-#endif
+    // NOTE: selection-ordering validation lives in move_is_emittable(), which
+    // runs before a move is executed or streamed and behaves identically in C
+    // simulation and synthesis.  It must NOT be repeated here: in RTL the beats
+    // are already on the wire by this point, so a late reject would desynchronise
+    // the lattice state from the stream the host receives.
 
     // Grid bounds for coordinate validation
     int16_t rowMax = (int16_t)(stateArray.rows() - 1);
     int16_t colMax = (int16_t)(stateArray.cols() - 1);
     
+    // An AOD move selects R rows and C columns; the tones illuminate the R x C
+    // intersections, but only the intersections that actually HOLD an atom move.
+    // Phase 1 records that occupancy before clearing, so Phase 2 can populate
+    // exactly the real atoms.  Writing every intersection unconditionally would
+    // manufacture atoms out of nothing (3 rows x 3 cols would yield 9 atoms from
+    // as few as 1) and break atom-number conservation.
+    bool srcOccupied[AOD_ROW_LIMIT][AOD_COL_LIMIT];
+    for(size_t r = 0; r < AOD_ROW_LIMIT; r++)
+    {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#endif
+        for(size_t c = 0; c < AOD_COL_LIMIT; c++)
+        {
+#ifdef __SYNTHESIS__
+#pragma HLS UNROLL
+#endif
+            srcOccupied[r][c] = false;
+        }
+    }
+
     // OPTIMIZATION: Eliminate write queue - write directly in two separate phases
-    // Phase 1: Clear all source positions (direct writes, no dependencies)
+    // Phase 1: Record occupancy, then clear all source positions
     for(size_t rowTone = 0; rowTone < firstStep.rowSelectionCount; rowTone++)
     {
 #ifdef __SYNTHESIS__
@@ -1946,9 +2064,12 @@ bool ParallelMove::execute(Array2D& stateArray,
             if(firstStep.rowSelection[rowTone] >= 0 &&
                 firstStep.rowSelection[rowTone] <= rowMax &&
                 firstStep.colSelection[colTone] >= 0 &&
-                firstStep.colSelection[colTone] <= colMax)
+                firstStep.colSelection[colTone] <= colMax &&
+                rowTone < AOD_ROW_LIMIT && colTone < AOD_COL_LIMIT)
             {
-                // Clear source position immediately
+                // Remember whether an atom was really here, then clear it
+                srcOccupied[rowTone][colTone] =
+                    stateArray(firstStep.rowSelection[rowTone], firstStep.colSelection[colTone]);
                 stateArray(firstStep.rowSelection[rowTone], firstStep.colSelection[colTone]) = false;
             }
         }
@@ -1968,34 +2089,27 @@ bool ParallelMove::execute(Array2D& stateArray,
 #pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
 // Increased II=2→II=4 to ease register insertion for bounds checking logic
 #endif
-            // Check if source position had an atom before we cleared it
-            // (We need to track this, so reconstruct source bounds check)
-            if(firstStep.rowSelection[rowTone] >= 0 &&
-                firstStep.rowSelection[rowTone] <= rowMax &&
-                firstStep.colSelection[colTone] >= 0 &&
-                firstStep.colSelection[colTone] <= colMax)
+            // Only intersections that really held an atom produce a destination
+            if(rowTone < AOD_ROW_LIMIT && colTone < AOD_COL_LIMIT &&
+                srcOccupied[rowTone][colTone])
             {
-                // Check if destination is within bounds (not parking sentinel -1)
-                bool destRowValid = (lastStep.rowSelection[rowTone] >= -1);
-                bool destColValid = (lastStep.colSelection[colTone] >= -1);
-                bool destInBounds = destRowValid && (lastStep.rowSelection[rowTone] <= rowMax) &&
-                                   destColValid && (lastStep.colSelection[colTone] <= colMax);
+                // A destination is a real lattice site only when BOTH coordinates
+                // land on the grid.  Everything else — the -1 parking sentinel or
+                // a tone swept past the array edge — means the atom leaves the
+                // trap array.  The source was already cleared in Phase 1, and the
+                // packet carries MOVE_FLAG_DISCARD so the host knows this was
+                // deliberate rather than a dropped move.
+                bool destOnGrid =
+                    lastStep.rowSelection[rowTone] >= 0 && lastStep.rowSelection[rowTone] <= rowMax &&
+                    lastStep.colSelection[colTone] >= 0 && lastStep.colSelection[colTone] <= colMax;
 
-                if(destInBounds)
+                if(destOnGrid)
                 {
-                    // Only write destination if it's NOT a parking position (-1)
-                    bool destRowNotParking = (lastStep.rowSelection[rowTone] >= 0);
-                    bool destColNotParking = (lastStep.colSelection[colTone] >= 0);
-                    if(destRowNotParking && destColNotParking)
+                    stateArray(lastStep.rowSelection[rowTone], lastStep.colSelection[colTone]) = true;
+                    if(alreadyMoved != nullptr)
                     {
-                        // Write to destination
-                        stateArray(lastStep.rowSelection[rowTone], lastStep.colSelection[colTone]) = true;
-                        if(alreadyMoved != nullptr)
-                        {
-                            (*alreadyMoved)(lastStep.rowSelection[rowTone], lastStep.colSelection[colTone]) = true;
-                        }
+                        (*alreadyMoved)(lastStep.rowSelection[rowTone], lastStep.colSelection[colTone]) = true;
                     }
-                    // else: destination is -1 (parking), atom is discarded (source already cleared)
                 }
             }
         }

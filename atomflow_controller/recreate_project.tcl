@@ -673,8 +673,13 @@ Port;FD4A0000;FD4AFFFF;0|FPD;DPDMA;FD4C0000;FD4CFFFF;0|FPD;DDR_XMPU5_CFG;FD05000
 
   # Create instance: axis_subset_converter_0, and set properties
   set axis_subset_converter_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_subset_converter:1.1 axis_subset_converter_0 ]
+  # DEFAULT_TLAST = ceil(sizeof(ParallelMove)/64) = ceil(266/64) = 5 beats per move.
+  # The HLS moveStream carries no TLAST (S_HAS_TLAST=0); this subset converter
+  # inserts one TLAST every 5 beats so each FIFO packet is exactly one
+  # ParallelMove (320 B). Keep in sync with MAX_MOVE_STEPS in sortLatticeByRow.hpp
+  # and BEATS_PER_MOVE in atomflow_control.py.
   set_property -dict [list \
-    CONFIG.DEFAULT_TLAST {21} \
+    CONFIG.DEFAULT_TLAST {5} \
     CONFIG.M_HAS_TKEEP {0} \
     CONFIG.M_HAS_TLAST {1} \
     CONFIG.M_HAS_TREADY {1} \

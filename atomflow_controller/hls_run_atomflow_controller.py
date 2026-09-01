@@ -4,9 +4,12 @@ Vitis HLS Script for atomflow_controller — Vitis 2024.2
 Combines image_analysis + sortLatticeByRow under a single top-level function.
 
 Run with:
-  source /tools/Xilinx/2024.2/Vitis/settings64.sh
-  cd atomflow_controller/
-  vitis -s hls_run_atomflow_controller.py
+  source <Xilinx install>/Vitis/2024.2/settings64.sh
+  vitis -s path/to/hls_run_atomflow_controller.py
+
+All paths are derived from this script's own location, so it can be launched
+from any working directory. The generated .cfg is written into the temporary
+workspace, never over the tracked hls_config_atomflow.cfg.
 
 Steps executed: C simulation → HLS synthesis → C/RTL co-simulation → IP package
 """
@@ -25,19 +28,28 @@ PART         = "xczu49dr-ffvf1760-2-e"   # adjust for your board
 CLK_PERIOD   = 10                         # nanoseconds
 IP_OUTPUT_DIR = "atomflow_controller_ip"
 
-def create_config_file():
-    cwd = os.getcwd()
+# Paths are derived from this file's location, not from the caller's cwd, so the
+# script is independent of where it is launched from and of any one user's $HOME.
+HERE      = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(HERE)
 
-    # Absolute paths to sources (relative to atomflow_controller/)
-    src_controller  = os.path.join(cwd, "atomflow_controller.cpp")
-    src_img         = os.path.join(cwd, "..", "Image_analysis",          "src", "image_analysis.cpp")
-    src_sort        = os.path.join(cwd, "..", "sorting-organized-main",  "src", "sortLatticeByRow.cpp")
 
-    inc_controller  = os.path.join(cwd, "src")
-    inc_img         = os.path.join(cwd, "..", "Image_analysis",          "src")
-    inc_sort        = os.path.join(cwd, "..", "sorting-organized-main",  "src")
+def create_config_file(out_dir):
+    """Write the HLS .cfg into out_dir (the temp workspace).
 
-    tb_path = os.path.join(cwd, "src", "tb_atomflow_controller.cpp")
+    The tracked hls_config_atomflow.cfg is a checked-in reference copy and is
+    deliberately NOT overwritten here.
+    """
+    # Absolute paths to sources, anchored at the repo root
+    src_controller  = os.path.join(HERE, "atomflow_controller.cpp")
+    src_img         = os.path.join(REPO_ROOT, "Image_analysis",         "src", "image_analysis.cpp")
+    src_sort        = os.path.join(REPO_ROOT, "sorting-organized-main", "src", "sortLatticeByRow.cpp")
+
+    inc_controller  = os.path.join(HERE, "src")
+    inc_img         = os.path.join(REPO_ROOT, "Image_analysis",         "src")
+    inc_sort        = os.path.join(REPO_ROOT, "sorting-organized-main", "src")
+
+    tb_path = os.path.join(HERE, "src", "tb_atomflow_controller.cpp")
     tb_line  = f"tb.file={tb_path}\n"    if os.path.exists(tb_path) else ""
     tb_cflags = (f"tb.cflags=-std=c++14 "
                  f"-I{inc_controller} -I{inc_img} -I{inc_sort}\n"
@@ -60,7 +72,7 @@ syn.cflags={cflags}
 syn.csimflags={cflags}
 {tb_line}{tb_cflags}clock={CLK_PERIOD}ns
 """
-    cfg_path = os.path.join(cwd, "hls_config_atomflow.cfg")
+    cfg_path = os.path.join(out_dir, "hls_config_atomflow.cfg")
     with open(cfg_path, "w") as f:
         f.write(config_content)
     print(f"  Config written to {cfg_path}")
@@ -72,14 +84,13 @@ def run_synthesis():
     print("Vitis HLS: atomflow_controller (2024.2)")
     print("=" * 70)
 
-    cwd = os.getcwd()
     try:
         client = vitis.create_client()
-        ws = tempfile.mkdtemp(prefix=".vitis_ws_atomflow_", dir=cwd)
+        ws = tempfile.mkdtemp(prefix=".vitis_ws_atomflow_", dir=HERE)
         client.set_workspace(ws)
         print(f"  Workspace: {ws}")
 
-        cfg = create_config_file()
+        cfg = create_config_file(ws)
 
         # Clean up any stale component
         try:
@@ -91,7 +102,7 @@ def run_synthesis():
         comp = client.create_hls_component(name=COMP_NAME, part=PART, cfg_file=cfg)
         print(f"  Component created: {COMP_NAME}")
 
-        tb_exists = os.path.exists(os.path.join(cwd, "src", "tb_atomflow_controller.cpp"))
+        tb_exists = os.path.exists(os.path.join(HERE, "src", "tb_atomflow_controller.cpp"))
 
         # 1 — C Simulation
         if tb_exists:

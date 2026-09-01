@@ -1,3 +1,36 @@
+# Vitis / Vivado working directories
 .vitis_ws_atomflow_*
 *.log
+*.jou
+*.str
+vivado_project/
+myproj/
+.Xil/
+*.backup.jou
+*.backup.log
 
+# build.sh intermediates
+build/
+
+# Build products: the manifest is tracked, the binaries are not.
+# manifest.json identifies a bitstream by SHA256 plus the commit and tool
+# versions that produced it, so a clean clone can still tell exactly what was
+# last flashed without carrying ~20 MB of binary per build.
+# Distribute the .bit/.hwh themselves via a GitHub Release or Git LFS.
+release/*.bit
+release/*.hwh
+release/*.zip
+!release/manifest.json
+
+__pycache__/
+*.pyc
+
+# Editor / OS
+*.swp
+*.swo
+*~
+.DS_Store
+.ipynb_checkpoints/
+
+# Review scratch (not part of the deliverable)
+optimization.md

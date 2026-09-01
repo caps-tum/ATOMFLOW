@@ -1,0 +1,65 @@
+{
+  "artifacts": {
+    "bit": {
+      "bytes": 34437478,
+      "path": "release/design_1.bit",
+      "sha256": "5d381094f370776e15ad06fb32deeec7d19fc66d5b67ac634759a0d95637101e"
+    },
+    "hwh": {
+      "bytes": 460818,
+      "path": "release/design_1.hwh",
+      "sha256": "ecefa7d25fe9269483487920b27e2679a2c1536f86d1df611c6a9c996bed6e7d"
+    }
+  },
+  "extra": {},
+  "generated_utc": "2026-09-01T10:02:07+00:00",
+  "git": {
+    "branch": "main",
+    "clean": false,
+    "commit": "f213784838769b94331c14eb920610f17d56b2d4",
+    "describe": "f213784-dirty",
+    "modified_files": [
+      "Image_analysis/src/image_analysis.cpp",
+      "Image_analysis/src/image_analysis.hpp",
+      "README.md",
+      "atomflow_control.ipynb",
+      "atomflow_controller/atomflow_control.py",
+      "atomflow_controller/atomflow_controller.cpp",
+      "atomflow_controller/create_bd.tcl",
+      "atomflow_controller/hls_config_atomflow.cfg",
+      "atomflow_controller/hls_run_atomflow_controller.py",
+      "atomflow_controller/recreate_project.tcl",
+      "atomflow_controller/src/atomflow_controller.hpp",
+      "atomflow_controller/src/tb_atomflow_controller.cpp",
+      "build.sh",
+      "gitignore",
+      "sorting-organized-main/Bitstream_movelist/.sortLattice_AXI_axi_control_s_axi.vhd.swp",
+      "sorting-organized-main/src/sortLatticeByRow.cpp",
+      "sorting-organized-main/src/sortLatticeByRow.hpp",
+      "tools/"
+    ]
+  },
+  "host": "i10se23",
+  "protocol": {
+    "block_design": {
+      "DEFAULT_TLAST": 5
+    },
+    "consistent": true,
+    "cpp": {
+      "AOD_COL_LIMIT": 16,
+      "AOD_ROW_LIMIT": 16,
+      "MAX_MOVE_STEPS": 4
+    },
+    "derived": {
+      "beats_per_move": 5,
+      "parallel_move_bytes": 266,
+      "step_size_bytes": 66
+    },
+    "python": {
+      "MAX_STEPS": 4
+    }
+  },
+  "tools": {
+    "python": "3.12.3"
+  }
+}

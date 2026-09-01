@@ -412,6 +412,14 @@ public:
 // PARALLEL MOVE STRUCTURES
 // ============================================================================
 
+// ── ParallelMove flag bits ───────────────────────────────────────────────────
+// MOVE_FLAG_DISCARD: at least one tone of this move ends outside the trap
+// array, so the atoms it carries leave the system.  Previously this was only
+// implied by out-of-range destination coordinates (either the -1 parking
+// sentinel or a tone swept past the array edge), which the host had to guess
+// at.  The flag states it explicitly on the wire.
+#define MOVE_FLAG_DISCARD  0x01u
+
 class ParallelMove
 {
 public:
@@ -432,8 +440,12 @@ public:
     // HLS-compatible: fixed-size array instead of std::vector
     Step steps[MAX_MOVE_STEPS];
     uint8_t stepsCount;
+    // Per-move flags (see MOVE_FLAG_*).  This byte occupies what used to be
+    // struct tail padding, so sizeof(ParallelMove) and the 5-beat wire format
+    // are unchanged — see the static_assert below.
+    uint8_t flags;
 
-    ParallelMove() : stepsCount(0) {}
+    ParallelMove() : stepsCount(0), flags(0) {}
     
     /// @brief Construct a ParallelMove from start/end steps.
     static ParallelMove fromStartAndEnd(
@@ -450,6 +462,17 @@ public:
     bool execute(StateArrayAccessor& stateArray,
         Array2D* alreadyMoved = nullptr) const;
 };
+
+// The wire protocol is ceil(sizeof(ParallelMove)/64) 512-bit beats, mirrored by
+// BEATS_PER_MOVE in atomflow_control.py and DEFAULT_TLAST in create_bd.tcl.
+// Adding fields that grow the struct past a 64-byte boundary silently breaks
+// both, so pin the layout here.
+static_assert(sizeof(ParallelMove::Step) == 66,
+              "Step layout changed: update atomflow_control.py STEP_SIZE");
+static_assert(sizeof(ParallelMove) == 266,
+              "ParallelMove size changed: update BEATS_PER_MOVE and DEFAULT_TLAST");
+static_assert((sizeof(ParallelMove) + 63) / 64 == 5,
+              "Wire size is no longer 5 beats: update DEFAULT_TLAST in create_bd.tcl");
 
 /// @brief Compute cost contribution for a sub-move given distance.
 double inline costPerSubMove(double dist)

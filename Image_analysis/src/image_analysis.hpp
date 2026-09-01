@@ -25,7 +25,28 @@
 // #define FULL_IMAGE_SIZE     880*880
 //// 40x40
 #define FULL_IMAGE_SIZE     1024*1024
+
+// Row stride, in pixels, that reconstruct() assumes for `fullImage`.
+// This is NOT derived from fullImage_cols: the host must lay the image out with
+// exactly this stride (zero-padding short rows).  See PSF_WINDOW below for the
+// rest of the fixed configuration.
 #define PIXEL    1024
+
+// ---------------------------------------------------------------------------
+// FIXED reconstruction configuration.
+//
+// The datapath is hard-wired to these values: the extraction windows, the
+// unrolled summation trees (vector_sum/vector_sum_prod/matrix_sum_prod) and the
+// burst-length arithmetic are all written for a PSF_WINDOW x PSF_WINDOW window
+// with a single PSF phase.  projShape0/projShape1/psfSupersample are accepted as
+// runtime arguments but only affect the window ORIGIN, not its size, so passing
+// anything else silently computes the wrong emissions instead of failing.
+//
+// atomflow_controller() rejects out-of-range values up front; see
+// ATOMFLOW_STATUS_ERR_IMAGE_CFG in atomflow_controller.hpp.
+// ---------------------------------------------------------------------------
+#define PSF_WINDOW           31   // required projShape0 == projShape1
+#define PSF_SUPERSAMPLE_ONLY 1    // required psfSupersample
 
 typedef struct {
     float x;
