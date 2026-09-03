@@ -17,14 +17,37 @@
 #include <string>
 #include <vector>
 #include <cstring>
+#include <cstdlib>
+#include <cctype>
+#include <limits>
 #include "atomflow_controller.hpp"
 
 // ── path helper ──────────────────────────────────────────────────────────────
-static std::string data_path(const std::string& file)
+static std::string repo_root()
 {
     std::string f = __FILE__;
     std::string dir = f.substr(0, f.find_last_of("/\\"));
-    return dir + "/../../Image_analysis/test_cases/16x16/" + file;
+    return dir + "/../..";
+}
+
+static std::string case_path(const std::string& set, const std::string& file)
+{
+    return repo_root() + "/Image_analysis/test_cases/" + set + "/" + file;
+}
+
+static std::string data_path(const std::string& file)
+{
+    return case_path("16x16", file);
+}
+
+// True when a token can actually be converted by std::stod. Checking only
+// !empty() is not enough: a CRLF fixture yields "\r", which is non-empty but
+// throws.
+static bool numeric_token(const std::string& t)
+{
+    for (char ch : t)
+        if (!std::isspace(static_cast<unsigned char>(ch))) return true;
+    return false;
 }
 
 // ── string split ─────────────────────────────────────────────────────────────
@@ -53,6 +76,10 @@ static bool parse_inputs(
     nLocs = 0; int lptr = 0, lcnt = 0;
     std::string line;
     while (std::getline(f, line)) {
+        // Some fixtures are CRLF (Image_analysis/test_cases/10x10). A trailing
+        // '\r' survives getline and turns the last field of every line into a
+        // token that is non-empty but not numeric, so std::stod throws.
+        if (!line.empty() && line.back() == '\r') line.pop_back();
         size_t c = line.find(": ");
         if (c == std::string::npos) continue;
         std::string k = line.substr(0, c), v = line.substr(c + 2);
@@ -65,7 +92,7 @@ static bool parse_inputs(
         else if (k == "fullImage_col")     fcols  = std::stoi(v);
         else if (k == "atomLocations") {
             for (const auto& s : split(v, "||")) {
-                if (s.empty()) continue;
+                if (!numeric_token(s)) continue;
                 auto xy = split(s, "|");
                 if (xy.size() != 2) continue;
                 locs[lptr].y = std::stod(xy[0]);
@@ -76,7 +103,7 @@ static bool parse_inputs(
         else if (k == "imageProjs_local") {
             auto elems = split(v, "|"); int ei = 0;
             for (size_t i = 0; i < (size_t)IMAGE_PROJECTION_LOCAL; ++i) {
-                if (i < elems.size() && !elems[ei].empty() && i % 32 != 31)
+                if (i < elems.size() && numeric_token(elems[ei]) && i % 32 != 31)
                     projs_local[lcnt * IMAGE_PROJECTION_LOCAL + i] = std::stod(elems[ei++]);
                 else {
                     projs_local[lcnt * IMAGE_PROJECTION_LOCAL + i] = 0.0f;
@@ -88,7 +115,7 @@ static bool parse_inputs(
         else if (k == "imageProjs") {
             auto elems = split(v, "|");
             for (size_t i = 0; i < (size_t)IMAGE_PROJECTION_SIZE; ++i)
-                projs[i] = (i < elems.size() && !elems[i].empty()) ? std::stod(elems[i]) : 0.0f;
+                projs[i] = (i < elems.size() && numeric_token(elems[i])) ? std::stod(elems[i]) : 0.0f;
         }
     }
     return nLocs == lptr;
@@ -103,13 +130,14 @@ static bool parse_fullimage(const std::string& fname, IMAGE_DTYPE* img)
     bool found = false; int off = 0;
     std::string line;
     while (std::getline(f, line)) {
+        if (!line.empty() && line.back() == '\r') line.pop_back();   // CRLF fixtures
         if (!found) {
             size_t c = line.find(": ");
             if (c != std::string::npos && line.substr(0, c) == "fullImage") found = true;
         } else {
             std::istringstream ss(line); std::string tok;
             while (std::getline(ss, tok, '|'))
-                if (!tok.empty()) img[off++] = std::stof(tok);
+                if (numeric_token(tok)) img[off++] = std::stof(tok);
         }
     }
     return found;
@@ -176,9 +204,10 @@ static void make_target(uint8_t* tgt, int rows, int cols)
 }
 
 // ── atom-number conservation check ──────────────────────────────────────────
-// Replays moves one at a time and verifies the lattice population only ever
-// drops by the number of atoms a move deliberately discards (destination -1,
-// or a destination outside the grid).  Any INCREASE means atoms were created.
+// Replays moves one at a time and verifies the exact population delta:
+//   * a normal move must conserve atom count;
+//   * a discard move must lose exactly the occupied source intersections whose
+//     paired destinations are outside the grid.
 static int count_atoms(const Array2D& a)
 {
     int n = 0;
@@ -192,23 +221,50 @@ static bool check_conservation(Array2D state, const ParallelMove* moves,
                                unsigned int moveCount, const char* label)
 {
     int before = count_atoms(state);
-    int created = 0, discarded = 0;
+    int discarded = 0;
+    bool ok = true;
     for (unsigned int m = 0; m < moveCount; ++m) {
+        const ParallelMove& move = moves[m];
+        const ParallelMove::Step& first = move.steps[0];
+        const ParallelMove::Step& last = move.steps[move.stepsCount - 1];
+        int expectedDiscard = 0;
+        for (size_t r = 0; r < first.rowSelectionCount; ++r) {
+            for (size_t c = 0; c < first.colSelectionCount; ++c) {
+                int srcRow = first.rowSelection[r];
+                int srcCol = first.colSelection[c];
+                bool srcOnGrid = srcRow >= 0 && srcRow < state.rows() &&
+                                 srcCol >= 0 && srcCol < state.cols();
+                bool dstOnGrid = last.rowSelection[r] >= 0 &&
+                                 last.rowSelection[r] < state.rows() &&
+                                 last.colSelection[c] >= 0 &&
+                                 last.colSelection[c] < state.cols();
+                if (srcOnGrid && !dstOnGrid && state(srcRow, srcCol))
+                    ++expectedDiscard;
+            }
+        }
+
         int pre = count_atoms(state);
-        moves[m].execute(state);
+        bool executed = move.execute(state);
         int post = count_atoms(state);
-        if (post > pre) {
-            created += (post - pre);
-            std::cout << "    move #" << m << ": CREATED " << (post - pre)
-                      << " atoms out of nothing\n";
-        } else discarded += (pre - post);
+        int actualDiscard = pre - post;
+        bool flaggedDiscard = (move.flags & MOVE_FLAG_DISCARD) != 0;
+
+        if (!executed || actualDiscard != expectedDiscard ||
+            (!flaggedDiscard && actualDiscard != 0)) {
+            ok = false;
+            std::cout << "    move #" << m << ": population delta mismatch"
+                      << " (executed=" << executed
+                      << ", flagDiscard=" << flaggedDiscard
+                      << ", expectedDiscard=" << expectedDiscard
+                      << ", actualDiscard=" << actualDiscard << ")\n";
+        }
+        discarded += actualDiscard;
     }
     int after = count_atoms(state);
     std::cout << "  " << label << " conservation: " << before << " atoms -> "
-              << after << " (" << discarded << " discarded, "
-              << created << " created)"
-              << (created == 0 ? "  OK\n" : "  VIOLATION\n");
-    return created == 0;
+              << after << " (" << discarded << " discarded)"
+              << (ok ? "  OK\n" : "  VIOLATION\n");
+    return ok;
 }
 
 // ── move stream audit (issues 3.3 / out-of-range destinations) ───────────────
@@ -305,9 +361,88 @@ static bool audit_moves(const ParallelMove* moves, unsigned int moveCount,
     return nFlagDisagree == 0;
 }
 
+static bool test_move_validator()
+{
+    ParallelMove valid;
+    ParallelMove::Step start, elbow, end;
+    start.rowSelection[start.rowSelectionCount++] = 1;
+    start.colSelection[start.colSelectionCount++] = 2;
+    elbow.rowSelection[elbow.rowSelectionCount++] = 1;
+    elbow.colSelection[elbow.colSelectionCount++] = 3;
+    end.rowSelection[end.rowSelectionCount++] = 4;
+    end.colSelection[end.colSelectionCount++] = 3;
+    valid.steps[valid.stepsCount++] = start;
+    valid.steps[valid.stepsCount++] = elbow;
+    valid.steps[valid.stepsCount++] = end;
+
+    if (!move_is_emittable(valid)) return false;
+
+    ParallelMove emptyMiddle = valid;
+    emptyMiddle.steps[1].rowSelectionCount = 0;
+    if (move_is_emittable(emptyMiddle)) return false;
+
+    ParallelMove mismatchedMiddle = valid;
+    mismatchedMiddle.steps[1].rowSelection[1] = 2;
+    mismatchedMiddle.steps[1].rowSelectionCount = 2;
+    if (move_is_emittable(mismatchedMiddle)) return false;
+
+    ParallelMove duplicateTone = valid;
+    for (size_t i = 0; i < duplicateTone.stepsCount; ++i) {
+        duplicateTone.steps[i].rowSelection[0] = 1;
+        duplicateTone.steps[i].rowSelection[1] = 1;
+        duplicateTone.steps[i].rowSelectionCount = 2;
+    }
+    if (move_is_emittable(duplicateTone)) return false;
+
+    ParallelMove tooManySteps = valid;
+    tooManySteps.stepsCount = MAX_MOVE_STEPS + 1;
+    if (move_is_emittable(tooManySteps)) return false;
+
+    ParallelMove tooManyRows = valid;
+    tooManyRows.steps[0].rowSelectionCount = AOD_ROW_LIMIT + 1;
+    if (move_is_emittable(tooManyRows)) return false;
+
+    ParallelMove empty;
+    if (move_is_emittable(empty)) return false;
+
+    return true;
+}
+
+static bool test_move_capacity_guard()
+{
+    static HLSMoveList list;
+    list.clear();
+    ParallelMove move;
+    for (size_t i = 0; i < HLS_MAX_MOVES; ++i)
+        if (!list.push_back(move)) return false;
+    if (list.size() != HLS_MAX_MOVES || list.overflow) return false;
+    if (list.push_back(move)) return false;
+    if (!list.overflow || list.size() != HLS_MAX_MOVES) return false;
+
+    hls::stream<ap_uint<512>> stream("capacity_stream");
+    HLSMoveStream streamedList(stream);
+    streamedList.count = HLS_MAX_MOVES;
+    if (streamedList.push_back(move)) return false;
+    if (!streamedList.overflow || streamedList.count != HLS_MAX_MOVES) return false;
+    if (!stream.empty()) return false;
+
+    return true;
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 int main()
 {
+    std::cout << "=== TEST 0: moving-list structural guards ===\n";
+    if (!test_move_validator()) {
+        std::cerr << "FAIL: move validator accepted an invalid move or rejected a valid move\n";
+        return 1;
+    }
+    if (!test_move_capacity_guard()) {
+        std::cerr << "FAIL: move-list capacity overflow was not fail-closed\n";
+        return 1;
+    }
+    std::cout << "PASS: validator and 512-move capacity guards\n\n";
+
     // ── 1. Load inputs ───────────────────────────────────────────────────────
     static atom_location  locs[MAX_ATOM_SITES];
     static IMAGE_DTYPE    projs_local[IMAGE_PROJECTION_LOCAL * IMAGE_PROJECTION_SIZE];
@@ -762,6 +897,70 @@ int main()
             }
         }
 
+        // Unknown modes must be rejected before image or target memory is read.
+        {
+            hls::stream<ap_uint<512>> st_s("t4_mode");
+            unsigned int mc = 0xDEADBEEF, st = 0, t4f = 0, t4r = 0;
+            atomflow_controller(
+                0xFFu, threshold,
+                nLocs, ps0, ps1, locs, psfSS, projSz,
+                projs_local_packed, projs, projs_local_sz,
+                fullImg_packed, frows, fcols,
+                t4_emissions, 16, 32, t4_target_mem,
+                0, 16, 8, 24, st_s, &mc, &st, &t4f, &t4r);
+            bool ok = (mc == 0 && st_s.size() == 0 &&
+                       st == ATOMFLOW_STATUS_ERR_MODE);
+            std::cout << (ok ? "  ok   " : "  FAIL ")
+                      << "moveCount=" << mc << " status=" << st
+                      << " (expect " << ATOMFLOW_STATUS_ERR_MODE
+                      << ")  <- unknown mode\n";
+            if (!ok) t4_ok = false;
+        }
+
+        // INITIALIZATION consumes the threshold, so NaN/Inf is a hard input
+        // error. READOUT deliberately does not impose this unused constraint.
+        {
+            hls::stream<ap_uint<512>> st_s("t4_threshold_nan");
+            unsigned int mc = 0xDEADBEEF, st = 0, t4f = 0, t4r = 0;
+            atomflow_controller(
+                MODE_INITIALIZATION, std::numeric_limits<float>::quiet_NaN(),
+                nLocs, ps0, ps1, locs, psfSS, projSz,
+                projs_local_packed, projs, projs_local_sz,
+                fullImg_packed, frows, fcols,
+                t4_emissions, 16, 32, t4_target_mem,
+                0, 16, 8, 24, st_s, &mc, &st, &t4f, &t4r);
+            bool ok = (mc == 0 && st_s.size() == 0 &&
+                       st == ATOMFLOW_STATUS_ERR_NONFINITE);
+            std::cout << (ok ? "  ok   " : "  FAIL ")
+                      << "moveCount=" << mc << " status=" << st
+                      << " (expect " << ATOMFLOW_STATUS_ERR_NONFINITE
+                      << ")  <- NaN emission threshold\n";
+            if (!ok) t4_ok = false;
+        }
+
+        // Coordinate finiteness is checked before round() and AXI address math.
+        {
+            static atom_location nonfinite_locs[MAX_ATOM_SITES];
+            memcpy(nonfinite_locs, locs, sizeof(atom_location) * (size_t)nLocs);
+            nonfinite_locs[0].x = std::numeric_limits<float>::infinity();
+            hls::stream<ap_uint<512>> st_s("t4_coord_inf");
+            unsigned int mc = 0xDEADBEEF, st = 0, t4f = 0, t4r = 0;
+            atomflow_controller(
+                MODE_INITIALIZATION, threshold,
+                nLocs, ps0, ps1, nonfinite_locs, psfSS, projSz,
+                projs_local_packed, projs, projs_local_sz,
+                fullImg_packed, frows, fcols,
+                t4_emissions, 16, 32, t4_target_mem,
+                0, 16, 8, 24, st_s, &mc, &st, &t4f, &t4r);
+            bool ok = (mc == 0 && st_s.size() == 0 &&
+                       st == ATOMFLOW_STATUS_ERR_NONFINITE);
+            std::cout << (ok ? "  ok   " : "  FAIL ")
+                      << "moveCount=" << mc << " status=" << st
+                      << " (expect " << ATOMFLOW_STATUS_ERR_NONFINITE
+                      << ")  <- Inf atom coordinate\n";
+            if (!ok) t4_ok = false;
+        }
+
         // Positive control: valid geometry, empty target -> nothing to do,
         // and (unlike every case above) status must be OK.
         {
@@ -792,6 +991,133 @@ int main()
         }
 
         if (t4_ok) { std::cout << "  PASS\n"; pass++; }
+        else       { std::cout << "  FAIL\n"; fail++; }
+    }
+
+    // =========================================================================
+    // TEST 5 — every real dataset in the repo, through the COMPLETE controller.
+    //
+    // Everything else in this file measures one 16x16 fixture. This sweep asks
+    // the question a reviewer will ask: does rearrangement actually succeed at
+    // other array sizes, on real emission data rather than synthetic lattices?
+    //
+    // Each zone gets as much parking as MAX_COLS allows; a zone that fills the
+    // grid completely has none, which is the known-partial case.
+    // Lattices are dumped to build/lattices.txt for tools/plot_lattices.py.
+    // =========================================================================
+    std::cout << "\n=== TEST 5: all real datasets, full controller ===\n";
+    {
+        struct DS { const char* name; int zoneR, zoneC; };
+        const DS sets[] = {
+            {"10x10", 10, 10}, {"12x12", 12, 12}, {"16x16", 16, 16},
+            {"24x24", 24, 23}, {"28x28", 28, 28},
+        };
+
+        std::string dumpdir = repo_root() + "/build";
+        (void)!system(("mkdir -p '" + dumpdir + "'").c_str());
+        std::ofstream dump(dumpdir + "/lattices.txt");
+
+        static atom_location  t5_locs[MAX_ATOM_SITES];
+        static IMAGE_DTYPE    t5_pl[IMAGE_PROJECTION_LOCAL * IMAGE_PROJECTION_SIZE];
+        static IMAGE_DTYPE    t5_pr[IMAGE_PROJECTION_SIZE];
+        static int            t5_plsz[IMAGE_PROJECTION_SIZE];
+        static IMAGE_DTYPE    t5_img[FULL_IMAGE_SIZE];
+        static IMAGE_DTYPE    t5_strided[FULL_IMAGE_SIZE];
+        static ap_uint<512>   t5_plpk[IMAGE_PROJECTION_LOCAL * IMAGE_PROJECTION_SIZE * 32 / 512];
+        static ap_uint<512>   t5_imgpk[FULL_IMAGE_SIZE * 32 / 512];
+        static IMAGE_DTYPE    t5_em[MAX_ATOM_SITES];
+        static uint8_t        t5_tgt[MAX_ROWS * MAX_COLS];
+
+        printf("  %-7s %-7s %-7s %5s %6s %7s %6s %8s %7s  %s\n",
+               "dataset","zone","grid","atoms","targ","filled","moves","created","status","verdict");
+        bool t5_ok = true;
+        for (const DS& ds : sets) {
+            int nL=0, a0=0, a1=0, pss=0, psz=0, fr=0, fc=0;
+            memset(t5_plsz, 0, sizeof(t5_plsz));
+            if (!parse_inputs(case_path(ds.name, "restoutput.txt"), t5_locs, nL,
+                              a0, a1, pss, psz, t5_pl, t5_pr, t5_plsz, fr, fc) ||
+                !parse_fullimage(case_path(ds.name, "fullImage_output.txt"), t5_img)) {
+                printf("  %-7s  FIXTURE PARSE FAILED\n", ds.name); t5_ok = false; continue;
+            }
+            memset(t5_strided, 0, sizeof(t5_strided));
+            for (int r = 0; r < fr; ++r)
+                for (int c = 0; c < fc; ++c)
+                    t5_strided[r * PIXEL + c] = t5_img[r * fc + c];
+            pack512(t5_pl,      t5_plpk,  (size_t)IMAGE_PROJECTION_LOCAL * IMAGE_PROJECTION_SIZE);
+            pack512(t5_strided, t5_imgpk, FULL_IMAGE_SIZE);
+
+            int park = (MAX_COLS - ds.zoneC) / 2;
+            int gR = ds.zoneR, gC = ds.zoneC + 2 * park;
+            unsigned zr0 = 0, zr1 = (unsigned)ds.zoneR;
+            unsigned zc0 = (unsigned)park, zc1 = (unsigned)(park + ds.zoneC);
+            make_target(t5_tgt, ds.zoneR, ds.zoneC);
+
+            unsigned mc = 0, st = 0, tf = 0, tr = 0;
+            memset(t5_em, 0, sizeof(t5_em));
+            { hls::stream<ap_uint<512>> s0("t5_readout");
+              atomflow_controller(MODE_QUBIT_READOUT, 0.0f, nL, a0, a1, t5_locs, pss, psz,
+                                  t5_plpk, t5_pr, t5_plsz, t5_imgpk, fr, fc, t5_em,
+                                  gR, gC, t5_tgt, zr0, zr1, zc0, zc1, s0, &mc, &st, &tf, &tr); }
+            float lo = 1e30f, hi = -1e30f;
+            for (int i = 0; i < nL; ++i) { if (t5_em[i] < lo) lo = t5_em[i];
+                                          if (t5_em[i] > hi) hi = t5_em[i]; }
+            float th = (hi + lo) / 2.0f;
+
+            memset(t5_em, 0, sizeof(t5_em));
+            hls::stream<ap_uint<512>> strm("t5_stream");
+            atomflow_controller(MODE_INITIALIZATION, th, nL, a0, a1, t5_locs, pss, psz,
+                                t5_plpk, t5_pr, t5_plsz, t5_imgpk, fr, fc, t5_em,
+                                gR, gC, t5_tgt, zr0, zr1, zc0, zc1, strm, &mc, &st, &tf, &tr);
+            unsigned beats = (unsigned)strm.size();
+            drain_movestream(strm, moveList_buf, mc);
+            while (!strm.empty()) strm.read();
+
+            Array2D before(gR, gC, false);
+            int atoms = 0;
+            for (int r = 0; r < ds.zoneR; ++r)
+                for (int c = 0; c < ds.zoneC; ++c)
+                    if (t5_em[r * ds.zoneC + c] > th) { before(r, zc0 + c) = true; ++atoms; }
+            Array2D after = before;
+            int n0 = count_atoms(after), created = 0;
+            for (unsigned m = 0; m < mc; ++m) {
+                int pre = count_atoms(after); moveList_buf[m].execute(after);
+                int post = count_atoms(after); if (post > pre) created += post - pre;
+            }
+
+            bool good = (st == ATOMFLOW_STATUS_OK) && (tf == tr) && created == 0
+                     && (beats == mc * ((sizeof(ParallelMove) + 63) / 64));
+            const char* verdict = good ? "OK"
+                                : (atoms < (int)tr ? "atoms<targ (expected)" : "INCOMPLETE");
+            char zs[16], gs[16];
+            snprintf(zs, sizeof zs, "%dx%d", ds.zoneR, ds.zoneC);
+            snprintf(gs, sizeof gs, "%dx%d", gR, gC);
+            printf("  %-7s %-7s %-7s %5d %6u %7u %6u %8d %7u  %s\n",
+                   ds.name, zs, gs, atoms, tr, tf, mc, created, st, verdict);
+            if (!good && atoms >= (int)tr) t5_ok = false;
+
+            if (dump) {
+                dump << "DATASET " << ds.name << " " << gR << " " << gC << " "
+                     << zr0 << " " << zr1 << " " << zc0 << " " << zc1 << " "
+                     << atoms << " " << tf << " " << tr << " " << mc << "\n";
+                for (const char* which : {"BEFORE", "AFTER", "TARGET"}) {
+                    dump << which << "\n";
+                    for (int r = 0; r < gR; ++r) {
+                        for (int c = 0; c < gC; ++c) {
+                            int v;
+                            if (!strcmp(which, "TARGET"))
+                                v = (r < ds.zoneR && c >= (int)zc0 && c < (int)zc1)
+                                    ? t5_tgt[r * ds.zoneC + (c - zc0)] : 0;
+                            else
+                                v = (!strcmp(which, "BEFORE") ? before(r, c) : after(r, c)) ? 1 : 0;
+                            dump << v;
+                        }
+                        dump << "\n";
+                    }
+                }
+            }
+        }
+        if (dump) { dump.close(); std::cout << "  lattices -> build/lattices.txt\n"; }
+        if (t5_ok) { std::cout << "  PASS\n"; pass++; }
         else       { std::cout << "  FAIL\n"; fail++; }
     }
 

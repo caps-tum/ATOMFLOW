@@ -149,6 +149,7 @@ TCL
   ( cd "$BUILD/vivado" && "$VIVADO" -mode batch -source run.tcl -notrace ) \
       || die "Vivado failed (see $BUILD/vivado/vivado.log)"
   [ -f "$RELEASE/design_1.bit" ] || die "no bitstream produced"
+  write_build_stamp
   log "bitstream: $RELEASE/design_1.bit"
   # The binaries are deliberately not tracked by git (see .gitignore); only
   # release/manifest.json is, and it identifies them by SHA256.
@@ -157,8 +158,58 @@ TCL
 }
 
 # ---------------------------------------------------------------- manifest
+# A build stamp is written when a bitstream is actually produced, and carries
+# the HEAD it was built from. stage_manifest refuses to describe a bitstream
+# whose stamp disagrees with the current HEAD, so an old .bit can never be
+# re-attributed to a newer commit just by re-running './build.sh manifest'.
+write_build_stamp() {
+  python3 - "$RELEASE" "$REPO" <<'PY'
+import hashlib, json, os, subprocess, sys
+rel, repo = sys.argv[1], sys.argv[2]
+def git(*a):
+    r = subprocess.run(("git",)+a, cwd=repo, capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else None
+def sha(p):
+    h = hashlib.sha256()
+    with open(p, "rb") as f:
+        for c in iter(lambda: f.read(1 << 20), b""): h.update(c)
+    return h.hexdigest()
+stamp = {"head": git("rev-parse", "HEAD"),
+         "describe": git("describe", "--always", "--dirty"),
+         "clean": not git("status", "--porcelain"),
+         "bit_sha256": sha(os.path.join(rel, "design_1.bit"))}
+json.dump(stamp, open(os.path.join(rel, "build_stamp.json"), "w"), indent=2, sort_keys=True)
+print("  build stamp: %s  bit=%s" % (stamp["describe"], stamp["bit_sha256"][:16]))
+PY
+}
+
 stage_manifest() {
   log "manifest"
+  # Refuse to describe a bitstream this build did not produce.
+  if [ -f "$RELEASE/design_1.bit" ]; then
+    python3 - "$RELEASE" "$REPO" <<'PY' || exit 1
+import hashlib, json, os, subprocess, sys
+rel, repo = sys.argv[1], sys.argv[2]
+stamp_path = os.path.join(rel, "build_stamp.json")
+if not os.path.exists(stamp_path):
+    sys.exit("ERROR: release/design_1.bit has no build_stamp.json.\n"
+             "       Its origin is unknown, so it cannot be described.\n"
+             "       Rebuild with './build.sh bitstream'.")
+stamp = json.load(open(stamp_path))
+h = hashlib.sha256()
+with open(os.path.join(rel, "design_1.bit"), "rb") as f:
+    for c in iter(lambda: f.read(1 << 20), b""): h.update(c)
+if h.hexdigest() != stamp["bit_sha256"]:
+    sys.exit("ERROR: release/design_1.bit does not match build_stamp.json.\n"
+             "       Rebuild before generating a manifest.")
+head = subprocess.run(("git","rev-parse","HEAD"), cwd=repo,
+                      capture_output=True, text=True).stdout.strip()
+if stamp["head"] != head:
+    sys.exit("ERROR: this bitstream was built from %s but HEAD is now %s.\n"
+             "       Rebuild from the current HEAD instead of re-labelling an\n"
+             "       older bitstream." % (stamp["describe"], head[:12]))
+PY
+  fi
   local args=()
   [ -f "$RELEASE/design_1.bit" ] && args+=(--bit "$RELEASE/design_1.bit")
   [ -f "$RELEASE/design_1.hwh" ] && args+=(--hwh "$RELEASE/design_1.hwh")
@@ -166,15 +217,33 @@ stage_manifest() {
       --out "$RELEASE/manifest.json" || die "manifest reported a problem"
 }
 
+# A release build must be reproducible from a commit. Set ATOMFLOW_ALLOW_DIRTY=1
+# for a throwaway experiment; the resulting manifest will be marked DIRTY.
+require_clean_tree() {
+  [ -n "${ATOMFLOW_ALLOW_DIRTY:-}" ] && {
+    printf 'WARNING: building from a dirty tree (ATOMFLOW_ALLOW_DIRTY=1);\n'
+    printf '         the result will not be traceable to a commit.\n'
+    return 0
+  }
+  local dirty
+  dirty="$(cd "$REPO" && git status --porcelain 2>/dev/null || true)"
+  [ -z "$dirty" ] || die "working tree is dirty; commit first, or set ATOMFLOW_ALLOW_DIRTY=1
+$(printf '%s\n' "$dirty" | head -20)"
+}
+
 case "${1:-all}" in
   test)      stage_test ;;
   hls)       stage_hls ;;
-  bitstream) stage_bitstream ;;
+  bitstream) require_clean_tree; stage_bitstream ;;
   manifest)  stage_manifest ;;
-  all)       stage_test; stage_hls; stage_bitstream; stage_manifest
+  all)       require_clean_tree
+             stage_test; stage_hls; stage_bitstream; stage_manifest
              log "ALL STAGES COMPLETE"
              echo "  bitstream : $RELEASE/design_1.bit"
              echo "  handoff   : $RELEASE/design_1.hwh"
-             echo "  manifest  : $RELEASE/manifest.json" ;;
+             echo "  manifest  : $RELEASE/manifest.json"
+             echo
+             echo "  Validate on the board:"
+             echo "    ATOMFLOW_BOARD=user@host tools/run_board_validation.sh" ;;
   *)         die "unknown stage '${1}'. Use: test | hls | bitstream | manifest | all" ;;
 esac

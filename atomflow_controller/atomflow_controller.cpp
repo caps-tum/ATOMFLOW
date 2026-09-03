@@ -123,6 +123,18 @@ void atomflow_controller(
 #pragma HLS INTERFACE m_axi port=targetGeometry_mem   offset=slave bundle=gmem4
 #pragma HLS INTERFACE axis port=moveStream depth=8192
 
+    // Reject scalar control errors before touching any external memory.
+    if (mode != MODE_QUBIT_READOUT && mode != MODE_INITIALIZATION) {
+        *moveCount = 0; *targetsFilled = 0; *targetsRequired = 0;
+        *status = ATOMFLOW_STATUS_ERR_MODE;
+        return;
+    }
+    if (mode == MODE_INITIALIZATION && !std::isfinite(emission_threshold)) {
+        *moveCount = 0; *targetsFilled = 0; *targetsRequired = 0;
+        *status = ATOMFLOW_STATUS_ERR_NONFINITE;
+        return;
+    }
+
     // ----------------------------------------------------------------
     // Step 1: Always run image analysis into a local buffer.
     // We cannot read back from the m_axi 'emissions' port within the
@@ -159,14 +171,21 @@ void atomflow_controller(
     // Every PSF window must lie fully inside the image.  The extraction path
     // converts the window origin to unsigned for its address arithmetic, so a
     // negative origin becomes a huge AXI address rather than a clipped read.
+    bool atomsFinite = true;
     bool atomsInBounds = true;
     for (int i = 0; i < atomLocationsSize; i++) {
 #pragma HLS PIPELINE II=1
 #pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_ATOM_SITES
         // MUST match getLocalImages_single() exactly, or a window could pass
         // this check and then be extracted from a different origin.
-        int xi = (int)std::round(atomLocations[i].x);
-        int yi = (int)std::round(atomLocations[i].y);
+        float atomX = atomLocations[i].x;
+        float atomY = atomLocations[i].y;
+        if (!std::isfinite(atomX) || !std::isfinite(atomY)) {
+            atomsFinite = false;
+            continue;
+        }
+        int xi = (int)std::round(atomX);
+        int yi = (int)std::round(atomY);
         int xmin = xi - projShape1 / 2;
         int ymin = yi - projShape0 / 2;
         if (xmin < 0 || ymin < 0 ||
@@ -174,6 +193,11 @@ void atomflow_controller(
             ymin + projShape0 > fullImage_rows) {
             atomsInBounds = false;
         }
+    }
+    if (!atomsFinite) {
+        *moveCount = 0; *targetsFilled = 0; *targetsRequired = 0;
+        *status = ATOMFLOW_STATUS_ERR_NONFINITE;
+        return;
     }
     if (!atomsInBounds) {
         *moveCount = 0; *targetsFilled = 0; *targetsRequired = 0;
@@ -282,8 +306,12 @@ void atomflow_controller(
         // ERR_SORT covers both an explicit sorter failure and a silent partial
         // fill: the sorter can return true after an early exit that leaves
         // target sites empty, and the PS must not read that as success.
-        *status = (sortOk && filled == required)
-                    ? ATOMFLOW_STATUS_OK : ATOMFLOW_STATUS_ERR_SORT;
+        if (moveStreamWrapper.overflow) {
+            *status = ATOMFLOW_STATUS_ERR_CAPACITY;
+        } else {
+            *status = (sortOk && filled == required)
+                        ? ATOMFLOW_STATUS_OK : ATOMFLOW_STATUS_ERR_SORT;
+        }
 
     } else {
         // MODE_QUBIT_READOUT: emissions already written, nothing more to do

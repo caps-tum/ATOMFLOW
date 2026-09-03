@@ -463,6 +463,9 @@ public:
         Array2D* alreadyMoved = nullptr) const;
 };
 
+/// @brief Validate every step of a move before it is executed or emitted.
+bool move_is_emittable(const ParallelMove& move);
+
 // The wire protocol is ceil(sizeof(ParallelMove)/64) 512-bit beats, mirrored by
 // BEATS_PER_MOVE in atomflow_control.py and DEFAULT_TLAST in create_bd.tcl.
 // Adding fields that grow the struct past a 64-byte boundary silently breaks
@@ -543,8 +546,9 @@ struct SiteInfo {
 struct HLSMoveList {
     ParallelMove data[HLS_MAX_MOVES];
     size_t count;
+    bool overflow;
     
-    HLSMoveList() : data(), count(0) {
+    HLSMoveList() : data(), count(0), overflow(false) {
 #ifdef __SYNTHESIS__
         #pragma HLS INLINE
         // Ensure move storage is mapped to BRAM in RTL
@@ -556,16 +560,20 @@ struct HLSMoveList {
 #ifdef __SYNTHESIS__
         #pragma HLS BIND_STORAGE variable=data type=RAM_2P impl=BRAM
 #endif
-        count = 0; 
+        count = 0;
+        overflow = false;
     }
     
-    void push_back(const ParallelMove& m) { 
-#ifdef __SYNTHESIS__
-#endif
-        if(count < HLS_MAX_MOVES) { 
-            data[count] = m; 
-            count++; 
-        } 
+    bool can_push() const { return count < HLS_MAX_MOVES && !overflow; }
+    void mark_overflow() { overflow = true; }
+    bool push_back(const ParallelMove& m) {
+        if(!can_push()) {
+            overflow = true;
+            return false;
+        }
+        data[count] = m;
+        count++;
+        return true;
     }
     
     ParallelMove& operator[](size_t i) { return data[i]; }
@@ -582,16 +590,23 @@ struct HLSMoveList {
 struct HLSMoveStream {
     hls::stream<ap_uint<512>>& strm;
     unsigned int count;
+    bool overflow;
 #ifndef __SYNTHESIS__
     ParallelMove sim_cache[HLS_MAX_MOVES];    // simulation-only; not present in synthesis
 #endif
 
-    HLSMoveStream(hls::stream<ap_uint<512>>& s) : strm(s), count(0) {}
+    HLSMoveStream(hls::stream<ap_uint<512>>& s)
+        : strm(s), count(0), overflow(false) {}
 
-    void push_back(const ParallelMove& m) {
+    bool can_push() const { return count < HLS_MAX_MOVES && !overflow; }
+    void mark_overflow() { overflow = true; }
+    bool push_back(const ParallelMove& m) {
+        if(!can_push()) {
+            overflow = true;
+            return false;
+        }
 #ifndef __SYNTHESIS__
-        if (count < HLS_MAX_MOVES)
-            sim_cache[count] = m;
+        sim_cache[count] = m;
 #endif
         const uint8_t* src = (const uint8_t*)&m;
         // N is a compile-time constant: sizeof(ParallelMove) / 64 rounded up
@@ -609,6 +624,7 @@ struct HLSMoveStream {
             strm.write(word);
         }
         count++;
+        return true;
     }
 
     ParallelMove& operator[](size_t i) {
@@ -621,7 +637,7 @@ struct HLSMoveStream {
 
     size_t size()  const { return (size_t)count; }
     bool   empty() const { return count == 0; }
-    void   clear()       { count = 0; }       // note: stream words already written
+    void   clear()       { count = 0; overflow = false; } // words cannot be recalled
     void   reserve(size_t) {}                 // no-op
 };
 

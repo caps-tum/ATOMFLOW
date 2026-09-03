@@ -17,8 +17,6 @@ build/
 # versions that produced it, so a clean clone can still tell exactly what was
 # last flashed without carrying ~20 MB of binary per build.
 # Distribute the .bit/.hwh themselves via a GitHub Release or Git LFS.
-release/*.bit
-release/*.hwh
 release/*.zip
 !release/manifest.json
 

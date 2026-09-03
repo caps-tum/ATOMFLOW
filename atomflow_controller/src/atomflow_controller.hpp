@@ -30,6 +30,9 @@
                                             // (see PSF_WINDOW in image_analysis.hpp)
 #define ATOMFLOW_STATUS_ERR_ATOM_OOB    6u  // an atom's PSF window would read
                                             // outside the image buffer
+#define ATOMFLOW_STATUS_ERR_MODE        7u  // unknown controller operation
+#define ATOMFLOW_STATUS_ERR_NONFINITE   8u  // NaN/Inf threshold or atom coordinate
+#define ATOMFLOW_STATUS_ERR_CAPACITY    9u  // a fixed-capacity planner/output list overflowed
 
 void atomflow_controller(
     // --- Mode control (AXI-Lite) ---

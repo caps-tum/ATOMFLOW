@@ -15,8 +15,32 @@
 #endif
 
 // Fixed-size limits for HLS-safe buffers (supports 80x250 testbench)
-constexpr size_t HLS_MAX_ARRAY_XC = 256;
 constexpr size_t HLS_MAX_ARRAY_AC = 256;
+constexpr size_t HLS_MAX_ARRAY_XC = 256;
+
+// Bounds for the AtomFlow controller build (MAX_ROWS x MAX_COLS).  These only
+// tighten HLS latency estimation; they do not change loop conditions or RTL
+// behaviour.  Keep the expressions tied to the same compile-time geometry,
+// spacing and AOD limits used by sortArray_impl_state_accessor().
+constexpr bool HLS_CHANNEL_VERTICAL = COL_SPACING > ROW_SPACING;
+constexpr unsigned int HLS_CLEAR_SPACING_XC =
+    HLS_CHANNEL_VERTICAL ? COL_SPACING : ROW_SPACING;
+constexpr unsigned int HLS_CLEAR_ARRAY_AC_MAX =
+    HLS_CHANNEL_VERTICAL ? MAX_ROWS : MAX_COLS;
+constexpr unsigned int HLS_CLEAR_MAX_TONES_RAW =
+    HLS_CHANNEL_VERTICAL ? AOD_ROW_LIMIT : AOD_COL_LIMIT;
+constexpr unsigned int HLS_CLEAR_MAX_TONES =
+    HLS_CLEAR_MAX_TONES_RAW < AOD_TOTAL_LIMIT
+        ? HLS_CLEAR_MAX_TONES_RAW : AOD_TOTAL_LIMIT;
+constexpr unsigned int HLS_CLEAR_DISTANCE_QUANTA =
+    (2 * MIN_DIST_FROM_OCC_SITES + HLS_CLEAR_SPACING_XC - 1) /
+    HLS_CLEAR_SPACING_XC;
+constexpr unsigned int HLS_CLEAR_CHANNELS_MAX =
+    HLS_CLEAR_DISTANCE_QUANTA / 2 + 2;
+constexpr unsigned int HLS_CLEAR_BATCHES_MAX =
+    (HLS_CLEAR_ARRAY_AC_MAX + HLS_CLEAR_MAX_TONES - 1) /
+    HLS_CLEAR_MAX_TONES;
+static_assert(HLS_CLEAR_MAX_TONES > 0, "AOD tone limit must be non-zero");
 
 /**
  * @brief Convert a bounded index to double for selection arrays.
@@ -138,22 +162,26 @@ static inline bool checkStrictlyIncreasing(const int16_t* selection, size_t coun
  * @param m Planned move.
  * @return true if the move should be executed and streamed.
  */
-static inline bool move_is_emittable(const ParallelMove& m) {
+bool move_is_emittable(const ParallelMove& m) {
 #ifdef __SYNTHESIS__
 #pragma HLS INLINE
 #endif
-    if(m.stepsCount == 0) return false;
+    if(m.stepsCount == 0 || m.stepsCount > MAX_MOVE_STEPS) return false;
     const ParallelMove::Step& firstStep = m.steps[0];
-    const ParallelMove::Step& lastStep  = m.steps[m.stepsCount - 1];
     if(firstStep.rowSelectionCount == 0 || firstStep.colSelectionCount == 0) return false;
-    if(firstStep.rowSelectionCount != lastStep.rowSelectionCount) return false;
-    if(firstStep.colSelectionCount != lastStep.colSelectionCount) return false;
+    if(firstStep.rowSelectionCount > AOD_ROW_LIMIT ||
+       firstStep.colSelectionCount > AOD_COL_LIMIT) return false;
     for(size_t stepIdx = 0; stepIdx < MAX_MOVE_STEPS; stepIdx++) {
 #ifdef __SYNTHESIS__
 #pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_MOVE_STEPS
 #endif
         if(stepIdx >= (size_t)m.stepsCount) break;
         const ParallelMove::Step& step = m.steps[stepIdx];
+        if(step.rowSelectionCount == 0 || step.colSelectionCount == 0) return false;
+        if(step.rowSelectionCount > AOD_ROW_LIMIT ||
+           step.colSelectionCount > AOD_COL_LIMIT) return false;
+        if(step.rowSelectionCount != firstStep.rowSelectionCount) return false;
+        if(step.colSelectionCount != firstStep.colSelectionCount) return false;
         if(!checkStrictlyIncreasing(step.rowSelection, step.rowSelectionCount)) return false;
         if(!checkStrictlyIncreasing(step.colSelection, step.colSelectionCount)) return false;
     }
@@ -209,11 +237,13 @@ struct HLSIntList {
 #endif
         count = 0;
     }
-    void push_back(int v) {
+    bool push_back(int v) {
 #ifdef __SYNTHESIS__
 #pragma HLS INLINE
 #endif
-        if(count < HLS_MAX_ARRAY_AC) data[count++] = v;
+        if(count >= HLS_MAX_ARRAY_AC) return false;
+        data[count++] = v;
+        return true;
     }
     void pop_back() {
 #ifdef __SYNTHESIS__
@@ -369,11 +399,13 @@ struct HLSSizeTList {
 #endif
         count = 0;
     }
-    void push_back(size_t v) {
+    bool push_back(size_t v) {
 #ifdef __SYNTHESIS__
 #pragma HLS INLINE
 #endif
-        if(count < HLS_MAX_ARRAY_AC) data[count++] = v;
+        if(count >= HLS_MAX_ARRAY_AC) return false;
+        data[count++] = v;
+        return true;
     }
     void pop_back() {
 #ifdef __SYNTHESIS__
@@ -469,7 +501,7 @@ bool& accessStateArrayDimIndepedent(Array2D& stateArray,
  * @param targetGapXC Unused gap parameter (kept for API symmetry).
  */
 template<typename ML>
-void clearFirstNRowsOrCols(Array2D& stateArray,
+bool clearFirstNRowsOrCols(Array2D& stateArray,
     bool vertical, unsigned int count, ML& moveList, unsigned int arraySizeAC,
     unsigned int maxTones, double spacingXC, int targetGapXC)
 {
@@ -487,7 +519,7 @@ void clearFirstNRowsOrCols(Array2D& stateArray,
     
     for(unsigned int i = 0; i < count; i++) {
 #ifdef __SYNTHESIS__
-#pragma HLS LOOP_TRIPCOUNT min=1 max=64
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_CLEAR_CHANNELS_MAX
 #pragma HLS PIPELINE off
 #endif
         // Local buffer to store occupied indices for this channel
@@ -518,8 +550,8 @@ void clearFirstNRowsOrCols(Array2D& stateArray,
     #pragma HLS PIPELINE off
     #endif
 #ifdef __SYNTHESIS__
-#pragma HLS LOOP_TRIPCOUNT min=1 max=16
-// AGGRESSIVE: Typical atom count ~50, maxTones ~16 → ~3-4 batches per channel
+#pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_CLEAR_BATCHES_MAX
+// Current AtomFlow bounds: 32 sites / 16 tones = at most 2 batches per channel.
 #endif
             ParallelMove move;
             ParallelMove::Step start;
@@ -558,14 +590,15 @@ void clearFirstNRowsOrCols(Array2D& stateArray,
             
             move.steps[move.stepsCount++] = start;
             move.steps[move.stepsCount++] = end;
-            if(move_is_emittable(move)) {
-                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
-                                          (int16_t)(stateArray.cols() - 1));
-                move.execute(stateArray);
-                moveList.push_back(move);
-            }
+            if(!move_is_emittable(move)) return false;
+            if(!moveList.can_push()) { moveList.mark_overflow(); return false; }
+            annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                      (int16_t)(stateArray.cols() - 1));
+            if(!move.execute(stateArray)) return false;
+            if(!moveList.push_back(move)) return false;
         }
     }
+    return true;
 }
 
 /**
@@ -614,7 +647,10 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
 #pragma HLS PIPELINE II=1
 #pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
 #endif
-        parkingSpotsPerSuitableIndexXC.push_back(i);
+        if(!parkingSpotsPerSuitableIndexXC.push_back(i)) {
+            moveList.mark_overflow();
+            return false;
+        }
     }
     for(size_t i = compZoneACEnd + targetGapAC - 1; i < arraySizeAC; i += targetGapAC)
     {
@@ -622,7 +658,10 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
 #pragma HLS PIPELINE II=1
 #pragma HLS LOOP_TRIPCOUNT min=1 max=HLS_MAX_ARRAY_AC
 #endif
-        parkingSpotsPerSuitableIndexXC.push_back(i);
+        if(!parkingSpotsPerSuitableIndexXC.push_back(i)) {
+            moveList.mark_overflow();
+            return false;
+        }
     }
     
     size_t currentTargetIndexXC = compZoneXCStart;
@@ -708,7 +747,10 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                 if(currentSize <= threshold) break;
                 if(discardCount >= HLS_MAX_ARRAY_AC) break;
                 if(frontIdx > backIdx) break;  // Safety: front passed back
-                if(unusableWriteIdx >= HLS_MAX_ARRAY_AC) break;  // Safety: output full
+                if(unusableWriteIdx >= HLS_MAX_ARRAY_AC) {
+                    moveList.mark_overflow();
+                    return false;
+                }
                 
                 int frontVal = usableAtoms[indexXC].data[frontIdx];
                 int backVal = usableAtoms[indexXC].data[backIdx];
@@ -884,12 +926,12 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
             move.steps[move.stepsCount++] = elbow;
             move.steps[move.stepsCount++] = end;
             // Execute immediately AND queue for deferred execution
-            if(move_is_emittable(move)) {
-                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
-                                          (int16_t)(stateArray.cols() - 1));
-                move.execute(stateArray);
-                moveList.push_back(move);
-            }
+            if(!move_is_emittable(move)) return false;
+            if(!moveList.can_push()) { moveList.mark_overflow(); return false; }
+            annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                      (int16_t)(stateArray.cols() - 1));
+            if(!move.execute(stateArray)) return false;
+            if(!moveList.push_back(move)) return false;
         }
         if(targetIndexXC < compZoneXCStart)
         {
@@ -951,12 +993,12 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                 move.steps[move.stepsCount++] = start;
                 move.steps[move.stepsCount++] = end;
                 // Execute immediately AND queue for deferred execution
-                if(move_is_emittable(move)) {
-                    annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
-                                              (int16_t)(stateArray.cols() - 1));
-                    move.execute(stateArray);
-                    moveList.push_back(move);
-                }
+                if(!move_is_emittable(move)) return false;
+                if(!moveList.can_push()) { moveList.mark_overflow(); return false; }
+                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                          (int16_t)(stateArray.cols() - 1));
+                if(!move.execute(stateArray)) return false;
+                if(!moveList.push_back(move)) return false;
             }
             usableAtoms[targetIndexXC] = usableAtoms[indexXC];
             usableAtoms[indexXC].clear();
@@ -991,6 +1033,17 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                     {
                         break;
                     }
+                }
+
+                // Advancing one target channel can land on another channel with
+                // no outstanding target.  Re-evaluate on the next bounded
+                // iteration instead of constructing a zero-tone candidate and
+                // relying on the emission validator to discard it.
+                if(targetSites[currentTargetIndexXC].empty() &&
+                    (parkingSpotsRemainingAtCurrentIndexXC.empty() ||
+                     usableAtoms[indexXC].size() <= requiredAtoms))
+                {
+                    continue;
                 }
 
                 ParallelMove move;
@@ -1076,7 +1129,35 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                                 parkingSpotsRemainingAtCurrentIndexXC.data[parkingDynSize - indicesFromBack + i];
                         }
                     }
+
+                    // Preflight the complete move and every capacity constraint
+                    // before mutating planner bookkeeping.
+                    size_t destinationCount = usableAtoms[currentTargetIndexXC].count;
+                    if(destinationCount + usedIndices > HLS_MAX_ARRAY_AC) {
+                        moveList.mark_overflow();
+                        return false;
+                    }
+                    for(size_t i = 0; i < usedIndices; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
+#endif
+                        if(vertical) {
+                            elbow1.rowSelection[elbow1.rowSelectionCount++] = start.rowSelection[i];
+                            elbow2.rowSelection[elbow2.rowSelectionCount++] = end.rowSelection[i];
+                        } else {
+                            elbow1.colSelection[elbow1.colSelectionCount++] = start.colSelection[i];
+                            elbow2.colSelection[elbow2.colSelectionCount++] = end.colSelection[i];
+                        }
+                    }
+                    move.steps[move.stepsCount++] = start;
+                    move.steps[move.stepsCount++] = elbow1;
+                    move.steps[move.stepsCount++] = elbow2;
+                    move.steps[move.stepsCount++] = end;
+                    if(!move_is_emittable(move)) return false;
+                    if(!moveList.can_push()) { moveList.mark_overflow(); return false; }
                         
+                    // Commit bookkeeping only after the candidate is known valid.
                     // Compact usableAtoms[indexXC] via temp buffer
                     size_t writeIdx = 0;
                     for(size_t readIdx = indicesFromFront; readIdx < (size_t)(usableAtomCount - indicesFromBack); readIdx++) {
@@ -1113,37 +1194,18 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                     }
                     parkingSpotsRemainingAtCurrentIndexXC.count = writeIdx;
 
-                    // Append selected parking spots to usableAtoms[currentTargetIndexXC]
-                    // Use local counter to avoid II violation from push_back's count++ dependency
+                    // Append selected parking spots to usableAtoms[currentTargetIndexXC].
+                    // The transported coordinate is row for vertical channels and column otherwise.
                     size_t targetCount = usableAtoms[currentTargetIndexXC].count;
                     for(size_t i = 0; i < usedIndices; i++) {
 #ifdef __SYNTHESIS__
 #pragma HLS PIPELINE II=1
 #pragma HLS LOOP_TRIPCOUNT min=0 max=MAX_SELECTION_SIZE
 #endif
-                        if(targetCount < HLS_MAX_ARRAY_AC) {
-                            usableAtoms[currentTargetIndexXC].data[targetCount++] = (int)end.colSelection[i];
-                        }
+                        usableAtoms[currentTargetIndexXC].data[targetCount++] =
+                            vertical ? (int)end.rowSelection[i] : (int)end.colSelection[i];
                     }
                     usableAtoms[currentTargetIndexXC].count = targetCount;
-                        
-                    // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
-                    for(size_t i = 0; i < usedIndices; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif 
-                        if(vertical)
-                        {
-                            elbow1.rowSelection[elbow1.rowSelectionCount++] = start.rowSelection[i];
-                            elbow2.rowSelection[elbow2.rowSelectionCount++] = end.rowSelection[i];
-                        }
-                        else 
-                        {
-                            elbow1.colSelection[elbow1.colSelectionCount++] = start.colSelection[i];
-                            elbow2.colSelection[elbow2.colSelectionCount++] = end.colSelection[i];
-                        }
-                    }
                 }
                 else
                 {
@@ -1179,7 +1241,30 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
                             end.colSelection[end.colSelectionCount++] = targetSites[currentTargetIndexXC][excessTargets / 2 + i];
                         }
                     }
+
+                    // Preflight the complete target-fill move before changing
+                    // usableAtoms, targetSites, or required counts.
+                    for(size_t i = 0; i < usedIndices; i++) {
+#ifdef __SYNTHESIS__
+#pragma HLS PIPELINE II=1
+#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
+#endif
+                        if(vertical) {
+                            elbow1.rowSelection[elbow1.rowSelectionCount++] = start.rowSelection[i];
+                            elbow2.rowSelection[elbow2.rowSelectionCount++] = end.rowSelection[i];
+                        } else {
+                            elbow1.colSelection[elbow1.colSelectionCount++] = start.colSelection[i];
+                            elbow2.colSelection[elbow2.colSelectionCount++] = end.colSelection[i];
+                        }
+                    }
+                    move.steps[move.stepsCount++] = start;
+                    move.steps[move.stepsCount++] = elbow1;
+                    move.steps[move.stepsCount++] = elbow2;
+                    move.steps[move.stepsCount++] = end;
+                    if(!move_is_emittable(move)) return false;
+                    if(!moveList.can_push()) { moveList.mark_overflow(); return false; }
                         
+                    // Commit bookkeeping only after the candidate is known valid.
                     // Compact usableAtoms[indexXC] via temp buffer
                     size_t writeIdx = excessAtoms / 2;
                     for(size_t readIdx = excessAtoms / 2 + usedIndices; readIdx < sourceAtoms; readIdx++) {
@@ -1218,37 +1303,14 @@ bool sortRemainingRowsOrCols(Array2D& stateArray,
 
                     requiredAtoms -= usedIndices;
                     totalRequiredAtoms -= usedIndices;
-                        
-                    // Copy to elbow steps - LUT REDUCTION: removed UNROLL, accept sequential execution
-                    for(size_t i = 0; i < usedIndices; i++) {
-#ifdef __SYNTHESIS__
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=MAX_SELECTION_SIZE
-#endif 
-                        if(vertical)
-                        {
-                            elbow1.rowSelection[elbow1.rowSelectionCount++] = start.rowSelection[i];
-                            elbow2.rowSelection[elbow2.rowSelectionCount++] = end.rowSelection[i];
-                        }
-                        else 
-                        {
-                            elbow1.colSelection[elbow1.colSelectionCount++] = start.colSelection[i];
-                            elbow2.colSelection[elbow2.colSelectionCount++] = end.colSelection[i];
-                        }
-                    }
                 }
-                    
-                move.steps[move.stepsCount++] = start;
-                move.steps[move.stepsCount++] = elbow1;
-                move.steps[move.stepsCount++] = elbow2;
-                move.steps[move.stepsCount++] = end;
-                // Execute immediately AND queue for deferred execution
-                if(move_is_emittable(move)) {
-                    annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
-                                              (int16_t)(stateArray.cols() - 1));
-                    move.execute(stateArray);
-                    moveList.push_back(move);
-                }
+
+                // Candidate and capacity were preflighted inside the selected
+                // branch; from here the state/list/stream commit cannot be skipped.
+                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                          (int16_t)(stateArray.cols() - 1));
+                if(!move.execute(stateArray)) return false;
+                if(!moveList.push_back(move)) return false;
             }
         }
     }
@@ -1338,7 +1400,7 @@ bool findUnusableAtoms(Array2D& stateArray, bool vertical, unsigned int arraySiz
             if(row >= compZoneRowStart && row < compZoneRowEnd && col >= compZoneColStart && 
                 col < compZoneColEnd && targetGeometry(row - compZoneRowStart, col - compZoneColStart))
             {
-                targetSites[indexXC].push_back((int)indexAC);
+                if(!targetSites[indexXC].push_back((int)indexAC)) return false;
             }
             if(stateArray(row,col))
             {
@@ -1393,11 +1455,11 @@ bool findUnusableAtoms(Array2D& stateArray, bool vertical, unsigned int arraySiz
                 }
                 if(usable)
                 {
-                    usableAtoms[indexXC].push_back((int)indexAC);
+                    if(!usableAtoms[indexXC].push_back((int)indexAC)) return false;
                 }
                 else
                 {
-                    unusableAtoms[indexXC].push_back((int)indexAC);
+                    if(!unusableAtoms[indexXC].push_back((int)indexAC)) return false;
                 }
             }
         }
@@ -1499,6 +1561,10 @@ bool resolveSortingDeficiencies(Array2D& stateArray,
 
             ParallelMove move;
             ParallelMove::Step start, elbow1, elbow2, end;
+            size_t src_count = usableAtoms[lastIndexXCWithUsableAtoms].size();
+            size_t dst_count = target_count_local;
+            unsigned int count = (unsigned int)(src_count < dst_count ? src_count : dst_count);
+            if(count > maxTones) { count = maxTones; }
             
             if(vertical)
             {
@@ -1507,12 +1573,6 @@ bool resolveSortingDeficiencies(Array2D& stateArray,
                 elbow2.colSelection[elbow2.colSelectionCount++] = (int16_t)channelIndexInt;
                 end.colSelection[end.colSelectionCount++] = (int16_t)targetIndexXC;
                 
-                // Cache counts locally to avoid loop-carried deps on synthesized memories (HLS II improvement)
-                size_t src_count = usableAtoms[lastIndexXCWithUsableAtoms].size();
-                size_t dst_count = target_count_local;
-                unsigned int count = (unsigned int)(src_count < dst_count ? src_count : dst_count);
-                if(count > maxTones) { count = maxTones; }
-
                 // Read from the back using local indices; write back counts once
                 // HLS: pipeline batch load of indices (bounded by maxTones) to minimize II
                 for(size_t i = 0; i < count; i++)
@@ -1529,9 +1589,6 @@ bool resolveSortingDeficiencies(Array2D& stateArray,
                         targetSites[targetIndexXC].data[dst_count - 1 - i];
                 }
                 
-                // Update counts after batch (source only); delay target count writeback
-                usableAtoms[lastIndexXCWithUsableAtoms].count = src_count - count;
-                target_count_local -= count;
                 insertionSortSmall(start.rowSelection, start.rowSelection + start.rowSelectionCount);
                 insertionSortSmall(end.rowSelection, end.rowSelection + end.rowSelectionCount);
                 
@@ -1558,12 +1615,6 @@ bool resolveSortingDeficiencies(Array2D& stateArray,
                 elbow2.rowSelection[elbow2.rowSelectionCount++] = (int16_t)channelIndexInt;
                 end.rowSelection[end.rowSelectionCount++] = (int16_t)targetIndexXC;
                 
-                // Cache counts locally to avoid loop-carried deps on synthesized memories (HLS II improvement)
-                size_t src_count = usableAtoms[lastIndexXCWithUsableAtoms].size();
-                size_t dst_count = target_count_local;
-                unsigned int count = (unsigned int)(src_count < dst_count ? src_count : dst_count);
-                if(count > maxTones) { count = maxTones; }
-
                 // Read from the back using local indices; write back counts once
                 // HLS: pipeline batch load of indices (bounded by maxTones) to minimize II
                 for(size_t i = 0; i < count; i++)
@@ -1580,9 +1631,6 @@ bool resolveSortingDeficiencies(Array2D& stateArray,
                         targetSites[targetIndexXC].data[dst_count - 1 - i];
                 }
                 
-                // Update counts after batch (source only); delay target count writeback
-                usableAtoms[lastIndexXCWithUsableAtoms].count = src_count - count;
-                target_count_local -= count;
                 insertionSortSmall(start.colSelection, start.colSelection + start.colSelectionCount);
                 insertionSortSmall(end.colSelection, end.colSelection + end.colSelectionCount);
                 
@@ -1607,13 +1655,15 @@ bool resolveSortingDeficiencies(Array2D& stateArray,
             move.steps[move.stepsCount++] = elbow1;
             move.steps[move.stepsCount++] = elbow2;
             move.steps[move.stepsCount++] = end;
-            // Execute immediately AND queue for deferred execution
-            if(move_is_emittable(move)) {
-                annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
-                                          (int16_t)(stateArray.cols() - 1));
-                move.execute(stateArray);
-                moveList.push_back(move);
-            }
+            // Validate and preflight capacity before committing source/target counts.
+            if(!move_is_emittable(move)) return false;
+            if(!moveList.can_push()) { moveList.mark_overflow(); return false; }
+            usableAtoms[lastIndexXCWithUsableAtoms].count = src_count - count;
+            target_count_local = dst_count - count;
+            annotate_move_flags(move, (int16_t)(stateArray.rows() - 1),
+                                      (int16_t)(stateArray.cols() - 1));
+            if(!move.execute(stateArray)) return false;
+            if(!moveList.push_back(move)) return false;
         }
         // Write back the target count once after loop completes
         targetSites[targetIndexXC].count = target_count_local;
@@ -1702,17 +1752,22 @@ bool sortArray_impl_state_accessor(Array2D& stateArray,
             unusableInfo.usableAtoms, unusableInfo.unusableAtoms, unusableInfo.targetSites);
     
     if(!success) {
+        moveList.mark_overflow();
         return false;
     }
 
-    clearFirstNRowsOrCols(stateArray, channelVertical, sortingChannelWidth + 1, 
-        moveList, arraySizeAC, maxTones, spacingXC, targetGapXC);
+    if(!clearFirstNRowsOrCols(stateArray, channelVertical, sortingChannelWidth + 1,
+        moveList, arraySizeAC, maxTones, spacingXC, targetGapXC))
+    {
+        return false;
+    }
 
     if(!sortRemainingRowsOrCols(stateArray, channelVertical, sortingChannelWidth, moveList, 
         arraySizeAC, arraySizeXC, maxTones, spacingXC, unusableInfo.usableAtoms, unusableInfo.unusableAtoms, 
         unusableInfo.targetSites, compZoneXCStart, compZoneXCEnd, compZoneACStart, compZoneACEnd, 
         targetGapXC, targetGapAC))
     {
+        if(moveList.overflow) return false;
         if(!resolveSortingDeficiencies(stateArray, channelVertical, sortingChannelWidth, moveList, 
             arraySizeAC, arraySizeXC, maxTones, spacingXC, unusableInfo.usableAtoms, unusableInfo.unusableAtoms, 
             unusableInfo.targetSites, compZoneXCStart, compZoneXCEnd, compZoneACStart, compZoneACEnd, 

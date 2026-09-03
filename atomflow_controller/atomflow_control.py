@@ -92,6 +92,9 @@ ATOMFLOW_STATUS = {
     4: "ERR_SORT (sorter failed or target not fully filled)",
     5: "ERR_IMAGE_CFG (image params outside the fixed 31x31 / PSF=1 config)",
     6: "ERR_ATOM_OOB (an atom's PSF window falls outside the image)",
+    7: "ERR_MODE (unknown controller mode)",
+    8: "ERR_NONFINITE (NaN/Inf threshold or atom coordinate)",
+    9: "ERR_CAPACITY (planner or moving-list capacity exceeded)",
 }
 
 # The reconstruction datapath implements exactly one configuration; the
