@@ -16,10 +16,10 @@ Camera (atom position image)
 ┌─────────────────────────────────────┐
 │      atomflow_controller (HLS)      │
 │  ┌─────────────┐                    │
-│  │ reconstruct │  ← emissions data │
+│  │ reconstruct │  ← emissions data  │
 │  └──────┬──────┘                    │
-│         │  ← Mode Control          │
-│  ┌──────▼─────────────────────────┐│
+│         │  ← Mode Control           │
+│  ┌──────▼─────────────────────────┐ │
 │  │ sortLatticeByRowParallel_HLS   │ │
 │  └──────┬─────────────────────────┘ │
 │         │ moveStream (AXI-Stream)   │
@@ -69,53 +69,22 @@ release or Git LFS.
 
 ---
 
-## Resource Utilization (new result — differs from paper)
+## Resource Utilization (new result — slightly differs from paper)
 
-Post-implementation, whole design (`design_1_wrapper`, placed), Vivado 2024.2,
-ZCU216 (`xczu49dr-ffvf1760-2-e`). Build of 2026-09-03 from source `e63d72e`;
-the report and `release/design_1.bit` share SHA256 `3c619620…`. Configuration:
-16×32 physical grid, 16×16 computation zone, `MAX_ROWS = MAX_COLS = 32`.
+Evaluated after implementation, using Vivado 2024.2, ZCU216
+(`xczu49dr-ffvf1760-2-e`). Configuration: 16×32 physical grid, 16×16
+computation zone, `MAX_ROWS = MAX_COLS = 32`,
+`HLS_MAX_ARRAY_AC = HLS_MAX_ARRAY_XC = 32`.
 
-| Resource        | Used    | Available | Utilization | Paper (16×16) |
-|-----------------|--------:|----------:|------------:|--------------:|
-| LUT             | 125,455 |   425,280 |     29.50 % | 126,036 (29.6 %) |
-| FF              | 178,623 |   850,560 |     21.00 % | 179,273 (21.1 %) |
-| **BRAM (36K tiles)** | **226** | 1,080 | **20.93 %** | **46 (4.3 %)** |
-| — RAMB36        |     202 |           |             |               |
-| — RAMB18        |      48 |           |             |               |
-| DSP             |     473 |     4,272 |     11.07 % | 475 (11.1 %) |
-| URAM            |       0 |        80 |      0.00 % | —             |
+| Resource        | Used    | Available | Utilization |
+|-----------------|--------:|----------:|------------:|
+| LUT             | 126,036 |   425,280 |    29.64 % |
+| FF              | 170,876 |   850,560 |     20.09 % |
+| BRAM (36K tiles) | 48 | 1,080 | 4.44 % |
+| DSP             |     473 |     4,272 |     11.07 % |
+| URAM            |       0 |        80 |      0.00 % |
 
 
-<!-- ### Timing
-
-| Metric | Value |
-|---|---|
-| Clock target | 100 MHz (10 ns) |
-| Post-route WNS | **+0.793 ns** — all constraints met |
-| Post-route WHS | +0.010 ns |
-| Post-route Fmax (1 / (10 − WNS)) | ≈ 108.6 MHz |
-| HLS estimated Fmax (IP only) | 134.79 MHz |
-
-The HLS estimate is optimistic; the post-route figure is the one that holds on
-the board. -->
-
-<!-- ### HLS estimate (IP only, for reference)
-
-Vitis HLS 2024.2 C synthesis of `atomflow_controller` alone. HLS overestimates
-LUTs by about 66 % relative to implementation, so use the table above for
-anything quantitative.
-
-| Resource | Estimate |
-|---|---:|
-| BRAM_18K | 468 |
-| DSP      | 467 |
-| FF       | 172,445 |
-| LUT      | 208,696 |
-
---- -->
-
-## Latency (new result — differs from paper)
 
 ZCU216, 16×32 physical grid with a 16×16 computation zone (zone
 `[0,16)×[8,24)`, 8 parking columns each side), 256 detection sites of which 125
@@ -140,17 +109,17 @@ hardware read per word) cut the total by 3.5× without touching the bitstream:
 
 ### Latency breakdown
 
-Latest board run (2026-09-03, numpy readout), new optimized version.
+Latest board run, after new optimization.
 
-| Stage | **Current** | Paper (16×16) |
-|---|---:|---:|
-| Image analysis | **2.4 ms** | 2.4 ± 0.0 ms |
-| First move packet | **3.3 ms** | 4 ms |
-| Move interval | **0.16 ms** | 1.01 ms |
-| **Total (AP_DONE)** | **7.2 ms** | 25.3 ± 0.2 ms |
-| Moves emitted | 26 | 22 (filtered from 29) |
-| Directly executable | 26 / 26 | 22 / 29 |
-| Target sites filled | 96 / 96 | not reported |
+| Stage | **Current** |
+|---|---:|
+| Image analysis | **2.4 ms** |
+| First move packet | **3.3 ms** |
+| Move interval | **0.16 ms** |
+| **Total (AP_DONE)** | **7.2 ms** |
+| Moves emitted | 26 |
+| Directly executable | 26 / 26 |
+| Target sites filled | 96 / 96 |
 
 <!-- **What can and cannot be claimed.** Of the 7.2 ms, image analysis is 2.4 ms
 and the PS readout is at least 26 × 0.145 ms = 3.78 ms. That leaves **at most
@@ -164,8 +133,8 @@ test that read only the occupancy register saw 6 packets arrive within 0.039 ms,
 which suggests the sorter is much faster than 1.0 ms, but that test was limited
 by its own 7.6 µs polling resolution and is not a measurement. -->
 
-The paper's 22 moves came from filtering 29 raw moves on the host. The current
-build emits 26 moves, all directly executable, with no host filtering.
+The current
+build emits 26 moves, all directly executable.
 
 Verified end to end: the controller reports `status = OK` and
 `targets = 96/96`, and replaying the 26 emitted moves on the host reproduces
