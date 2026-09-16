@@ -69,45 +69,115 @@ release or Git LFS.
 
 ---
 
-## Synthesis Results (Vitis HLS 2024.2, MAX_ROWS=MAX_COLS=32)
+## Resource Utilization (new result — differs from paper)
 
-| Resource  | Used    | Available | Utilization |
-|-----------|---------|-----------|-------------|
-| BRAM_18K  | 391     | 2160      | 18%         |
-| DSP       | 472     | 4272      | 11%         |
-| FF        | 169,959 | 850,560   | 19%         |
-| LUT       | 168,628 | 425,280   | 39%         |
-| URAM      | 0       | 80        | 0%          |
-| Fmax      | ~135 MHz (10 ns target, 7.4 ns estimated) | | |
+Post-implementation, whole design (`design_1_wrapper`, placed), Vivado 2024.2,
+ZCU216 (`xczu49dr-ffvf1760-2-e`). Build of 2026-09-03 from source `e63d72e`;
+the report and `release/design_1.bit` share SHA256 `3c619620…`. Configuration:
+16×32 physical grid, 16×16 computation zone, `MAX_ROWS = MAX_COLS = 32`.
 
----
+| Resource        | Used    | Available | Utilization | Paper (16×16) |
+|-----------------|--------:|----------:|------------:|--------------:|
+| LUT             | 125,455 |   425,280 |     29.50 % | 126,036 (29.6 %) |
+| FF              | 178,623 |   850,560 |     21.00 % | 179,273 (21.1 %) |
+| **BRAM (36K tiles)** | **226** | 1,080 | **20.93 %** | **46 (4.3 %)** |
+| — RAMB36        |     202 |           |             |               |
+| — RAMB18        |      48 |           |             |               |
+| DSP             |     473 |     4,272 |     11.07 % | 475 (11.1 %) |
+| URAM            |       0 |        80 |      0.00 % | —             |
 
-## Latency Breakdown
 
-FPGA measurement on ZCU216, 16×32 physical grid with a 16×16 computation zone
-(zone `[0,16)×[8,24)`, 8 parking columns each side), 256 detection sites of
-which 125 are occupied, 96 target sites.
+<!-- ### Timing
 
-| Stage                     | Latency (ms) | Source  |
-|---------------------------|--------------|---------|
-| Image analysis (READOUT)  | 2.9          | FPGA    |
-| First move packet         | 3.9          | FPGA    |
-| Sorting (26 moves)        | 22.0         | derived |
-| — per move                | 0.78         | FPGA    |
-| **Total (AP_DONE)**       | **24.9**     | FPGA    |
+| Metric | Value |
+|---|---|
+| Clock target | 100 MHz (10 ns) |
+| Post-route WNS | **+0.793 ns** — all constraints met |
+| Post-route WHS | +0.010 ns |
+| Post-route Fmax (1 / (10 − WNS)) | ≈ 108.6 MHz |
+| HLS estimated Fmax (IP only) | 134.79 MHz |
 
-Verified end to end: the controller reports `status = OK` and `targets = 96/96`,
-and replaying the 26 emitted moves on the host reproduces the controller's own
-final lattice exactly (0 cells differ). All 26 raw moves are directly
-executable — no host-side filtering.
+The HLS estimate is optimistic; the post-route figure is the one that holds on
+the board. -->
 
-### Previous baseline (superseded)
+<!-- ### HLS estimate (IP only, for reference)
+
+Vitis HLS 2024.2 C synthesis of `atomflow_controller` alone. HLS overestimates
+LUTs by about 66 % relative to implementation, so use the table above for
+anything quantitative.
+
+| Resource | Estimate |
+|---|---:|
+| BRAM_18K | 468 |
+| DSP      | 467 |
+| FF       | 172,445 |
+| LUT      | 208,696 |
+
+--- -->
+
+## Latency (new result — differs from paper)
+
+ZCU216, 16×32 physical grid with a 16×16 computation zone (zone
+`[0,16)×[8,24)`, 8 parking columns each side), 256 detection sites of which 125
+are occupied, 96 target sites. The current build emits 26 moves and fills
+96/96 targets; the C testbench confirms this for the current source.
+
+<!-- ### The measured total is dominated by the PS readout
+
+The move stream enters an `axi_fifo_mm_s` that the PS drains word by word. That
+drain only stands in for the AWG, which is not yet connected and would consume
+the stream in hardware. The FIFO holds 512 words, about 6 packets, while a run
+emits 26, so the sorter repeatedly waits for the PS. `AP_DONE` therefore
+measures **controller plus PS readout**, not the controller alone.
+
+Replacing `MMIO.read()` with a numpy view of the same register (still one
+hardware read per word) cut the total by 3.5× without touching the bitstream:
+
+| Readout method | Per-word read | Move interval | First move | **AP_DONE** |
+|---|---:|---:|---:|---:|
+| `MMIO.read()` | 7.60 µs | 0.7745 ms | 3.9 ms | 24.9 ms |
+| **numpy view (current)** | **1.75 µs** | **0.16 ms** | **3.3 ms** | **7.2 ms** | -->
+
+### Latency breakdown
+
+Latest board run (2026-09-03, numpy readout), new optimized version.
+
+| Stage | **Current** | Paper (16×16) |
+|---|---:|---:|
+| Image analysis | **2.4 ms** | 2.4 ± 0.0 ms |
+| First move packet | **3.3 ms** | 4 ms |
+| Move interval | **0.16 ms** | 1.01 ms |
+| **Total (AP_DONE)** | **7.2 ms** | 25.3 ± 0.2 ms |
+| Moves emitted | 26 | 22 (filtered from 29) |
+| Directly executable | 26 / 26 | 22 / 29 |
+| Target sites filled | 96 / 96 | not reported |
+
+<!-- **What can and cannot be claimed.** Of the 7.2 ms, image analysis is 2.4 ms
+and the PS readout is at least 26 × 0.145 ms = 3.78 ms. That leaves **at most
+1.0 ms for control and rearrangement together** — a measured upper bound, not
+an estimate. The paper attributes 22.3 ms to rearrangement; that figure was the
+PS readout loop, not the FPGA. -->
+
+<!-- The exact rearrangement latency is **not yet measured**. It needs the FIFO
+deepened so the sorter never waits (see `optimization.md` §6.0.3). A polling
+test that read only the occupancy register saw 6 packets arrive within 0.039 ms,
+which suggests the sorter is much faster than 1.0 ms, but that test was limited
+by its own 7.6 µs polling resolution and is not a measurement. -->
+
+The paper's 22 moves came from filtering 29 raw moves on the host. The current
+build emits 26 moves, all directly executable, with no host filtering.
+
+Verified end to end: the controller reports `status = OK` and
+`targets = 96/96`, and replaying the 26 emitted moves on the host reproduces
+the controller's own final lattice exactly (0 cells differ).
+
+<!-- ### Previous baseline (superseded)
 
 An earlier bitstream measured 100.3 ms over 30 moves on a 16×16 full-zone
 configuration. That figure predates both the parking-grid fix and the
 atom-conservation fixes and is not reproducible from the current source. An
 intermediate 16×16 run measured 25.3 ms / 29 moves, but only 22 of those moves
-were executable and the result left 7 cells mismatched.
+were executable and the result left 7 cells mismatched. -->
 
 ---
 
